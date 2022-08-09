@@ -6,49 +6,55 @@ In short, you shouldn't need to add your own statements anywhere,
 just fix the existing ones.
 */
 
-
 // Written by Kent, Clark
 
-var enemies=["Lex","Batman","Darkseid","Brainiac","General Zod","Doomsday"];
+var enemies = [
+  "Lex",
+  "Batman",
+  "Darkseid",
+  "Brainiac",
+  "General Zod",
+  "Doomsday",
+];
 
-function Who_Wins(isKryptonite,enemyName)
-{
-if (!isKryptonite)
-{
+function Who_Wins(isKryptonite, enemyName) {
+  if (!isKryptonite) {
     return "Superman beats " + enemyName + ", of course";
+  } else {
+    return (
+      "Depends on how quick Superman can get rid of the Kryptonite. " +
+      enemyName +
+      " could possibly win this one."
+    );
+  }
 }
 
-else{
-    return "Depends on how quick Superman can get rid of the Kryptonite. " + enemyName + " could possibly win this one.";
-}
-    }
-
-for (var i=0;i<enemies.length;i++)
-{
-    var isKryptonite= false
-    if (i % 2=== 0) {
-        is_there_kryptonite = true;
-    } else {
-        is_there_kryptonite = false;
-    }
-    console.log(Who_Wins(is_there_kryptonite,enemies[i]));
+for (var i = 0; i < enemies.length; i++) {
+  var isKryptonite = false;
+  if (i % 2 === 0) {
+    is_there_kryptonite = true;
+  } else {
+    is_there_kryptonite = false;
+  }
+  console.log(Who_Wins(is_there_kryptonite, enemies[i]));
 }
 
-function HowAttractedIsLoisLaneToMe ()
-{
-    // 1 is not at all attracted, 10 is "super" attracted...
-    return Math.floor((Math.random()*10)+1);
+function HowAttractedIsLoisLaneToMe() {
+  // 1 is not at all attracted, 10 is "super" attracted...
+  return Math.floor(Math.random() * 10 + 1);
 }
 
-console.log( HowAttractedIsLoisLaneToMe ()) ;
+console.log(HowAttractedIsLoisLaneToMe());
 
-var clarkKent =true;
+var clarkKent = true;
 var superman = false;
 
-while (clarkKent){
-    console.log("I'm just a nerdy columnist");
-    var phoneBoothQuickChange =Math.random();
-    if (phoneBoothQuickChange>= 0.5) {
-        clarkKent=false;
-        superman=true;
-        console.log("Now I'm Superman!");}}
+while (clarkKent) {
+  console.log("I'm just a nerdy columnist");
+  var phoneBoothQuickChange = Math.random();
+  if (phoneBoothQuickChange >= 0.5) {
+    clarkKent = false;
+    superman = true;
+    console.log("Now I'm Superman!");
+  }
+}
