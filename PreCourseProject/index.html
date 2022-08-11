@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    
+    <title>PreCourse Project</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main>
+      <h1 class="title" id="title-id">Ask Me A Yes Or No Question</h1>
+      <button id="clicker-id" class="button">Reveal Answer</button>
+      <section class="answer" id="answer-id">&nbsp</section>
+      <button onClick="reset()" id="reset-id" class="resetbutton">Reset</button>
+      <div>
+        <button
+          onClick="listAnswers()"
+          id="list-answers-button-id"
+          class="list-answers"
+        >
+          Show all answers
+        </button>
+        <ul id="list-answers-id" style="color: white"></ul>
+      </div>
+      <div id="count-container-id">
+        <div class="count-title">
+          How Many Questions Have Been Asked?
+          <section id="count-id" class="count">0</section>
+        </div>
+        <div class="maybe-count-title">
+          How Many Times Has "Maybe" Appeared?
+          <section id="maybe-count-id" class="maybe-count">0</section>
+        </div>
+        <div class="yes-count-title">
+          How Many Times Has "Yes" Appeared?
+          <section id="yes-count-id" class="yes-count">0</section>
+        </div>
+        <div class="ofcourse-count-title">
+          How Many Times Has "Of Course" Appeared?
+          <section id="ofcourse-count-id" class="ofcourse-count">0</section>
+        </div>
+        <div class="no-count-title">
+          How Many Times Has "No" Appeared?
+          <section id="no-count-id" class="no-count">0</section>
+        </div>
+        <div class="notlikely-count-title">
+          How Many Times Has "Not Likely" Appeared?
+          <section id="notlikely-count-id" class="notlikely-count">0</section>
+        </div>
+      </div>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
