@@ -5,3 +5,5 @@ for(let x =0; x < title.length; x++){
 title[x].textContent = "New Title " + x}
 
 list[0].textContent = "New List 1"
+
+//test
