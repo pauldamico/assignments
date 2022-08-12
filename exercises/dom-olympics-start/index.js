@@ -6,14 +6,17 @@ const messageRight = document.getElementsByClassName("message right");
 const dropDown = document.querySelector("#theme-drop-down");
 const form = document.getElementsByName("message");
 const messages = document.getElementById("messages");
-const input = document.getElementById("input");
-const userText = document.createElement("div");
-input.value = "";
+let isLeft = false;
+const userText = document.createElement("h1");
+document.message.input.value = "";
 messageLeft[0].textContent = "How was the game last night";
 messageLeft[1].textContent = "Nicee!!! Next time I will have to come";
 messageRight[0].textContent = "It was Awesome!";
 messageRight[1].textContent = "I Agree!";
 
+themes()
+
+function themes(){
 dropDown.addEventListener("click", function () {
   for (let x = 0; x < messageLeft.length; x++)
     if (dropDown.value === "theme-one") {
@@ -32,17 +35,30 @@ dropDown.addEventListener("click", function () {
   }
 });
 
-form[0].addEventListener("submit", test);
-
-function test(e) {
+form[0].addEventListener("submit", sentMessage);
+}
+function sentMessage(e) {
   e.preventDefault();
+  isLeft = !isLeft;
+  const li = document.createElement("li");
+  li.textContent = document.message.input.value;
+li.classList.add("message")
+  if (isLeft === true) {
+    li.classList.remove("right");
+    li.classList.add("left");
+  } else if (isLeft === false) {
+    li.classList.add("right");
+    li.classList.remove("left");
+  }
 
-userText.classList.add("message")
-userText.classList.add("left")
-  userText.innerHTML += `<div>${input.value}</div>`
+  /* li.classList.add("message");
+  li.classList.toggle("right")
+  li.classList.add("left");*/
 
-  messages.append(userText);
-  input.value = "";
+  messages.append(li);
+  document.message.input.value = "";
+  console.log(li.classList.value);
+  themes()
 }
 
 title.textContent = "JavaScript Made This!!";
