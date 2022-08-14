@@ -1,45 +1,52 @@
 let ul = document.getElementById("ul");
 let itemValue = document.addItem.title.value;
-
+let newValue = JSON.parse(localStorage.getItem("newValue")) || []
 clearLocalStore()
-saveItems();
+renderItems();
 
 //submit and save to local storage (local storage does not work right now)
-function saveItems() {
+function renderItems() {
   document.addItem.addEventListener("submit", function (event) {
-    event.preventDefault();
-    let newValue = JSON.parse(localStorage.getItem("newValue"));
-    if (!newValue) {
-      newValue = [];
-    }
+    event.preventDefault();        
     newValue.push(document.addItem.title.value);
     localStorage.setItem("newValue", JSON.stringify(newValue));
-    console.log(newValue);
+  
     document.addItem.title.value = "";
-    showList(newValue);
+    listItems(newValue);
+    console.log(localStorage);
+
   });
+
 }
 
+
 //shows the list items after submit is clicked
-function showList(newValue) {
+function listItems(userInputArray) {
   let li = document.createElement("li");
-  for (let x = 0; x < newValue.length; x++) {
+  for (let x = 0; x < userInputArray.length; x++) {
     li.id = "li";
+    li.className="list"
     document.getElementById("li");
     document.getElementById("removeBut");
-    li.textContent = newValue[x];
+    li.textContent = userInputArray[x];
+    ul.append(li);
   }
-  removeItem(li);
   editItemName(li);
-  ul.append(li);
-}
+  removeItem(li);
+  }
+
+
+
+
 
 // adds the edit function and allows you to change the text value
 function editItemName(li) {
   let editBut = document.createElement("button");
+  editBut.className="edit"
   editBut.textContent = "Edit";
   editBut.addEventListener("click", () => {
     let newInput = document.createElement("input");
+    newInput.className="editinput"
     editBut.parentElement.append(newInput);
     editBut.textContent = "Save";
     editBut.addEventListener("click", () => {
