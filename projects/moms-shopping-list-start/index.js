@@ -1,6 +1,7 @@
 let ul = document.getElementById("ul");
 let itemValue = document.addItem.title.value;
 let listArray = JSON.parse(localStorage.getItem("listArray")) || [];
+let updatedList = []
 
 clearLocalStore();
 renderItems();
@@ -45,12 +46,20 @@ function addEditButton(li) {
     editBut.textContent = "save";
     editBut.addEventListener("click", () => {
     editNewInputChild.parentElement.textContent = editNewInputChild.value;
-    listArray.push(editNewInputChild.value);
+ 
      editBut.textContent = "Edit";
      editBut.addEventListener("click", addEditButton(li));
       addRemoveButton(li);
+      //for(let i =0; i< ul.children.length; i++){
+      //  updatedList.push(ul.children[i].textContent);   
+    //}  
+      //localStorage.clear()
+    //listArray.push(updatedList)
+    //JSON.parse(localStorage.getItem("listArray"))
+     //console.log(listArray)
     });
   });
+  //listArray = []
   li.appendChild(editBut);
 }
 
