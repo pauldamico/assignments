@@ -52,14 +52,14 @@ function addEditButton(li) {
       addRemoveButton(li);                                                     //adds the RemoveButton back on
       //for(let i =0; i< ul.children.length; i++){
       //  updatedList.push(ul.children[i].textContent);   
-    //}  
+      //}  
       //localStorage.clear()
-    //listArray.push(updatedList)
-    //JSON.parse(localStorage.getItem("listArray"))
-     //console.log(listArray)
+      //listArray.push(updatedList)
+      //JSON.parse(localStorage.getItem("listArray"))
+      //console.log(listArray)
     });
   });
-  //listArray = []
+      //listArray = []
   li.appendChild(editBut);
 }
 
