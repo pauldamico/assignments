@@ -1,6 +1,6 @@
 let ul = document.getElementById("ul");
 let itemValue = document.addItem.title.value;
-let listArray = JSON.parse(localStorage.getItem("listArray")) || [];
+let listArray = JSON.parse(localStorage.getItem("listArray")) || []; //fix this
 let updatedList = []
 
 clearLocalStore();
@@ -11,7 +11,7 @@ function renderItems() {
   document.addItem.addEventListener("submit", function (event) {
     event.preventDefault();
     listArray.push(document.addItem.title.value);
-    localStorage.setItem("listArray", JSON.stringify(listArray));
+    localStorage.setItem("listArray", JSON.stringify(listArray)); //changes listArray to a string and pushes to Local Storage
     document.addItem.title.value = "";
     listItems();
    });
@@ -30,7 +30,9 @@ function listItems() {
     ul.append(li);
     addEditButton(li);
     addRemoveButton(li);
+
   }
+  console.log(localStorage)
 }
 
 // adds the edit function and allows you to change the text value

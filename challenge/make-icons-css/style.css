@@ -1,0 +1,312 @@
+
+ul {
+  margin-top: 10px;
+  border-style: solid;
+}
+li{
+   list-style-type: none;
+    height:50px;
+}
+
+.house-1 {
+    position: relative;
+bottom: 45px;
+height:70px;
+}
+.house-2 {
+    margin-top: 50px;
+  position: relative;
+  left: 0;
+  top: 0px;
+  width: 0;
+  height: 0;
+  border: 50px solid red;
+  border-top: 0;
+  border-bottom: 50px solid white;
+}
+.house-topleft {
+  position: relative;
+  left: 0px;
+  bottom: 50px;
+  width: 0;
+  height: 0;
+  border: 45px solid transparent;
+  border-top: 0;
+  border-left: 45px solid white;
+}
+.house-topright {
+  position: relative;
+  left: 10px;
+  bottom: 95px;
+  width: 0;
+  height: 0;
+  border: 45px solid transparent;
+  border-top: 0;
+  border-right: 45px solid white;
+}
+.house-rectangle {
+  position: relative;
+  bottom: 94px;
+  left: 0px;
+  width: 95px;
+  height: 50px;
+  border-style: solid;
+  border-top: none;
+  border-color: red;
+}
+.house-door {
+  position: relative;
+  bottom: 148px;
+  left: 38px;
+  width: 20px;
+  height: 50px;
+  border-style: solid;
+  border-bottom: none;
+  border-color: red;
+}
+.house-top {
+  position: relative;
+  left: 44px;
+  bottom: 251px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-top: 0;
+  border-bottom: 6px solid red;
+}
+.rectangle-1 {
+  position: relative;
+  bottom: 42px;
+  width: 15px;
+  height: 3px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 10px;
+  background-color: white;
+}
+.rectangle-2 {
+  position: relative;
+  right: 5px;
+
+  width: 25px;
+  height: 35px;
+  border-style: solid;
+  border-color: black;
+  border-radius: 10px;
+}
+
+.big-circle{
+    position: relative;
+   right:5px;
+    width:25px;
+    height:25px;
+    border-style: solid;
+    border-radius: 100%;
+}
+.middle-circle{
+    position: relative;
+   left:2px;
+   bottom: 31px;
+    width:10px;
+    height:25px;
+    border-style: solid;
+    border-radius: 100%;
+}
+.line{
+    position: relative;
+   right:3px;
+   bottom: 50px;
+    width:25px;
+    border-width: 2px;
+    border-style: solid;    
+}
+
+.chart-square{
+    position: relative;
+ right:3px;
+    height:25px;
+    width: 25px;
+    background-color: blue;
+}
+.chart-tri-1{
+    position: relative;
+ right:2px;
+ bottom: 25px;
+    height:0;
+    width: 0;
+    border: solid 11px transparent;
+    border-left: solid 11px white;
+
+    border-right: 20;  
+}
+.chart-tri-2{
+    position: relative;
+ right:3px;
+ bottom: 47px;
+    height:0;
+    width: 0;
+    border: solid 15px transparent;
+    border-top: solid 15px white;
+  
+}
+.chart-tri-3{
+    position: relative;
+ right:2px;
+ bottom: 73px;
+    height:0;
+    width: 0;
+    border: solid 10px transparent;
+    border-bottom: solid 10px white;
+   
+}
+.chart-tri-4{
+    position: relative;
+ right:2px;
+ bottom: 90px;
+    height:0;
+    width: 0;
+    border: solid 12px transparent;
+    border-right: solid 12px white;
+    
+}
+.chart-tri-5{
+    position: relative;
+ right:2px;
+ bottom: 103px;
+    height:0;
+    width: 0;
+    border: solid 3px transparent;
+    border-left: solid 3px white;
+    border-bottom: solid 3px white;  
+}
+.chart-tri-circ1{
+    position: relative;
+    bottom:109px;
+   
+    width:3px;
+    height:3px;
+    border-radius: 100%;
+   
+    background-color: blue;
+}
+.chart-tri-circ2{
+    position: relative;
+    bottom:119px;
+    left:7px;
+    width:3px;
+    height:3px;
+    border-radius: 100%;
+ 
+    background-color: blue;
+}
+.chart-tri-circ3{
+    position: relative;
+    bottom:118px;
+    left:10px;
+    width:3px;
+    height:3px;
+    border-radius: 100%;
+
+    background-color: blue;
+}
+.chart-tri-circ4{
+    position: relative;
+    bottom:132px;
+   left:21px;
+    width:3px;
+    height:3px;
+    border-radius: 100%;
+  
+    background-color: blue;
+}
+
+.square{
+    right:3px;
+    position: relative;
+    height: 40px;
+    width: 40px;
+    border-style:solid;
+    border-radius: 10px;
+}
+.head{
+    position: relative;
+    left: 16px;
+    bottom:52px;
+    width: 5px;
+    height: 5px;
+   border-radius:100px;
+   border-style: solid;
+   background-color: green;
+}
+.torso{
+    position: relative;
+    left: 12px;
+    bottom: 52px;
+    width: 12px;
+    height: 5px;
+   border-radius:10px;
+   border-style: solid;
+   border-bottom: none;
+   background-color: green;
+}
+.half-head{
+    position: relative;
+    left: 20px;
+    bottom: 30px;
+    width: 5px;
+    height: 5px;
+   border-radius:100px;
+   border-style: solid;
+   background-color: white;
+}
+.half-head-white{
+    position: relative;
+    left: 20px;
+    bottom: 24px;
+    width: 5px;
+    height: 5px;
+   border-radius:100px;
+   border-style: solid;
+   background-color: red;
+}
+.half-torso-white{
+    position: relative;
+    left: 17px;
+    bottom: 31px;
+    width: 12px;
+    height: 6px;
+   border-radius:10px;
+   border-style: solid;
+   border-bottom: none;
+   background-color: white;
+   border-left:none;
+
+}
+
+.half-torso{
+    position: relative;
+    left: 14px;
+    bottom: 37px;
+    width: 12px;
+    height: 6px;
+   border-radius:10px;
+
+   border-left:none;
+   border-bottom: none;
+   background-color: white;
+   border-style:solid;
+   border-color:white;
+}
+
+
+
+
+
+
+
+
+/*<div class = "square"></div>
+ <div class = "head"></div>
+ <div class = "torso"></div>
+ <div class = "half-head"></div>
+ <div class = "half-torso"></div>         
