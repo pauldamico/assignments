@@ -6,5 +6,9 @@ let removeLeadZero = newArray * 1
 return removeLeadZero
 }
 
-console.log(removeZero("002.14000"))
+console.log(removeZero("00214000.543000"))
 
+
+
+
+ 

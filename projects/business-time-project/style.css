@@ -1,0 +1,445 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+.nav-all {
+  position: fixed;
+  z-index: 500;
+}
+.navbar {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(92 92 92);
+  width: 100%;
+  height: 100px;
+  box-shadow: 0px 10px 10px rgba(255, 94, 0, 0.716);
+}
+.nav-div {
+  display: flex;
+  position: relative;
+  width: 69%;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-right: 17%;
+}
+.nav-ele {
+  height: 40%;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #6b6b6b5c;
+  box-shadow: 0px 0px 4px 2px #ff6100;
+  color: #ff5900;
+  border: none;
+  padding: none;
+}
+.title {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  min-width: 200px;
+}
+.title1 {
+  height: 1px;
+  min-width: fit-content;
+  color: #ff5900;
+}
+.title2 {
+  min-width: 300px;
+  height: auto;
+  font-size: 20px;
+  color: #ff5900;
+}
+
+.services {
+  font-weight: 200;
+  position: relative;
+  display: flex;
+  top: 130px;
+  background-color: #5e5c5c;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+.services > li {
+  list-style: circle;
+  text-decoration: underline;
+  width: 400px;
+  text-align: left;
+  font-size: 30px;
+  color: #ff5900;
+  padding: 10px;
+}
+.img-span1 {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  top: 100px;
+}
+.img-span1 > img {
+  margin: 10px 10px;
+  width: 400px;
+  height: 400px;
+}
+.img-span2 {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  top: 100px;
+}
+.img-span2 > img {
+  margin: 10px 10px;
+  width: 400px;
+  height: 400px;
+}
+
+.home-img {
+    padding-top: 10px;
+    top: 100px;
+    height: 100%;
+    width: 40%;
+}
+
+.home-display{
+    top: 110px;
+    display: flex;
+    position: relative;
+    width: 100%;
+}
+.home-display>section{
+    margin-left:10px;
+    font-size: 20px;
+    padding-top: 10px;
+    height: 100%;
+    width: 40%;
+    bottom: 100%;
+}
+.contact-div{
+    position: relative;
+    text-align: center;
+    top: 110px;
+}
+.contact-div>style{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.contact>p{
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+/*///////////////////////////////////////////////////////////////////////////*/
+
+@media only screen and (max-width: 500px) {
+
+   
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .nav-all {
+      position: fixed;
+      z-index: 500;
+    }
+    .navbar {
+      position: fixed;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgb(92 92 92);
+      width: 100%;
+      height: 100px;
+      box-shadow: 0px 10px 10px rgba(255, 94, 0, 0.716);
+    }
+    .nav-div {
+      display: flex;
+      position: relative;
+      width: 69%;
+      flex-direction: row;
+      justify-content: space-around;
+      margin-right: 17%;
+    }
+    .nav-ele {
+      height: 40%;
+      align-items: center;
+      border-radius: 10px;
+      background-color: #6b6b6b5c;
+      box-shadow: 0px 0px 4px 2px #ff6100;
+      color: #ff5900;
+      border: none;
+      padding: none;
+      font-size: 15px;
+    }
+    .title {
+      margin-left: 10px;
+      display: flex;
+      flex-direction: column;
+      width: 200px;
+      min-width: 75px;
+      font-size: 12px;
+    }
+    .title1 {
+      height: 1px;
+      min-width: fit-content;
+      color: #ff5900;
+    }
+    .title2 {
+      
+      height: auto;
+      font-size: 12px;
+      color: #ff5900;
+    }
+    
+    .services {
+      font-weight: 200;
+      position: relative;
+      display: flex;
+      top: 130px;
+      background-color: #5e5c5c;
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+    .services > li {
+      list-style: circle;
+      text-decoration: underline;
+      width: 400px;
+      text-align: left;
+      font-size: 17px;
+      color: #ff5900;
+      padding: 10px;
+    }
+    .img-span1 {
+      display: block;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      top: 100px;
+    }
+    .img-span1 > img {
+   
+      margin: 10px 10px;
+      width: 160px;
+      height: 200px;
+    }
+    .img-span2 {
+      display: block;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      top: 100px;
+    }
+    .img-span2 > img {
+        margin: 10px 10px;
+        width: 160px;
+        height: 200px;
+    }
+    
+    .home-img {
+        padding-top: 10px;
+        top: 100px;
+        height: 400px;
+        width: 180px;
+    }
+    
+    .home-display{
+        top: 110px;
+        display: flex;
+        position: relative;
+        width: 100%;
+    }
+    .home-display>section{
+        margin-left:10px;
+        font-size: 15px;
+        padding-top: 10px;
+        height: 100%;
+        width: 60%;
+        bottom: 100%;
+    }
+    .home-display>section>p>a>img{
+        width: 75px;
+        height: 75px;
+    }
+    .contact-div{
+        position: relative;
+        text-align: center;
+        top: 110px;
+    }
+    .contact-div>style{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .contact>p{
+        text-align: center;
+        font-family: sans-serif;
+        font-weight: bold;
+    }
+
+}
+
+/*//////////////////////////////////////////////////////////////////////////////*/
+@media only screen and (max-width: 700px) and (min-width: 500px) {
+
+   
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .nav-all {
+      position: fixed;
+      z-index: 500;
+    }
+    .navbar {
+      position: fixed;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgb(92 92 92);
+      width: 100%;
+      height: 100px;
+      box-shadow: 0px 10px 10px rgba(255, 94, 0, 0.716);
+    }
+    .nav-div {
+      display: flex;
+      position: relative;
+      width: 69%;
+      flex-direction: row;
+      justify-content: space-around;
+      margin-right: 17%;
+    }
+    .nav-ele {
+      height: 40%;
+      align-items: center;
+      border-radius: 10px;
+      background-color: #6b6b6b5c;
+      box-shadow: 0px 0px 4px 2px #ff6100;
+      color: #ff5900;
+      border: none;
+      padding: none;
+      font-size: 15px;
+    }
+    .title {
+      margin-left: 10px;
+      display: flex;
+      flex-direction: column;
+      width: 200px;
+      min-width: 75px;
+      font-size: 12px;
+    }
+    .title1 {
+      height: 1px;
+      min-width: fit-content;
+      color: #ff5900;
+    }
+    .title2 {
+      
+      height: auto;
+      font-size: 12px;
+      color: #ff5900;
+    }
+    
+    .services {
+      font-weight: 200;
+      position: relative;
+      display: flex;
+      top: 130px;
+      background-color: #5e5c5c;
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+    .services > li {
+      list-style: circle;
+      text-decoration: underline;
+      width: 400px;
+      text-align: left;
+      font-size: 17px;
+      color: #ff5900;
+      padding: 10px;
+    }
+    .img-span1 {
+      display: block;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      top: 100px;
+    }
+    .img-span1 > img {
+   
+      margin: 10px 10px;
+      width: 160px;
+      height: 200px;
+    }
+    .img-span2 {
+      display: block;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      top: 100px;
+    }
+    .img-span2 > img {
+        margin: 10px 10px;
+        width: 160px;
+        height: 200px;
+    }
+    
+    .home-img {
+        padding-top: 10px;
+        top: 100px;
+        height: 400px;
+        width: 180px;
+    }
+    
+    .home-display{
+        top: 110px;
+        display: flex;
+        position: relative;
+        width: 100%;
+    }
+    .home-display>section{
+        margin-left:10px;
+        font-size: 15px;
+        padding-top: 10px;
+        height: 100%;
+        width: 60%;
+        bottom: 100%;
+    }
+    .home-display>section>p>a>img{
+        width: 75px;
+        height: 75px;
+    }
+    .contact-div{
+        position: relative;
+        text-align: center;
+        top: 110px;
+    }
+    .contact-div>style{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .contact>p{
+        text-align: center;
+        font-family: sans-serif;
+        font-weight: bold;
+    }
+
+
+
+
+}
