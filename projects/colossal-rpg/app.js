@@ -17,7 +17,7 @@ function Enemy(hp, ap, name) {
   this.enemyHP = hp;
   this.enemyAP = ap;
   this.enemyName = name;
-  // this.attackPoints = function randomNumber() {                                              //could not get this constructor function to work correctly  NOT IN USE
+  // this.attackPoints = function () {                                              //could not get this constructor function to work correctly  NOT IN USE
   //    Math.floor(Math.random() * this.enemyAP);
   // };
 }
