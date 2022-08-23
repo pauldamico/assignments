@@ -22,10 +22,10 @@ const normEnemyNames = ["Untrained Theif","Small Snake","Scorpian","Fire Ant"];
 const rareEnemyNames = ["Trained Theif", "Anaconda", "Giant Scorpian", "Giant Fire Ant"];
 const uniqueEnemyNames = ["The Minotaur", "The Kraken", "Dracula", "Frankenstein"];
 const bossNames = ["King Kong", "Godzilla", "T-Rex", "Zeus"];
-const normalEnemy = new Enemy(5,  4,  "(N)".grey + normEnemyNames[randomNumberGen()])
-const rareEnemy = new Enemy(  10,  10,  "(R)".yellow + rareEnemyNames[randomNumberGen()])
-const uniqueEnemy = new Enemy(  15,  14,  "(U)".brightBlue + uniqueEnemyNames[randomNumberGen()])
-const boss = new Enemy(25, 25, "(B)".red + bossNames[randomNumberGen()]);
+let normalEnemy = new Enemy(5,  4,  "(N)".grey + normEnemyNames[randomNumberGen()])
+let rareEnemy = new Enemy(  10,  10,  "(R)".yellow + rareEnemyNames[randomNumberGen()])
+let uniqueEnemy = new Enemy(  15,  14,  "(U)".brightBlue + uniqueEnemyNames[randomNumberGen()])
+let boss = new Enemy(25, 25, "(B)".red + bossNames[randomNumberGen()]);
 const enemies = [normalEnemy, rareEnemy, uniqueEnemy, boss];
 
 ///Armor
@@ -64,29 +64,42 @@ function walk() {                                             //the main functio
         : "Equipped: " + "Nothing Equipped".red
     );
   } else if (userAction === "i") {                            //shows inventory
-    equippedArmor = [];
-
-    for (let t = 0; t < invArray.length; t++) {
-      console.log(`${t}-- ${invArray[t].name}`);
-    }
-    let selectItem = readlineSync.question(
-      `Please Choose a Item by its number.  It will be infused to you and will disappear when swapped out: `
-    );
-    if (selectItem < invArray.length) {                        //process to choose and equip items
-      equippedArmor.push(invArray[selectItem]);
-      invArray.splice(selectItem, 1);
-      console.log(`You have equipped number ${selectItem}`.yellow);
-    }
+    inventory()
   }
 }
 
-function gen() {                                         //Generates a random Enemy
+function gen() {                                                     //Generates a random Enemy
+  normalEnemy.enemyName = "(N)".grey + normEnemyNames[randomNumberGen()] 
+  rareEnemy.enemyName= "(R)".yellow + rareEnemyNames[randomNumberGen()]
+  uniqueEnemy.enemyName = "(U)".brightBlue + uniqueEnemyNames[randomNumberGen()]
+  boss.enemyName =  "(B)".red + bossNames[randomNumberGen()]                               
    enemyGenArray = [];
   let i = Math.floor(Math.random() * 4);
   enemyGenArray.push(enemies[i]);
   let currentEnemyHealth = enemyGenArray[0].enemyHP;
   currentEnemyHP = currentEnemyHealth;
 }
+function inventory(){                                             //inventory function
+  equippedArmor = [];
+
+  for (let t = 0; t < invArray.length; t++) {
+    console.log(`(${t}): ${invArray[t].name}`);
+  }
+  let selectItem = readlineSync.question(
+    `Please Choose a Item by its number.  It will be infused to you and will disappear when swapped out: `
+  );
+  
+  if (typeof invArray[selectItem] === "undefined") {        
+walk()
+   
+  }
+  else{                   //process to choose and equip items
+    equippedArmor.push(invArray[selectItem]);
+    console.log(`You have equipped: `.yellow +`${invArray[selectItem].name}`)
+    invArray.splice(selectItem, 1);}
+
+}
+
 function randomNumberGen() {
   let x = Math.floor(Math.random() * 4);
   return x;
@@ -96,7 +109,7 @@ function enemyGenerator() {         //Pulls the random generated enemy if one do
   currentHP = hp;
   if (
     typeof currentEnemyHP == "undefined" ||
-    currentEnemyHP == enemyGenArray[0].enemyHP
+    currentEnemyHP == enemyGenArray[0].enemyHP    //this can cause a bug if I hit for 0 for first hit. Changed my hit to be above 1.
   ) {
     gen();
     console.log(`${enemyGenArray[0].enemyName}` + ` has appeared!!!`.yellow);
@@ -157,8 +170,8 @@ function enemyCombat() {                                      //enemy combat fun
     console.log(enemyDamage);
     enemyAttack = enemyDamage;
     equippedArmor.length > 0
-      ? (playerAP = Math.floor(Math.random() * 11) + equippedArmor[0].armorAP)  //if armor is equipped it will add the armorAP to the playerAP
-      : (playerAP = Math.floor(Math.random() * 11));       //Generates random attack damage for player currently 0 - 10 without armor
+      ? (playerAP = Math.floor(Math.random() * 11+1) + equippedArmor[0].armorAP)  //if armor is equipped it will add the armorAP to the playerAP
+      : (playerAP = Math.floor(Math.random() * 11+1));       //Generates random attack damage for player currently 0 - 10 without armor
     currentEnemyHP -= playerAP;
     currentEnemyHP <= 0 ? (currentEnemyHP = 0) : currentEnemyHP;
     currentEnemyHP > 0 ? (currentHP = hp -= enemyDamage) : (currentHP = hp);
