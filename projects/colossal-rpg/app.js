@@ -16,7 +16,7 @@ function Enemy(hp, ap, name) {
   this.enemyHP = hp;
   this.enemyAP = ap;
   this.enemyName = name;
-  // this.attackPoints = function () { Math.floor(Math.random() * this.enemyAP)}                    //not in use at the moment
+  //this.attackPoints = function () { Math.floor(Math.random() * this.enemyAP)}                    //not in use at the moment
 }
 const normEnemyNames = [
   "Untrained Theif",
