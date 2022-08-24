@@ -1,7 +1,7 @@
 debugger;
 let readlineSync = require("readline-sync");
 var colors = require("colors");
-console.log("Welcome to The Gauntlet!  Reach 100 yards to escape the forest!".green);
+console.log("Welcome to Dark Forest!  Reach 100 yards to escape!".green);
 let playerName = readlineSync.question("Please enter your name: ");
 playerName = `${playerName}`.green;
 let hp = 100;
