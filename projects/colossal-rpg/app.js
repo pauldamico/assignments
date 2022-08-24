@@ -118,7 +118,7 @@ function spawnEnemy() {
   currentHP = hp;
   if (
     typeof currentEnemyHP == "undefined" ||
-    currentEnemyHP == enemyGenArray[0].enemyHP //this can cause a bug if I hit for 0 for first hit. Changed my hit to be above 1.
+    currentEnemyHP == enemyGenArray[0].enemyHP //this can cause a bug if I hit for 0 for first hit. Changed my hit to be above 0.
   ) {
     generateEnemy();
     console.log(`${enemyGenArray[0].enemyName}` + ` has appeared!!!`.yellow);
