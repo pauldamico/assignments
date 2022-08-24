@@ -37,21 +37,9 @@ const uniqueEnemyNames = [
   "Frankenstein",
 ];
 const bossNames = ["King Kong", "Godzilla", "T-Rex", "Zeus"];
-let normalEnemy = new Enemy(
-  5,
-  4,
-  "(N)".grey + normEnemyNames[randomNumberGen()]
-);
-let rareEnemy = new Enemy(
-  10,
-  10,
-  "(R)".yellow + rareEnemyNames[randomNumberGen()]
-);
-let uniqueEnemy = new Enemy(
-  15,
-  14,
-  "(U)".brightBlue + uniqueEnemyNames[randomNumberGen()]
-);
+let normalEnemy = new Enemy(  5,  4,  "(N)".grey + normEnemyNames[randomNumberGen()]);
+let rareEnemy = new Enemy(  10,  10,  "(R)".yellow + rareEnemyNames[randomNumberGen()]);
+let uniqueEnemy = new Enemy(  15,  14,  "(U)".brightBlue + uniqueEnemyNames[randomNumberGen()]);
 let boss = new Enemy(25, 25, "(B)".red + bossNames[randomNumberGen()]);
 const enemies = [normalEnemy, rareEnemy, uniqueEnemy, boss];
 
