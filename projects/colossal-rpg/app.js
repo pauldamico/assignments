@@ -11,25 +11,53 @@ let enemyGenArray = [];
 let forward = 0;
 let equippedArmor = [];
 
-                                                                ///Enemy Stats
+///Enemy Stats
 function Enemy(hp, ap, name) {
   this.enemyHP = hp;
   this.enemyAP = ap;
   this.enemyName = name;
   // this.attackPoints = function () { Math.floor(Math.random() * this.enemyAP)}                    //not in use at the moment
 }
-const normEnemyNames = ["Untrained Theif","Small Snake","Scorpian","Fire Ant"];
-const rareEnemyNames = ["Trained Theif", "Anaconda", "Giant Scorpian", "Giant Fire Ant"];
-const uniqueEnemyNames = ["The Minotaur", "The Kraken", "Dracula", "Frankenstein"];
+const normEnemyNames = [
+  "Untrained Theif",
+  "Small Snake",
+  "Scorpian",
+  "Fire Ant",
+];
+const rareEnemyNames = [
+  "Trained Theif",
+  "Anaconda",
+  "Giant Scorpian",
+  "Giant Fire Ant",
+];
+const uniqueEnemyNames = [
+  "The Minotaur",
+  "The Kraken",
+  "Dracula",
+  "Frankenstein",
+];
 const bossNames = ["King Kong", "Godzilla", "T-Rex", "Zeus"];
-let normalEnemy = new Enemy(5,  4,  "(N)".grey + normEnemyNames[randomNumberGen()])
-let rareEnemy = new Enemy(  10,  10,  "(R)".yellow + rareEnemyNames[randomNumberGen()])
-let uniqueEnemy = new Enemy(  15,  14,  "(U)".brightBlue + uniqueEnemyNames[randomNumberGen()])
+let normalEnemy = new Enemy(
+  5,
+  4,
+  "(N)".grey + normEnemyNames[randomNumberGen()]
+);
+let rareEnemy = new Enemy(
+  10,
+  10,
+  "(R)".yellow + rareEnemyNames[randomNumberGen()]
+);
+let uniqueEnemy = new Enemy(
+  15,
+  14,
+  "(U)".brightBlue + uniqueEnemyNames[randomNumberGen()]
+);
 let boss = new Enemy(25, 25, "(B)".red + bossNames[randomNumberGen()]);
 const enemies = [normalEnemy, rareEnemy, uniqueEnemy, boss];
 
 ///Armor
-function Armor(ap, armorName) {                                //armor constructor  
+function Armor(ap, armorName) {
+  //armor constructor
   this.armorAP = ap;
   this.name = armorName;
 }
@@ -39,19 +67,23 @@ const uniqueArmor = new Armor(15, "(U)".brightBlue + "Gold Armor".yellow);
 const legendaryArmor = new Armor(25, "(L)".red + "Armor of Power".yellow);
 const armorArray = [normalArmor, rareArmor, uniqueArmor, legendaryArmor];
 
-function walk() {                                             //the main function when not fighting a enemy  Walk  
+function walk() {
+  //the main function when not fighting a enemy  Walk
   let chanceToWalk = Math.random();
   let userAction = readlineSync.question(
     "(w) Move forward 10 yards, (i) Check inventory, (p) Print stats: "
   );
-  if (userAction === "w" && chanceToWalk > 0.33) {            //chance to run into a enemy.  Currently it is 66%
-    enemyGenerator();
+  if (userAction === "w" && chanceToWalk > 0.33) {
+    //chance to run into a enemy.  Currently it is 66%
+    spawnEnemy();
     console.log(userAction);
-  } else if (userAction === "w" && chanceToWalk < 0.33) {     //chance to walk 10 yards is 33%
+  } else if (userAction === "w" && chanceToWalk < 0.33) {
+    //chance to walk 10 yards is 33%
     forward < 99
       ? console.log(`You moved forward ${(forward += 10)} yards`.yellow)
       : console.log("You Win".rainbow);
-  } else if (userAction === "p") {                            //prints current player stats
+  } else if (userAction === "p") {
+    //prints current player stats
     console.log("Player name:" + playerName.green, "HP:" + hp.toString().green);
     console.log(
       invArray.length > 0
@@ -63,23 +95,27 @@ function walk() {                                             //the main functio
         ? "Equipped Armor: " + equippedArmor[0].name
         : "Equipped: " + "Nothing Equipped".red
     );
-  } else if (userAction === "i") {                            //shows inventory
-    inventory()
+  } else if (userAction === "i") {
+    //shows inventory
+    inventory();
   }
 }
 
-function gen() {                                                     //Generates a random Enemy
-  normalEnemy.enemyName = "(N)".grey + normEnemyNames[randomNumberGen()] 
-  rareEnemy.enemyName= "(R)".yellow + rareEnemyNames[randomNumberGen()]
-  uniqueEnemy.enemyName = "(U)".brightBlue + uniqueEnemyNames[randomNumberGen()]
-  boss.enemyName =  "(B)".red + bossNames[randomNumberGen()]                               
-   enemyGenArray = [];
+function generateEnemy() {
+  //Generates a random Enemy
+  normalEnemy.enemyName = "(N)".grey + normEnemyNames[randomNumberGen()];
+  rareEnemy.enemyName = "(R)".yellow + rareEnemyNames[randomNumberGen()];
+  uniqueEnemy.enemyName =
+    "(U)".brightBlue + uniqueEnemyNames[randomNumberGen()];
+  boss.enemyName = "(B)".red + bossNames[randomNumberGen()];
+  enemyGenArray = [];
   let i = Math.floor(Math.random() * 4);
   enemyGenArray.push(enemies[i]);
   let currentEnemyHealth = enemyGenArray[0].enemyHP;
   currentEnemyHP = currentEnemyHealth;
 }
-function inventory(){                                             //inventory function
+function inventory() {
+  //inventory function
   equippedArmor = [];
 
   for (let t = 0; t < invArray.length; t++) {
@@ -88,16 +124,15 @@ function inventory(){                                             //inventory fu
   let selectItem = readlineSync.question(
     `Please Choose a Item by its number.  It will be infused to you and will disappear when swapped out: `
   );
-  
-  if (typeof invArray[selectItem] === "undefined") {        
-walk()
-   
-  }
-  else{                   //process to choose and equip items
-    equippedArmor.push(invArray[selectItem]);
-    console.log(`You have equipped: `.yellow +`${invArray[selectItem].name}`)
-    invArray.splice(selectItem, 1);}
 
+  if (typeof invArray[selectItem] === "undefined") {
+    walk();
+  } else {
+    //process to choose and equip items
+    equippedArmor.push(invArray[selectItem]);
+    console.log(`You have equipped: `.yellow + `${invArray[selectItem].name}`);
+    invArray.splice(selectItem, 1);
+  }
 }
 
 function randomNumberGen() {
@@ -105,13 +140,14 @@ function randomNumberGen() {
   return x;
 }
 
-function enemyGenerator() {         //Pulls the random generated enemy if one doesn't exist or if one has been defeated                                
+function spawnEnemy() {
+  //Pulls the random generated enemy if one doesn't exist or if one has been defeated
   currentHP = hp;
   if (
     typeof currentEnemyHP == "undefined" ||
-    currentEnemyHP == enemyGenArray[0].enemyHP    //this can cause a bug if I hit for 0 for first hit. Changed my hit to be above 1.
+    currentEnemyHP == enemyGenArray[0].enemyHP //this can cause a bug if I hit for 0 for first hit. Changed my hit to be above 1.
   ) {
-    gen();
+    generateEnemy();
     console.log(`${enemyGenArray[0].enemyName}` + ` has appeared!!!`.yellow);
   }
 
@@ -124,17 +160,18 @@ function enemyGenerator() {         //Pulls the random generated enemy if one do
       `${enemyGenArray[0].enemyName} dropped a` +
         ` ${invArray[invArray.length - 1].name}`.yellow
     );
-    gen();
+    generateEnemy();
   }
 }
 
-function runAway() {                                           //Run Away Function  50% chance to runaway
+function runAway() {
+  //Run Away Function  50% chance to runaway
   let runChance = Math.random();
   if (runChance > 0.5) {
     console.log("Paul Ran Away Successfully!!!".green);
   } else if (runChance < 0.5) {
     enemyDamage = 0;
-    enemyDamage = enemyDamageGen(enemyGenArray[0].enemyAP);                  
+    enemyDamage = enemyDamageGen(enemyGenArray[0].enemyAP);
     console.log("failed to run away".red);
     currentEnemyHP -= playerAP;
     currentEnemyHP <= 0 ? (currentEnemyHP = 0) : currentEnemyHP;
@@ -158,10 +195,12 @@ function runAway() {                                           //Run Away Functi
   }
 }
 
-
-function enemyCombat() {                                      //enemy combat function
-  let enemyAttack = 0; 
-  let attackOrRun = readlineSync.question(` (a) to attack, (r) attempt to run: `);
+function enemyCombat() {
+  //enemy combat function
+  let enemyAttack = 0;
+  let attackOrRun = readlineSync.question(
+    ` (a) to attack, (r) attempt to run: `
+  );
   if (attackOrRun === "r") {
     runAway();
   } else if (attackOrRun === "a") {
@@ -170,8 +209,9 @@ function enemyCombat() {                                      //enemy combat fun
     console.log(enemyDamage);
     enemyAttack = enemyDamage;
     equippedArmor.length > 0
-      ? (playerAP = Math.floor(Math.random() * 11+1) + equippedArmor[0].armorAP)  //if armor is equipped it will add the armorAP to the playerAP
-      : (playerAP = Math.floor(Math.random() * 11+1));       //Generates random attack damage for player currently 0 - 10 without armor
+      ? (playerAP =
+          Math.floor(Math.random() * 11 + 1) + equippedArmor[0].armorAP) //if armor is equipped it will add the armorAP to the playerAP
+      : (playerAP = Math.floor(Math.random() * 11 + 1)); //Generates random attack damage for player currently 0 - 10 without armor
     currentEnemyHP -= playerAP;
     currentEnemyHP <= 0 ? (currentEnemyHP = 0) : currentEnemyHP;
     currentEnemyHP > 0 ? (currentHP = hp -= enemyDamage) : (currentHP = hp);
@@ -194,7 +234,7 @@ function enemyCombat() {                                      //enemy combat fun
           ` hp left.`
       );
     hp > 0
-      ? enemyGenerator()
+      ? spawnEnemy()
       : console.log(
           `${playerName} has been killed`.bgRed +
             "............Game Over.........".rainbow
@@ -213,7 +253,6 @@ function listInventoryItems() {
 function enemyDamageGen(num) {
   return Math.floor(Math.random() * num);
 }
-
 
 while (hp > 0 && forward < 99) {
   walk();
