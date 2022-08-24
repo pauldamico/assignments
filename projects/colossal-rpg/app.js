@@ -18,9 +18,9 @@ function Enemy(hp, ap, name) {
   this.enemyName = name;
   //this.attackPoints = function () { Math.floor(Math.random() * this.enemyAP)}                    //not in use at the moment
 }
-const normEnemyNames = [  "Untrained Theif",  "Small Snake",  "Scorpian",  "Fire Ant",];
-const rareEnemyNames = [  "Trained Theif",  "Anaconda",  "Giant Scorpian",  "Giant Fire Ant",];
-const uniqueEnemyNames = [  "The Minotaur",  "The Kraken",  "Dracula",  "Frankenstein",];
+const normEnemyNames = ["Untrained Theif",  "Small Snake",  "Scorpian",  "Fire Ant",];
+const rareEnemyNames = ["Trained Theif",  "Anaconda",  "Giant Scorpian",  "Giant Fire Ant",];
+const uniqueEnemyNames = ["The Minotaur",  "The Kraken",  "Dracula",  "Frankenstein",];
 const bossNames = ["King Kong", "Godzilla", "T-Rex", "Zeus"];
 let normalEnemy = new Enemy(  5,  4,  "(N)".grey + normEnemyNames[randomNumberGen()]);
 let rareEnemy = new Enemy(  10,  10,  "(R)".yellow + rareEnemyNames[randomNumberGen()]);
