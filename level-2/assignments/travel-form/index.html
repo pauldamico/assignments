@@ -1,24 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="style.css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <form>
-        <input type="text">
-        <input type="text">
-        <input type="number">
-        <input type="radio">
-        <select>
-            <option></option>
-            <option></option>
-            <option></option>
-            <input type="checkbox">
+  </head>
+  <body>
+    <nav><h1>Please fill out this flight form</h1></nav>
+    <form name="passengerinfo">
+      <div>
+        <h3>First Name</h3>
+        <input name="firstname" type="text" value="" />
+        <h3>Last Name</h3>
+        <input name="lastname" type="text" value="" />
+        <h3>Age</h3>
+        <input name="age" type="number" value="" />
+      </div>
+      <div>
+        <span
+          >Male
+          <input name="gender" type="radio" value="male" />
+          Female
+
+          <input name="gender" type="radio" value="female" />
+        </span>
+      </div>
+      <h3>Location</h3>
+      <select name="location">
+        <option value="florida">Florida</option>
+        <option value="utah">Utah</option>
+        <option value="maine">Maine</option>
+      </select>
+      <div>
+        <h3>Diet Restrictions</h3>        
+        <input value="vegetarian" name="diet" type="checkbox" />
+        <span>Vegetarian</span>        
+        <input value="kosher" name="diet" type="checkbox" /> 
+        <span>Kosher</span>
+        <input value="lactose" name="diet" type="checkbox" />
+        <span>Lactose</span>
+      </div>
+      <button>Submit</button>
     </form>
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
