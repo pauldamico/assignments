@@ -13,6 +13,8 @@ goombaPrice.textContent = `${5} Coins`
 bombombPrice.textContent = `${7} Coins`
 cheepCheepPrice.textContent = `${11} Coins`
 
+
+
 marioForm.addEventListener("submit", (e)=>{
 e.preventDefault()
 const goombaTotalInput = marioForm["goomba-caught"].value
