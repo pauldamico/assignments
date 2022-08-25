@@ -1,0 +1,129 @@
+body{
+
+    display: grid;
+    grid-template-columns: repeat(4, 300px);
+    grid-template-rows: repeat(4, 250px);
+    align-items: center;
+    justify-items: center;
+}
+.list{
+    display: flex;
+    border-style: solid;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+}
+.adddiv {
+    display: flex;
+    border-style: solid;
+    border-color: black;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    grid-column: 1/2;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+    box-shadow: 10px 10px 10px;
+    border-radius:20px;
+}
+.adddiv > form {
+  padding: 10px;
+  width: 100px;
+  font-size: 25px;
+  border-style: solid;
+  background-color: red;
+  box-shadow: 10px 10px 10px;
+  
+}
+.adddiv > form > button {
+    width: 100px;
+    font-size: 20px;
+    border-style: none;
+    background-color: rgb(190, 10, 10);
+    box-shadow: 0px 3px 10px;
+    border-radius: 10px;
+}
+.adddiv > form > input {
+  font-size: 25px;
+  border-style: solid;
+  width: 40px;
+  height: 40px;
+  border-color: black;
+}
+.subdiv {
+    display: flex;
+    border-style: solid;
+    border-color: black;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    grid-column: 1/2;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+    box-shadow: 10px 10px 10px;
+    border-radius:20px;
+}
+.subdiv > form {
+  padding: 10px;
+  width: 100px;
+  font-size: 25px;
+  border-style: solid;
+  background-color: blue;
+  box-shadow: 10px 10px 10px;
+}
+.subdiv > form > input {
+  border-style: solid;
+  width: 40px;
+  height: 40px;
+  border-color: black;
+}
+.subdiv > form > button {
+    width: 100px;
+    font-size: 20px;
+    border-style: none;
+    background-color: rgb(16, 16, 154);
+    box-shadow: 0px 4px 10px;
+    border-radius: 10px;
+    color:white
+}
+.multdiv {
+    display: flex;
+    border-style: solid;
+    border-color: black;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    grid-column: 1/2;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+    box-shadow: 10px 10px 10px;
+    border-radius:20px;
+}
+.multdiv > form {
+  padding: 10px;
+  width: 100px;
+  font-size: 25px;
+  border-style: solid;
+  background-color: green;
+  box-shadow: 10px 10px 10px;
+}
+.multdiv > form > input {
+  border-style: solid;
+  width: 40px;
+  height: 40px;
+  border-color: black;
+}
+.multdiv > form > button {
+  width: 100px;
+  font-size: 20px;
+  border-style: none;
+  background-color: rgb(10, 190, 37);
+  box-shadow: 0px 3px 10px;
+  border-radius: 10px;
+}
