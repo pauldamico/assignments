@@ -1,0 +1,203 @@
+img {
+  max-height: 100px;
+  max-width: 100px;
+}
+input {
+  width: 30px;
+  height: 20px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+button {
+  margin-top: 20px;
+  padding: 10px;
+  margin-bottom: 30px;
+  background-color: blue;
+  color: yellow;
+  font-style: bold;
+  margin-left:10px;
+  border-style: solid;
+  border-color:yellow;
+  font-size: 20px;
+  border-width:5px;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  height: 90px;
+}
+.mario-title {
+  position: relative;
+  bottom: 30px;
+  font-family: "New Super Mario Font U", sans-serif;
+  font-size: 40px;
+}
+.goomba {
+  margin-left: 10px;
+  box-shadow: 0px 5px 10px;
+  position: relative;
+  width: 300px;
+  height:200px;
+  border-radius: 10px;
+  background-color: yellow;
+}
+.bob-omb {
+  margin-left: 10px;
+  box-shadow: 0px 5px 10px;
+  position: relative;
+  width: 300px;
+  height:200px;
+  border-radius: 10px;
+  background-color: yellow;
+}
+.cheep-cheep {
+  margin-left: 10px;
+  box-shadow: 0px 5px 10px;
+  position: relative;
+  width: 300px;
+  height:200px;
+  border-radius: 10px;
+  background-color: yellow;
+}
+form {
+  background-image: url("https://www.notion.so/image/https%3A%2F%2Fcoursework.vschool.io%2Fcontent%2Fimages%2Fsize%2Fw2000%2F2015%2F07%2Fmario-enemies.png?table=block&id=aae272f1-b354-47dc-a02d-c2ad3064faf0&spaceId=6aef2f33-de49-4357-824c-927199bca931&width=2000&userId=eeabbeb9-3075-4ff6-9afd-03118f2fce28&cache=v2") ;
+  border-style: solid;
+  height: 100%;
+}
+.caught {
+  position: relative;
+  left: 130px;
+  bottom: 100px;
+}
+.total-cost{
+    bottom: 10px;;
+    text-align: center;
+    position: relative;
+    width:150px;
+
+  }
+  .all-total{
+    font-family: "New Super Mario Font U", sans-serif;
+    font-size:50px ;
+    margin-left:40px;
+    position: relative;
+    top: 10px;
+    background-color: yellow;
+    border-radius:20px;
+    box-shadow:10px 10px 10px ;
+  }
+.footer{
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    background-color: black;
+}
+
+@media only screen and (max-width: 700px) {
+  img {
+    max-height: 50px;
+    max-width: 50px;
+  }
+  input {
+    width: 30px;
+    height: 20px;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+  button {
+    background-color: blue;
+    color: yellow;
+    font-style: bold;
+    margin-bottom: 10px;
+    margin-left:30px;
+    ;
+  }
+  nav {
+    display: flex;
+    justify-content: center;
+    height: 30px;
+  }
+  .mario-title {
+    position: relative;
+    bottom: 30px;
+    font-family: "New Super Mario Font U", sans-serif;
+    font-size: 30px;
+  }
+  .goomba {
+    margin-left:30px;
+    box-shadow: 0px 5px 10px;
+    position: relative;
+    width: 300px;
+    height: 160px;
+    border-radius: 10px;
+  }
+  .bob-omb {
+    margin-left:30px;
+    box-shadow: 0px 5px 10px;
+    position: relative;
+    width: 300px;
+    height: 160px;
+    border-radius: 10px;
+  }
+  .cheep-cheep {
+    margin-left:30px;
+    box-shadow: 0px 5px 10px;
+    position: relative;
+    width: 300px;
+    height: 160px;
+    border-radius: 10px;
+  }
+  form {
+    border-style: solid;
+    height: 100%;
+    width: 100%;
+    background-image: url("https://www.notion.so/image/https%3A%2F%2Fcoursework.vschool.io%2Fcontent%2Fimages%2Fsize%2Fw2000%2F2015%2F07%2Fmario-enemies.png?table=block&id=aae272f1-b354-47dc-a02d-c2ad3064faf0&spaceId=6aef2f33-de49-4357-824c-927199bca931&width=2000&userId=eeabbeb9-3075-4ff6-9afd-03118f2fce28&cache=v2") ;
+
+  }
+  .caught {
+    position: relative;
+    left: 80px;
+    bottom: 60px;
+  }
+  .totals {
+    margin-top: 0;
+  }
+  .total-cost{
+    bottom: 10px;;
+    text-align: center;
+    position: relative;
+    width:200px;
+  
+  }
+  .footer{
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    background-color: black;
+}
+  .all-total{
+    font-family: "New Super Mario Font U", sans-serif;
+    font-size:30px ;
+    width:100px;
+    margin-left:10px;
+    position: relative;
+    top: 5px;
+    background-color: yellow;
+    border-radius:20px;
+    box-shadow:10px 10px 10px ;
+  }
+
+}

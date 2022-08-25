@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="http://fonts.cdnfonts.com/css/new-super-mario-font-u"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mario Pest Control</title>
+  </head>
+  <body>
+    <nav><h1 class="mario-title">Mario Pest Control</h1></nav>
+
+    <form name="mario-form" >
+      <div class="goomba">
+        <h1>Goomba Tracker</h1>
+        <img src="images/goomba.png" />
+        <div class="caught"><span> Total caught: </span><input name="goomba-caught" type="number" />
+        <section >Price: <span id="goomba-price">0</span></section>   <section class="totals">Goomba Total Cost</section>
+        <h2 id="goomba-total-cost" class="total-cost">0</h2>
+      </div></div>
+      <div class="bob-omb">
+      <h1>Bob-omb Tracker</h1>
+      <img src="images/bob-omb.png" />
+      <div class="caught">
+        <span> Total caught: </span><input name="bob-omb-caught" type="number" />
+        <section >Price: <span id="bob-omb-price">0</span></section>   <section class="totals">Bob-omb Total Cost</section>
+        <h2 id="bob-omb-total-cost" class="total-cost">0</h2>
+      </div>
+    </div>
+    <div class="cheep-cheep">
+      <h1>Cheep-cheep</h1>
+      <img src="images/cheep-cheep.png" />
+      <div class="caught">
+        <span> Total caught: </span><input name="cheep-cheep-caught" type="number" />
+        <section >Price: <span id="cheep-cheep-price">0</span></section>   <section class="totals">cheep-cheep Total Cost</section>
+        <h2 id="cheep-cheep-total-cost" class="total-cost">0</h2>
+      </div>
+     
+    </div>
+    <button>Total Cost</button><span id="all-total" class="all-total">0</span>
+    <footer class="footer">
+        <a class="email" href="mailto: mario@marioworld.com">Email </a>
+        <a class="website" href="https://mario.nintendo.com/">Company Website </a>
+        <a
+          class="address"
+          href="https://www.google.com/maps/place/4600+150th+Ave+NE,+Redmond,+WA+98052/@47.6510337,-122.1413809,17z/data=!3m1!4b1!4m5!3m4!1s0x54906d6995d9f693:0x2e07e8c409d2bf2!8m2!3d47.6510301!4d-122.1391922"
+          >4600 150th Ave NE, Redmond, WA 98052, United States</a
+        >
+      </footer>
+    </form>
+
+  
+    <script src="app.js"></script>
+  </body>
+</html>
