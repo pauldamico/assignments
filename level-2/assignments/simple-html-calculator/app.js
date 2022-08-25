@@ -1,5 +1,5 @@
 
-// i wrote all of it out for practice.  I would just put the forms in HTML otherwise
+// i wrote all of it out for practice.  I would just put the elements in HTML otherwise
 const addDiv = document.createElement("div");
 const addList = document.createElement("h3");
 const addForm = document.createElement("form");

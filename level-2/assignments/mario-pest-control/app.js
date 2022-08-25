@@ -26,5 +26,4 @@ goombaTotal.textContent = 5 * goombaTotalInput + " Coins"
 bombombTotal.textContent = 7 * bobombTotalInput + " Coins"
 cheepCheepTotal.textContent = 11 * cheepCheepTotalInput + " Coins"
 allTotal.textContent=totalCoinValue + " Coins"
-
 })

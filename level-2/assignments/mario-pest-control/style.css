@@ -1,6 +1,10 @@
 img {
-  max-height: 100px;
-  max-width: 100px;
+  margin-left:50px;
+    position:relative;
+   grid-column: 1/2;
+   grid-row: 1/2;
+  max-height: 200px;
+  max-width: 200px;
 }
 input {
   width: 30px;
@@ -15,22 +19,24 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 button {
-  margin-top: 20px;
-  padding: 10px;
-  margin-bottom: 30px;
+ 
   background-color: blue;
   color: yellow;
   font-style: bold;
-  margin-left:10px;
-  border-style: solid;
+    border-style: solid;
   border-color:yellow;
   font-size: 20px;
   border-width:5px;
+  grid-column: 3/4;
+  grid-row: 16/17
 }
 nav {
   display: flex;
   justify-content: center;
   height: 90px;
+}
+h1{
+    text-align: center;
 }
 .mario-title {
   position: relative;
@@ -39,29 +45,39 @@ nav {
   font-size: 40px;
 }
 .goomba {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(5, 40px);
+    grid-column: 3/5;
+    grid-row:1/5;
   margin-left: 10px;
   box-shadow: 0px 5px 10px;
   position: relative;
-  width: 300px;
-  height:200px;
+ 
   border-radius: 10px;
   background-color: yellow;
 }
 .bob-omb {
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(5, 40px);
+  display: grid;
   margin-left: 10px;
   box-shadow: 0px 5px 10px;
   position: relative;
-  width: 300px;
-  height:200px;
+  grid-column: 3/5;
+  grid-row:6/10;
   border-radius: 10px;
   background-color: yellow;
 }
 .cheep-cheep {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(5, 40px);
   margin-left: 10px;
   box-shadow: 0px 5px 10px;
   position: relative;
-  width: 300px;
-  height:200px;
+  grid-column: 3/5;
+  grid-row: 11/15;
   border-radius: 10px;
   background-color: yellow;
 }
@@ -69,28 +85,35 @@ form {
   background-image: url("https://www.notion.so/image/https%3A%2F%2Fcoursework.vschool.io%2Fcontent%2Fimages%2Fsize%2Fw2000%2F2015%2F07%2Fmario-enemies.png?table=block&id=aae272f1-b354-47dc-a02d-c2ad3064faf0&spaceId=6aef2f33-de49-4357-824c-927199bca931&width=2000&userId=eeabbeb9-3075-4ff6-9afd-03118f2fce28&cache=v2") ;
   border-style: solid;
   height: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, 315px);
+  grid-template-rows: repeat(18, 48px);
 }
 .caught {
-  position: relative;
-  left: 130px;
+    text-align: center;
   bottom: 100px;
+  grid-column: 2/3;
+  grid-row: 3/4;
 }
 .total-cost{
     bottom: 10px;;
     text-align: center;
     position: relative;
-    width:150px;
+  
 
   }
   .all-total{
     font-family: "New Super Mario Font U", sans-serif;
     font-size:50px ;
     margin-left:40px;
-    position: relative;
+    text-align: center;
+ 
     top: 10px;
     background-color: yellow;
     border-radius:20px;
     box-shadow:10px 10px 10px ;
+    grid-column: 4/5;
+    grid-row: 16/17;
   }
 .footer{
     display: flex;
@@ -98,17 +121,23 @@ form {
     flex-direction: row-reverse;
     justify-content: space-around;
     background-color: black;
+    grid-column: 2/6;
+    grid-row:18/19;
 }
 a{
     color:yellow;
 }
 
-@media only screen and (max-width: 700px) {
-  
-  
+@media only screen and (max-width: 1000px) and (min-width: 500px){
+
   img {
-    max-height: 50px;
-    max-width: 50px;
+   
+     margin:0;
+     margin-left:10px;
+     grid-column: auto;
+     grid-row: 2/4;
+    width:100px;
+    height:100px;
   }
   input {
     width: 30px;
@@ -123,88 +152,254 @@ a{
     -moz-appearance: textfield;
   }
   button {
+   
     background-color: blue;
     color: yellow;
     font-style: bold;
-    margin-bottom: 10px;
-    margin-left:30px;
-    ;
+      border-style: solid;
+    border-color:yellow;
+    font-size: 20px;
+    border-width:5px;
+    grid-column: 3/5;
+    grid-row: 16/17
   }
   nav {
-    margin-left: 60px;
     display: flex;
     justify-content: center;
-    height: 30px;
+    height: 90px;
   }
+
   .mario-title {
     position: relative;
     bottom: 30px;
     font-family: "New Super Mario Font U", sans-serif;
-    font-size: 30px;
+    font-size: 40px;
   }
   .goomba {
-    margin-left:30px;
+    display: grid;
+    grid-template-columns: repeat(6, 52px);
+    grid-template-rows: repeat(5, 40px);
+      grid-column: 3/6;
+      grid-row:1/5;
+    margin-left: 10px;
     box-shadow: 0px 5px 10px;
     position: relative;
-    width: 300px;
-    height: 160px;
+   
     border-radius: 10px;
+    background-color: yellow;
+  }
+  h1 {
+    grid-column: 4/7;
+    grid-row:1/2;
+    font-size:15px;
+    text-align: left;
   }
   .bob-omb {
-    margin-left:30px;
+    grid-template-columns: repeat(6, 52px);
+    grid-template-rows: repeat(5, 40px);
+    display: grid;
+    margin-left: 10px;
     box-shadow: 0px 5px 10px;
     position: relative;
-    width: 300px;
-    height: 160px;
+    grid-column: 3/6;
+    grid-row:6/10;
     border-radius: 10px;
+    background-color: yellow;
   }
   .cheep-cheep {
-    margin-left:30px;
+    display: grid;
+    grid-template-columns: repeat(6, 52px);
+    grid-template-rows: repeat(5, 40px);
+    margin-left: 10px;
     box-shadow: 0px 5px 10px;
     position: relative;
-    width: 300px;
-    height: 160px;
+    grid-column: 3/6;
+    grid-row: 11/15;
     border-radius: 10px;
+    background-color: yellow;
   }
   form {
-    margin-left:20px;
+    background-image: url("https://www.notion.so/image/https%3A%2F%2Fcoursework.vschool.io%2Fcontent%2Fimages%2Fsize%2Fw2000%2F2015%2F07%2Fmario-enemies.png?table=block&id=aae272f1-b354-47dc-a02d-c2ad3064faf0&spaceId=6aef2f33-de49-4357-824c-927199bca931&width=2000&userId=eeabbeb9-3075-4ff6-9afd-03118f2fce28&cache=v2") ;
     border-style: solid;
     height: 100%;
-    width: 100%;
-    background-image: url("https://www.notion.so/image/https%3A%2F%2Fcoursework.vschool.io%2Fcontent%2Fimages%2Fsize%2Fw2000%2F2015%2F07%2Fmario-enemies.png?table=block&id=aae272f1-b354-47dc-a02d-c2ad3064faf0&spaceId=6aef2f33-de49-4357-824c-927199bca931&width=2000&userId=eeabbeb9-3075-4ff6-9afd-03118f2fce28&cache=v2") ;
-
+    display: grid;
+    grid-template-columns: repeat(7, 108px);
+    grid-template-rows: repeat(18, 48px);
   }
   .caught {
-    position: relative;
-    left: 80px;
-    bottom: 60px;
-  }
-  .totals {
-    margin-top: 0;
+      text-align: center;
+    bottom: 100px;
+    grid-column: 4/6;
+    grid-row: 2/4;
   }
   .total-cost{
-    bottom: 10px;;
-    text-align: center;
-    position: relative;
-    width:200px;
+      bottom: 10px;;
+      text-align: center;
+      position: relative;
+    
   
-  }
+    }
+    .all-total{
+      font-family: "New Super Mario Font U", sans-serif;
+      font-size:50px ;
+    
+      text-align: center;
+   margin:0;
+      top: 10px;
+      background-color: yellow;
+      border-radius:20px;
+      box-shadow:10px 10px 10px ;
+      grid-column: 5/6;
+      grid-row: 16/17;
+    }
   .footer{
-    display: flex;
-    align-items: center;
-    flex-direction: row-reverse;
-    background-color: black;
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse;
+      justify-content: space-around;
+      background-color: black;
+      grid-column: 2/7;
+      grid-row:18/19;
+  }
+  a{
+      color:yellow;
+  }
+
 }
-  .all-total{
-    font-family: "New Super Mario Font U", sans-serif;
-    font-size:30px ;
+@media only screen and (max-width: 500px) {
+
+  img {
+   
+     margin:0;
+     margin-left:10px;
+     grid-column: auto;
+     grid-row: 3/5;
     width:100px;
-    margin-left:10px;
+    height:100px;
+  }
+  input {
+    width: 30px;
+    height: 20px;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+  button {
+   
+    background-color: blue;
+    color: yellow;
+    font-style: bold;
+      border-style: solid;
+    border-color:yellow;
+    font-size: 20px;
+    border-width:5px;
+    grid-column: 2/5;
+    grid-row: 16/17
+  }
+  nav {
+    display: flex;
+    justify-content: center;
+    height: 90px;
+  }
+
+  .mario-title {
     position: relative;
-    top: 5px;
+    bottom: 30px;
+    font-family: "New Super Mario Font U", sans-serif;
+    font-size: 40px;
+  }
+  .goomba {
+    display: grid;
+    grid-template-columns: repeat(6, 52px);
+    grid-template-rows: repeat(5, 40px);
+      grid-column: 2/5;
+      grid-row:1/5;
+    margin-left: 10px;
+    box-shadow: 0px 5px 10px;
+    position: relative;
+   
+    border-radius: 10px;
     background-color: yellow;
-    border-radius:20px;
-    box-shadow:10px 10px 10px ;
+  }
+  h1 {
+    grid-column: 4/7;
+    grid-row:1/2;
+    font-size:15px;
+    text-align: left;
+  }
+  .bob-omb {
+    grid-template-columns: repeat(6, 52px);
+    grid-template-rows: repeat(5, 40px);
+    display: grid;
+    margin-left: 10px;
+    box-shadow: 0px 5px 10px;
+    position: relative;
+    grid-column: 2/5;
+    grid-row:6/10;
+    border-radius: 10px;
+    background-color: yellow;
+  }
+  .cheep-cheep {
+    display: grid;
+    grid-template-columns: repeat(6, 52px);
+    grid-template-rows: repeat(5, 40px);
+    margin-left: 10px;
+    box-shadow: 0px 5px 10px;
+    position: relative;
+    grid-column: 2/5;
+    grid-row: 11/15;
+    border-radius: 10px;
+    background-color: yellow;
+  }
+  form {
+    background-image: url("https://www.notion.so/image/https%3A%2F%2Fcoursework.vschool.io%2Fcontent%2Fimages%2Fsize%2Fw2000%2F2015%2F07%2Fmario-enemies.png?table=block&id=aae272f1-b354-47dc-a02d-c2ad3064faf0&spaceId=6aef2f33-de49-4357-824c-927199bca931&width=2000&userId=eeabbeb9-3075-4ff6-9afd-03118f2fce28&cache=v2") ;
+    border-style: solid;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 108px);
+    grid-template-rows: repeat(18, 48px);
+  }
+  .caught {
+      text-align: center;
+    bottom: 100px;
+    grid-column: 4/6;
+    grid-row: 2/4;
+  }
+  .total-cost{
+      bottom: 10px;;
+      text-align: center;
+      position: relative;
+    
+  
+    }
+    .all-total{
+      font-family: "New Super Mario Font U", sans-serif;
+      font-size:50px ;
+            text-align: center;
+            margin-right:20px;
+       top: 10px;
+      background-color: yellow;
+      border-radius:20px;
+      box-shadow:10px 10px 10px ;
+      grid-column: 2/5;
+      grid-row: 17/18;
+    }
+  .footer{
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse;
+      justify-content: space-around;
+      background-color: black;
+      grid-column: 1/6;
+      grid-row:18/19;
+  }
+  a{
+      color:yellow;
   }
 
 }
