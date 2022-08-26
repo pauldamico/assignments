@@ -1,0 +1,46 @@
+body {
+  background-image: url(https://www.notion.so/image/https%3A%2F%2Fcoursework.vschool.io%2Fcontent%2Fimages%2Fsize%2Fw2000%2F2016%2F05%2Fbanner_2423.jpg?table=block&id=03986dc0-524d-401b-a963-0addedc2ceea&spaceId=6aef2f33-de49-4357-824c-927199bca931&width=2000&userId=eeabbeb9-3075-4ff6-9afd-03118f2fce28&cache=v2);
+  background-repeat: no-repeat;
+  background-size: 150rem;
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  grid-template-rows: repeat(5, auto);
+  height:1000px;
+}
+
+div {
+
+  display: flex;
+  border-radius: 20px;
+  background-color: rgba(51, 50, 50, 0.568);
+  box-shadow: 0px 5px 10px;
+  color: white;
+  font-size: 20px;
+  grid-column: 3/5;
+  width: fit-content;
+  flex-direction: column;
+  align-items: center;
+  grid-row:1/2
+}
+h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: black;
+}
+button {
+  color: yellow;
+  background-color: red;
+  width: fit-content;
+  font-size: 50px;
+  border-radius: 20px;
+  box-shadow: 0px 5px 10px grey;
+  border-color: white;
+  margin-bottom: 20px;
+
+}
+.timer{
+    color: black;
+    background-color: red;
+}
+.clicks{
+    color:black;
+}
