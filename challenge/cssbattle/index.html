@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <div>
+      <section class="pac">
+        <p>.</p>
+      </section>
+      <span>. . .</span>
+      <section class="ghost">
+        <section class="ghostbot"></section>
+        <div>
+          <p class="ghostp">.</p>
+          <p class="ghostp">.</p>
+          <p class="ghostp">.</p>
+        </div>
+      </section>
+    </div>
+    <style>
+      body{
+    position: relative;
+    top: 50px;
+    background:black
+      }
+      div {
+        font-size: 100px;
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+      }
+      section {
+        width: 100px;
+        height: 100px;
+      }
+      span {
+        margin-bottom: 20px;
+         color: white;
+        /* z-index:100; */
+      }
+      .ghost {
+        border-radius: 100%;
+           background: #C74E4E;
+      }
+      .ghost > div {
+        position: relative;
+        bottom: 24px;
+        left: 4px;
+      }
+      .pac {
+        border-radius: 100%;
+        /* position: relative; */
+        background: #E0E246;
+      }
+      p {
+        bottom: 117px;
+        left: 72px;
+        background-color: black;
+        position: relative;
+        transform: rotate(40deg);
+      }
+      .ghostp {
+        /* position: relative; */
+        top: -56px;
+        left: -34px;
+      }
+      .ghostbot {
+           background: #C74E4E;
+        top: 43px;
+        position: relative;
+        height: 58px;
+      }
+    </style>
+  </body>
+</html>
