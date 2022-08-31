@@ -1,0 +1,52 @@
+body {
+  position: relative;
+  top: 50px;
+  background: black;
+}
+div {
+  font-size: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+section {
+  width: 100px;
+  height: 100px;
+}
+span {
+  margin-bottom: 20px;
+  color: white;
+  /* z-index:100; */
+}
+.ghost {
+  border-radius: 100%;
+  background: #c74e4e;
+}
+.ghost > div {
+  position: relative;
+  bottom: 24px;
+  left: 4px;
+}
+.pac {
+  border-radius: 100%;
+  /* position: relative; */
+  background: #e0e246;
+}
+p {
+  bottom: 117px;
+  left: 72px;
+  background-color: black;
+  position: relative;
+  transform: rotate(40deg);
+}
+.ghostp {
+  /* position: relative; */
+  top: -56px;
+  left: -34px;
+}
+.ghostbot {
+  background: #c74e4e;
+  top: 43px;
+  position: relative;
+  height: 58px;
+}
