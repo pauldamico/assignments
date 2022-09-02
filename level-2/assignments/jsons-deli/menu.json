@@ -1,0 +1,90 @@
+{
+  "menu": {
+    "appetizers": [
+      {
+        "name": "Nacho Dish",
+        "ingredients": ["nacho chips", "Salsa", "hot sause", "cheese"],
+        "description": "Fully Loaded"
+      },
+      {
+        "name": "chips",
+        "ingredients": "Potato Chip",
+        "description": "Salted Potato Chips"
+      },
+      {
+        "name": "corn",
+        "ingredients": ["cooked fresh corn", "butter"],
+        "description": "Steaming hot Corn"
+      }
+    ],
+    "coldSandwiches": [
+      {
+        "name": "Taste Good Sandwich",
+        "ingredients": ["Ham", "Cheese", "Mayo"],
+        "description": "Best Ham and Cheese in town"
+      },
+
+      {
+        "name": "Roasted Beef Wich",
+        "ingredients": ["Roast Beef", "Cheese"],
+        "description": "One of the favorite lunches!"
+      },
+      {
+        "name": "Ultimate Jelly Sandwich",
+        "ingredients": ["Peanuts", "Strawberry Jam", "Bread"],
+        "description": "Taste soooo Good"
+      }
+    ],
+    "hotSandwiches": [
+      {
+        "name": "Grande Fish Sandwich",
+        "ingredients": ["Fish", "butter", "bread"],
+        "description": "Freshly Caught Fish"
+      },
+      {
+        "name": "Bacon Burger",
+        "ingredients": ["Bacon", "Burger", "Bun", "Pickle", "ketchup"],
+        "description": "Good Burger"
+      },
+      {
+        "name": "Pork Burger",
+        "ingredients": ["Pork", "Bread"],
+        "description": "Freshly Caught Fish"
+      }
+    ],
+    "desserts": [
+      {
+        "name": "Fudge",
+        "ingredients": ["Chocolate", "Sugar", "Milk"],
+        "description": "Very Tasty"
+      },
+      {
+        "name": "Ice Cream",
+        "ingredients": ["Milk", "Cream", "Milk"],
+        "description": "Very Cold"
+      },
+      {
+        "name": "Cheese Cake",
+        "ingredients": ["Cheese", "Flour", "Milk"],
+        "description": "Best Cheese Cake Around"
+      }
+    ],
+    "drinks": [
+      {
+        "name": "Sprite",
+        "ingredients": ["Syrup", "Water"],
+        "description": "Refreshing"
+      },
+      {
+        "name": "Pepsi",
+        "ingredients": ["Syrup", "Water"],
+        "description": "Very Cold"
+      },
+      {
+        "name": "Water",
+        "ingredients": ["Water"],
+        "description": "Ice Cold"
+      }
+    ]
+  }
+}
