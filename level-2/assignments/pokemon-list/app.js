@@ -15,11 +15,10 @@ xhr.onreadystatechange = function(){
 function displayPokemon (arr){
     
     for(let x=0; x<arr.length;x++){
-       let h1 = document.createElement("h1")
-       let p = document.createElement("p")
-       h1.textContent=arr[x].name
-       p.textContent=arr[x].resource_uri
+       let h1 = document.createElement("h1")     
+       h1.textContent=arr[x].name    
        document.body.appendChild(h1)
-       document.body.appendChild(p)
+      
     }
+
 }
