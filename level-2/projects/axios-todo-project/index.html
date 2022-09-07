@@ -10,16 +10,16 @@
   <body>
     <div>
       <form class="todo-form" name="todoForm">
-        <h1 class="todo-title">Bird Tracker</h1>
+        <h1 class="todo-title">Customer Trip Tracker</h1>
         <div class="todo-div">
-          <section>Title</section>
-          <input id="title-input" type="text" name="title" />
-          <section>Date</section>
-          <input id="price-input"  type="number" name="price" />
-          <section>Description</section>
-          <input id="description-input"  type="text" name="description" />
+          <section>Customer Name</section>
+          <input id="title-input" type="text" name="title" required/>
+          <section>Price</section>
+          <input id="price-input"  type="number" name="price" required/>
+          <section>Trip/Cust Information</section>
+          <textarea id="description-input"  type="text" name="description" required></textarea>
           <section>Image URL</section>
-          <input id="image-input"  type="text" name="imgurl" />
+          <input id="image-input"  type="text" name="imgurl" required/>
         </div>
         <div class="todo-button-div">
           <input class="todo-button" type="submit" value="Add to List">
@@ -29,7 +29,7 @@
       <button class="remove-all" id="remove-all">Remove All</button>
     </div>
     <div class="todo-list-div">
-      <h1>List of Birds to Find</h1>
+      <h1>List of Customer Trips</h1>
       <ul class ="todo-list-container" id="todo-list-container"></ul>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>

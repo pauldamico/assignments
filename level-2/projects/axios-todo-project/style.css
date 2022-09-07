@@ -11,10 +11,11 @@ body >div{
   margin-top: 0;
   text-align: center;
   color: black;
+  font-size: 30px;
 }
 .todo-form {
   background-color: rgba(0, 0, 0, 0.12);
-  width: 300px;
+  min-width: 300px;
   box-shadow: 3px 10px 10px black;
  
 }
@@ -61,16 +62,23 @@ img{
 
 }
 .list-complete{
-  background-color: rgb(14, 138, 21);
-  height:200px;
+  background-color: rgba(8, 175, 61, 0.894);
+  height:auto;
   width: 200px;
   box-shadow: -5px 5px 5px black;
   display:grid;
-  grid-template-columns:repeat(1,auto) ;
+  grid-template-columns:repeat(1,200px) ;
+  grid-template-rows: repeat(16,20px);
+  
 }
+.list-complete>h3{
+  margin:2px;
+  box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 34%);
+  text-align: left;
+  }
 .list-div>h3{
 margin:2px;
-box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.338);
+box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 34%);
 text-align: left;
 }
 
@@ -83,11 +91,26 @@ grid-template-rows: repeat(auto, 200px);
 }
 .todo-list-div{
   text-align: center;
+ 
 }
-
+.todo-list-div>h1{
+  background-color: rgba(149, 147, 147, 0.618);
+ 
+}
 .remove-all{
   margin-top:20px;
   font-weight: bold;
-  border:5px solid  red;
-  background-color: rgba(255, 0, 0, 0.203);
+  border:5px solid  rgb(48, 4, 4);
+  background-color: rgba(255, 0, 0, 0.689);
+}
+
+@media only screen and (max-width: 600px) {
+  .todo-list-container{
+    padding:0px;
+    display: grid;
+   
+    gap: 10px;
+    grid-template-columns: repeat(1, auto);
+    grid-template-rows: repeat(auto, 200px);
+    }
 }
