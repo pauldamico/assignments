@@ -5,31 +5,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Todo</title>
   </head>
   <body>
     <div>
       <form class="todo-form" name="todoForm">
-        <h1 class="todo-title">Todo Form</h1>
+        <h1 class="todo-title">Bird Tracker</h1>
         <div class="todo-div">
           <section>Title</section>
-          <input  type="text" name="title" />
-          <section>Price</section>
-          <input  type="number" name="price" />
+          <input id="title-input" type="text" name="title" />
+          <section>Date</section>
+          <input id="price-input"  type="number" name="price" />
           <section>Description</section>
-          <input  type="text" name="description" />
+          <input id="description-input"  type="text" name="description" />
           <section>Image URL</section>
-          <input  type="text" name="imgurl" />
+          <input id="image-input"  type="text" name="imgurl" />
         </div>
         <div class="todo-button-div">
           <input class="todo-button" type="submit" value="Add to List">
         </div>
       </form>
 
-      <button id="remove-all">Remove All</button>
+      <button class="remove-all" id="remove-all">Remove All</button>
     </div>
     <div class="todo-list-div">
-      <h1>Todo List</h1>
+      <h1>List of Birds to Find</h1>
       <ul class ="todo-list-container" id="todo-list-container"></ul>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
