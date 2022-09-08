@@ -1,5 +1,6 @@
 getData();
-deleteAll();
+// deleteAll();
+
 
 function clearList() {
 
@@ -146,7 +147,7 @@ function removeItem(id, title) {
   alert(`${title} has been deleted`)
   axios
     .delete(`https://api.vschool.io/pauldamico/todo/${id}`)
-    .then((response) => getData())
+    .then((response) => console.log(response))
     .catch((error) => console.log(error));
 }
 
