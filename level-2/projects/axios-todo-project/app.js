@@ -2,6 +2,7 @@ getData();
 deleteAll();
 
 function clearList() {
+
   // document.getElementById("todo-list-container").innerHTML = "";
   while (document.getElementById("todo-list-container").firstChild) {
     document
@@ -9,8 +10,8 @@ function clearList() {
       .removeChild(document.getElementById("todo-list-container").firstChild);
   }
 }
-function getData() {
-  clearList();
+function getData() { 
+  clearList();                                                //clears everything locally so it doesn't show duplicates
   axios
   .get("https://api.vschool.io/pauldamico/todo")
     .then((response) => listData(response.data))
@@ -34,35 +35,28 @@ function listData(data) {
     checkBoxLabel.textContent = "Finished?";
     completeCheckBox.type = "checkbox";   
     completeCheckBox.name = "checkbox";
-    completeCheckBox.addEventListener("click", function(){
-      checkboxColor(completeCheckBox, div, data[x]._id)
+    completeCheckBox.addEventListener("click", function(){                      // Checkbox eventListener               
+      checkboxColor(completeCheckBox, data[x]._id)
      console.log(completeCheckBox.checked)
     })
-    
-    const deleteButtonEl = document.createElement("button"); //deleteButton event
+        const deleteButtonEl = document.createElement("button");                //deleteButton eventListener
     deleteButtonEl.addEventListener("click", function () {
       removeItem(data[x]._id, data[x].title);
       getData();
     });
-
-    const editButtonEl = document.createElement("button"); //editButton event
-    editButtonEl.addEventListener("click", function () {
+    const editButtonEl = document.createElement("button");                 
+    editButtonEl.addEventListener("click", function () {                        //editButton eventListener
       console.dir(document.getElementById("todo-list-container"));
 
-      div.removeChild(titleEl); //removes first inputs from list
+      div.removeChild(titleEl);                                                 //removes all elements in edit
       div.removeChild(priceEl);
       div.removeChild(descriptionEl);
       div.removeChild(imageurlEL);
       div.removeChild(deleteButtonEl);
       div.removeChild(editButtonEl);
-      div.removeChild(checkBoxLabelDiv);          ///not this
-
-      // console.log(this.parentElement)
-
+      div.removeChild(checkBoxLabelDiv);         
       let titleElInput = document.createElement("input");
-      // titleEl.name="title"
       titleElInput.value = data[x].title;
-
       let priceElInput = document.createElement("input");
       priceElInput.value = data[x].price;
       let descriptionElInput = document.createElement("textarea");
@@ -70,7 +64,6 @@ function listData(data) {
       descriptionElInput.value = data[x].description;
       let imageurlELInput = document.createElement("input");
       imageurlELInput.value = data[x].imgUrl;
-      // completeCheckBox.checked = data[x].completed
       let saveButton = document.createElement("button");
       saveButton.textContent = "Save";
       div.appendChild(titleElInput);
@@ -84,7 +77,7 @@ function listData(data) {
       checkBoxLabelDiv.appendChild(completeCheckBox);
 
       editButtonEl.textContent = "Save";
-      saveButton.addEventListener("click", function () {  // Save eventListener
+      saveButton.addEventListener("click", function () {              // Save eventListener
         
         editItem(
           data[x]._id,
@@ -94,10 +87,7 @@ function listData(data) {
           imageurlELInput,
           completeCheckBox
         );
-      });
-
-      // getData();
-    });
+      })});
     editButtonEl.textContent = "Edit";
     deleteButtonEl.textContent = "Delete";
     titleEl.textContent = `Name: ${data[x].title}`;
@@ -116,20 +106,21 @@ function listData(data) {
     checkBoxLabelDiv.appendChild(checkBoxLabel);
     checkBoxLabelDiv.appendChild(completeCheckBox);
     completeCheckBox.checked ? div.className = "list-complete" : "list-div" ;
+
+
   }
 }
 
-function checkboxColor(completeCheckBox, div, id){
+function checkboxColor(completeCheckBox, id){                            //this updates the completed property in the api
   const checkBoxUpdate = {completed: completeCheckBox.checked}
   axios.put(`https://api.vschool.io/pauldamico/todo/${id}`, checkBoxUpdate)
-  .then(res=>getData())
+  .then(response=>{getData(event)
+    event.preventDefault()
+    })
   .catch(err=>console.log(err))
-  if(completeCheckBox.checked === true){div.className = "list-complete"}
-  else if(completeCheckBox.checked === false){div.className = "list-div"}
-
 }
 
-function editItem(
+function editItem(                                                     //updates everything in edit
   id,
   titleElInput,
   priceElInput,
@@ -159,9 +150,9 @@ function removeItem(id, title) {
     .catch((error) => console.log(error));
 }
 
-function deleteAll() {
+function deleteAll() {                                                          
   const removeButton = document.getElementById("remove-all");
-  removeButton.addEventListener("click", () => {  
+  removeButton.addEventListener("click", () => {                               //remove all event listener
     axios
       .get("https://api.vschool.io/pauldamico/todo")
       .then((response) => {
@@ -181,9 +172,9 @@ function deleteAll() {
   });
 }
 
-const todoForm = document.todoForm;
-todoForm.addEventListener("submit", function (event) {
-  event.preventDefault();
+const todoForm = document.todoForm;                                         
+todoForm.addEventListener("submit", function (event) {                             //Add to List Submit eventListener
+  event.preventDefault();                       
   const newTodoData = {
     title: document.todoForm.title.value,
     price: document.todoForm.price.value,
