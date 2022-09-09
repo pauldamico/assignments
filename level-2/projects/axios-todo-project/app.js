@@ -1,5 +1,5 @@
 getData();
-// deleteAll();
+deleteAll();
 
 function clearList() {
   // document.getElementById("todo-list-container").innerHTML = "";
@@ -17,7 +17,7 @@ function getData() {
     .catch((error) => console.log(error));
 }
 
-function listData(data) {
+function listData(data) {                                            //this lists all of the data from the DB
   for (let x = 0; x < data.length; x++) {
     const div = document.createElement("div");
     div.className = "list-div";
@@ -26,75 +26,19 @@ function listData(data) {
     let descriptionEl = document.createElement("h3");
     descriptionEl.className = "description";
     let imageurlEL = document.createElement("img");
-
+    const editButtonEl = document.createElement("button");
     let completeCheckBox = document.createElement("input");
     let checkBoxLabel = document.createElement("label");
     let checkBoxLabelDiv = document.createElement("span");
     checkBoxLabel.textContent = "Finished?";
     completeCheckBox.type = "checkbox";
     completeCheckBox.name = "checkbox";
-
-    completeCheckBox.addEventListener("click", function () {
-      // Checkbox eventListener
-      checkboxColor(completeCheckBox, data[x]._id, div);
-    });
-    const deleteButtonEl = document.createElement("button"); //deleteButton eventListener
-    deleteButtonEl.addEventListener("click", function () {
-      removeItem(data[x]._id, data[x].title);
-      console.log("removed");
-    });
-    const editButtonEl = document.createElement("button");
-    editButtonEl.addEventListener("click", function () {
-      //editButton eventListener
-      console.dir(document.getElementById("todo-list-container"));
-
-      div.removeChild(titleEl); //removes all elements in edit
-      div.removeChild(priceEl);
-      div.removeChild(descriptionEl);
-      div.removeChild(imageurlEL);
-      div.removeChild(deleteButtonEl);
-      div.removeChild(editButtonEl);
-      div.removeChild(checkBoxLabelDiv);
-      let titleElInput = document.createElement("input");
-      titleElInput.value = data[x].title;
-      let priceElInput = document.createElement("input");
-      priceElInput.value = data[x].price;
-      let descriptionElInput = document.createElement("textarea");
-      descriptionElInput.className = "description";
-      descriptionElInput.value = data[x].description;
-      let imageurlELInput = document.createElement("input");
-      imageurlELInput.value = data[x].imgUrl;
-      let saveButton = document.createElement("button");
-      saveButton.textContent = "Save";
-      div.appendChild(titleElInput);
-      div.appendChild(priceElInput);
-      div.appendChild(descriptionElInput);
-      div.appendChild(imageurlELInput);
-      div.appendChild(deleteButtonEl);
-      div.appendChild(saveButton);
-      div.appendChild(checkBoxLabelDiv);
-      checkBoxLabelDiv.appendChild(checkBoxLabel);
-      checkBoxLabelDiv.appendChild(completeCheckBox);
-
-      editButtonEl.textContent = "Save";
-      saveButton.addEventListener("click", function () {
-        // Save eventListener
-
-        editItem(
-          data[x]._id,
-          titleElInput,
-          priceElInput,
-          descriptionElInput,
-          imageurlELInput,
-          completeCheckBox
-        );
-      });
-    });
     editButtonEl.textContent = "Edit";
+    const deleteButtonEl = document.createElement("button");
     deleteButtonEl.textContent = "Delete";
-    titleEl.textContent = `Name: ${data[x].title}`;
-    priceEl.textContent = `Price: ${data[x].price}`;
-    descriptionEl.textContent = `Info: ${data[x].description}`;
+    titleEl.textContent = `${data[x].title}`;
+    priceEl.textContent = `${data[x].price}`;
+    descriptionEl.textContent = `${data[x].description}`;
     imageurlEL.src = `${data[x].imgUrl}`;
     completeCheckBox.checked = data[x].completed;
     document.getElementById("todo-list-container").appendChild(div);
@@ -107,61 +51,118 @@ function listData(data) {
     div.appendChild(checkBoxLabelDiv);
     checkBoxLabelDiv.appendChild(checkBoxLabel);
     checkBoxLabelDiv.appendChild(completeCheckBox);
+    div.className = completeCheckBox.checked ? "list-complete" : "list-div";
+    completeCheckBox.addEventListener("click", function () {                          // Checkbox eventListener
+      checkboxColor(completeCheckBox, data[x]._id, div);
+    });
+    deleteButtonEl.addEventListener("click", function () {
+      //deleteButton eventListener
+      removeItem(data[x]._id, titleEl, data[x].title);
+      console.log("removed");
+    });
+    editButtonEl.addEventListener("click", function () {                              //editButton eventListener
+      let titleElInput = document.createElement("input");
+      let priceElInput = document.createElement("input");
+      let descriptionElInput = document.createElement("textarea");
+      let imageurlELInput = document.createElement("input");
+      let saveButton = document.createElement("button");
+      titleElInput.value = titleEl.textContent;
+      imageurlELInput.value = imageurlEL.currentSrc;
+      priceElInput.value = priceEl.textContent;
+      descriptionElInput.className = "description";
+      descriptionElInput.value = descriptionEl.textContent;
+      div.replaceChild(titleElInput, titleEl);                                         //Replace all Child Elements In Edit
+      div.replaceChild(priceElInput, priceEl);
+      priceElInput.type = "number";
+      div.replaceChild(descriptionElInput, descriptionEl);
+      div.replaceChild(imageurlELInput, imageurlEL);     
+      saveButton.textContent = "Save";  
+      div.replaceChild(saveButton, editButtonEl);
+      // div.replaceChild(imageurlELInput, imageurlEL);           //previously I removed all of the children elements instead of replacing which caused issues with the page refreshing
+      // div.removeChild(deleteButtonEl);
+      // div.removeChild(checkBoxLabelDiv);
+      // titleElInput.value = data[x].title;
+      // priceElInput.value = data[x].price;
+      // descriptionElInput.className = "description";
+      // descriptionElInput.value = data[x].description;
+      // imageurlELInput.value = data[x].imgUrl;
+      // div.appendChild(titleElInput);
+      // div.appendChild(priceElInput);
+      // div.appendChild(descriptionElInput);
+      // div.appendChild(imageurlELInput);
+      // div.appendChild(deleteButtonEl);
+      // div.appendChild(saveButton);
+      // div.appendChild(checkBoxLabelDiv);
+      // checkBoxLabelDiv.appendChild(checkBoxLabel);
+      // checkBoxLabelDiv.appendChild(completeCheckBox);
+      // editButtonEl.textContent = "Save";
+      saveButton.addEventListener("click", function () {
+        div.replaceChild(titleEl, titleElInput);                        //Sets child elements back to default
+        titleEl.textContent = titleElInput.value;
+        div.replaceChild(priceEl, priceElInput);
+        priceEl.textContent = priceElInput.value;
+        div.replaceChild(descriptionEl, descriptionElInput);
+        descriptionEl.textContent = descriptionElInput.value;
+        div.replaceChild(imageurlEL, imageurlELInput);
+        imageurlEL.src = imageurlELInput.value;
+        div.replaceChild(editButtonEl, saveButton);
+        editButtonEl.textContent = "Edit";
+        // Save eventListener
+
+        saveEdited(                                                      //updates all edited data to database
+          data[x]._id,
+          titleEl,
+          priceEl,
+          descriptionEl,
+          imageurlEL,
+          completeCheckBox
+        );
+      });
+    });
   }
 }
 
-function checkboxColor(completeCheckBox, id, div) {
-  //this updates the completed property in the api
+function checkboxColor(completeCheckBox, id, div) {                     //updates the checkbox value to the database when clicked
   const checkBoxUpdate = { completed: completeCheckBox.checked };
   axios
     .put(`https://api.vschool.io/pauldamico/todo/${id}`, checkBoxUpdate)
     .then((response) => {
-      if (completeCheckBox.checked === true) {
-        div.className = "list-complete";
-      } else if (completeCheckBox.checked === false) {
-        div.className = "list-div";
-      }
+      div.className = completeCheckBox.checked ? "list-complete" : "list-div";
     })
-
     .catch((err) => console.log(err));
 }
-
-function editItem( //updates everything in edit
+function saveEdited(                                                     //updates everything that was edited to the database
   id,
-  titleElInput,
-  priceElInput,
-  descriptionElInput,
-  imageurlELInput,
+  titleEl,
+  priceEl,
+  descriptionEl,
+  imageurlEL,
   completeCheckBox
 ) {
   const updates = {
-    title: titleElInput.value,
-    price: priceElInput.value,
-    description: descriptionElInput.value,
-    imgUrl: imageurlELInput.value,
+    title: titleEl.textContent,
+    price: priceEl.textContent,
+    description: descriptionEl.textContent,
+    imgUrl: imageurlEL.src,
     completed: completeCheckBox.checked,
   };
-
   axios
     .put(`https://api.vschool.io/pauldamico/todo/${id}`, updates)
-    .then((response) => getData())
+    .then((response) => alert(`ID ${id} has been updated`))
     .catch((error) => console.log(error));
 }
-
-function removeItem(id, title) {
-  // alert(`${title} has been deleted`)
+function removeItem(id, titleEl, title) {                             //Deletes entire object out of database and deletes parent element of a random child(titleEl)                 
+  alert(`${title} has been deleted`);
   axios
     .delete(`https://api.vschool.io/pauldamico/todo/${id}`)
     .then((response) => {
-      getData();
+      titleEl.parentElement.remove();
     })
     .catch((error) => console.log(error));
 }
-
-function deleteAll() {
+function deleteAll() {                                               //deletes all IDs at once from database (most likely refreshes the page after)  
   const removeButton = document.getElementById("remove-all");
   removeButton.addEventListener("click", () => {
-    //remove all event listener
     axios
       .get("https://api.vschool.io/pauldamico/todo")
       .then((response) => {
@@ -180,10 +181,8 @@ function deleteAll() {
     clearList();
   });
 }
-
-const todoForm = document.todoForm;
-todoForm.addEventListener("submit", function (event) {
-  //Add to List Submit eventListener
+const todoForm = document.todoForm;                                 //pulls all data from database when page first loads and lists all elements
+todoForm.addEventListener("submit", function (event) {              //submit event listener is located here
   event.preventDefault();
   const newTodoData = {
     title: document.todoForm.title.value,
@@ -192,7 +191,6 @@ todoForm.addEventListener("submit", function (event) {
     imgUrl: document.todoForm.imgurl.value,
     completed: false,
   };
-
   axios
     .post("https://api.vschool.io/pauldamico/todo", newTodoData)
     .then((response) => getData())
