@@ -1,9 +1,7 @@
 getData();
 // deleteAll();
 
-
 function clearList() {
-
   // document.getElementById("todo-list-container").innerHTML = "";
   while (document.getElementById("todo-list-container").firstChild) {
     document
@@ -11,16 +9,15 @@ function clearList() {
       .removeChild(document.getElementById("todo-list-container").firstChild);
   }
 }
-function getData() { 
-  clearList();                                                //clears everything locally so it doesn't show duplicates
+function getData() {
+  clearList(); //clears everything locally so it doesn't show duplicates
   axios
-  .get("https://api.vschool.io/pauldamico/todo")
+    .get("https://api.vschool.io/pauldamico/todo")
     .then((response) => listData(response.data))
     .catch((error) => console.log(error));
 }
 
 function listData(data) {
-
   for (let x = 0; x < data.length; x++) {
     const div = document.createElement("div");
     div.className = "list-div";
@@ -29,33 +26,35 @@ function listData(data) {
     let descriptionEl = document.createElement("h3");
     descriptionEl.className = "description";
     let imageurlEL = document.createElement("img");
-  
+
     let completeCheckBox = document.createElement("input");
     let checkBoxLabel = document.createElement("label");
     let checkBoxLabelDiv = document.createElement("span");
     checkBoxLabel.textContent = "Finished?";
-    completeCheckBox.type = "checkbox";   
+    completeCheckBox.type = "checkbox";
     completeCheckBox.name = "checkbox";
-    completeCheckBox.addEventListener("click", function(){                      // Checkbox eventListener               
-      checkboxColor(completeCheckBox, data[x]._id)
-     console.log(completeCheckBox.checked)
-    })
-        const deleteButtonEl = document.createElement("button");                //deleteButton eventListener
+
+    completeCheckBox.addEventListener("click", function () {
+      // Checkbox eventListener
+      checkboxColor(completeCheckBox, data[x]._id, div);
+    });
+    const deleteButtonEl = document.createElement("button"); //deleteButton eventListener
     deleteButtonEl.addEventListener("click", function () {
       removeItem(data[x]._id, data[x].title);
-      getData();
+      console.log("removed");
     });
-    const editButtonEl = document.createElement("button");                 
-    editButtonEl.addEventListener("click", function () {                        //editButton eventListener
+    const editButtonEl = document.createElement("button");
+    editButtonEl.addEventListener("click", function () {
+      //editButton eventListener
       console.dir(document.getElementById("todo-list-container"));
 
-      div.removeChild(titleEl);                                                 //removes all elements in edit
+      div.removeChild(titleEl); //removes all elements in edit
       div.removeChild(priceEl);
       div.removeChild(descriptionEl);
       div.removeChild(imageurlEL);
       div.removeChild(deleteButtonEl);
       div.removeChild(editButtonEl);
-      div.removeChild(checkBoxLabelDiv);         
+      div.removeChild(checkBoxLabelDiv);
       let titleElInput = document.createElement("input");
       titleElInput.value = data[x].title;
       let priceElInput = document.createElement("input");
@@ -73,13 +72,14 @@ function listData(data) {
       div.appendChild(imageurlELInput);
       div.appendChild(deleteButtonEl);
       div.appendChild(saveButton);
-      div.appendChild(checkBoxLabelDiv);                  
+      div.appendChild(checkBoxLabelDiv);
       checkBoxLabelDiv.appendChild(checkBoxLabel);
       checkBoxLabelDiv.appendChild(completeCheckBox);
 
       editButtonEl.textContent = "Save";
-      saveButton.addEventListener("click", function () {              // Save eventListener
-        
+      saveButton.addEventListener("click", function () {
+        // Save eventListener
+
         editItem(
           data[x]._id,
           titleElInput,
@@ -88,14 +88,15 @@ function listData(data) {
           imageurlELInput,
           completeCheckBox
         );
-      })});
+      });
+    });
     editButtonEl.textContent = "Edit";
     deleteButtonEl.textContent = "Delete";
     titleEl.textContent = `Name: ${data[x].title}`;
     priceEl.textContent = `Price: ${data[x].price}`;
     descriptionEl.textContent = `Info: ${data[x].description}`;
     imageurlEL.src = `${data[x].imgUrl}`;
-    completeCheckBox.checked=data[x].completed
+    completeCheckBox.checked = data[x].completed;
     document.getElementById("todo-list-container").appendChild(div);
     div.appendChild(titleEl);
     div.appendChild(priceEl);
@@ -106,22 +107,26 @@ function listData(data) {
     div.appendChild(checkBoxLabelDiv);
     checkBoxLabelDiv.appendChild(checkBoxLabel);
     checkBoxLabelDiv.appendChild(completeCheckBox);
-    completeCheckBox.checked ? div.className = "list-complete" : "list-div" ;
-
-
   }
 }
 
-function checkboxColor(completeCheckBox, id){                            //this updates the completed property in the api
-  const checkBoxUpdate = {completed: completeCheckBox.checked}
-  axios.put(`https://api.vschool.io/pauldamico/todo/${id}`, checkBoxUpdate)
-  .then(response=>{getData(event)
-    event.preventDefault()
+function checkboxColor(completeCheckBox, id, div) {
+  //this updates the completed property in the api
+  const checkBoxUpdate = { completed: completeCheckBox.checked };
+  axios
+    .put(`https://api.vschool.io/pauldamico/todo/${id}`, checkBoxUpdate)
+    .then((response) => {
+      if (completeCheckBox.checked === true) {
+        div.className = "list-complete";
+      } else if (completeCheckBox.checked === false) {
+        div.className = "list-div";
+      }
     })
-  .catch(err=>console.log(err))
+
+    .catch((err) => console.log(err));
 }
 
-function editItem(                                                     //updates everything in edit
+function editItem( //updates everything in edit
   id,
   titleElInput,
   priceElInput,
@@ -134,9 +139,9 @@ function editItem(                                                     //updates
     price: priceElInput.value,
     description: descriptionElInput.value,
     imgUrl: imageurlELInput.value,
-    completed: completeCheckBox.checked
+    completed: completeCheckBox.checked,
   };
-console.log(completeCheckBox.checked)
+
   axios
     .put(`https://api.vschool.io/pauldamico/todo/${id}`, updates)
     .then((response) => getData())
@@ -144,16 +149,19 @@ console.log(completeCheckBox.checked)
 }
 
 function removeItem(id, title) {
-  alert(`${title} has been deleted`)
+  // alert(`${title} has been deleted`)
   axios
     .delete(`https://api.vschool.io/pauldamico/todo/${id}`)
-    .then((response) => console.log(response))
+    .then((response) => {
+      getData();
+    })
     .catch((error) => console.log(error));
 }
 
-function deleteAll() {                                                          
+function deleteAll() {
   const removeButton = document.getElementById("remove-all");
-  removeButton.addEventListener("click", () => {                               //remove all event listener
+  removeButton.addEventListener("click", () => {
+    //remove all event listener
     axios
       .get("https://api.vschool.io/pauldamico/todo")
       .then((response) => {
@@ -173,15 +181,16 @@ function deleteAll() {
   });
 }
 
-const todoForm = document.todoForm;                                         
-todoForm.addEventListener("submit", function (event) {                             //Add to List Submit eventListener
-  event.preventDefault();                       
+const todoForm = document.todoForm;
+todoForm.addEventListener("submit", function (event) {
+  //Add to List Submit eventListener
+  event.preventDefault();
   const newTodoData = {
     title: document.todoForm.title.value,
     price: document.todoForm.price.value,
     description: document.todoForm.description.value,
     imgUrl: document.todoForm.imgurl.value,
-    completed: false
+    completed: false,
   };
 
   axios
@@ -194,5 +203,3 @@ todoForm.addEventListener("submit", function (event) {                          
   document.todoForm.description.value = "";
   document.todoForm.imgurl.value = "";
 });
-
-
