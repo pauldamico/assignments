@@ -55,8 +55,7 @@ function listData(data) {                                            //this list
     completeCheckBox.addEventListener("click", function () {                          // Checkbox eventListener
       checkboxColor(completeCheckBox, data[x]._id, div);
     });
-    deleteButtonEl.addEventListener("click", function () {
-      //deleteButton eventListener
+    deleteButtonEl.addEventListener("click", function () {                            //deleteButton eventListener    
       removeItem(data[x]._id, titleEl, data[x].title);
       console.log("removed");
     });
