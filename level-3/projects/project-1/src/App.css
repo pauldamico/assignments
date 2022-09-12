@@ -1,0 +1,115 @@
+.app-main {
+  display: flex;
+  background-color: grey;
+  width: 550px;
+  justify-content: center;
+
+}
+.app-div {
+  margin: 0px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  color: white;
+  display: flex;
+  background-color: rgb(47, 45, 45);
+  width: 317px;
+  height:fit-content;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.body {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.pic {
+  max-width: 317px;
+  max-height: 317px;
+}
+.title-div {
+  text-align: center;
+}
+.title-div > h1 {
+  margin: 0;
+}
+.title-div > h2 {
+  color: #f3bf99;
+  font-size: 12px;
+  margin: 0;
+}
+.title-div > a {
+  color: white;
+  font-size: 10px;
+}
+.button-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.button-container >a> button {
+  width: 130px;
+  height: 30px;
+  border-radius: 5px;
+}
+.right-but{
+  background-color: rgb(106, 166, 250);
+ 
+}
+.left-but>img{
+  position: relative; 
+  margin-right:10px;
+}
+.right-but>img{
+position: relative;
+top: 2px;
+margin-right:10px;
+}
+
+.about-div > h2 {
+  font-size: 20px;
+  margin: 0;
+  margin-top: 30px;
+}
+.about-div > h3 {
+  margin: 0;
+  font-size: 13px;
+  margin: 0;
+  margin-top: 10px;
+}
+
+.about-div > p {
+  color:#dcdcdca2;
+  margin:0;
+  font-size: 13px;
+  margin-top:10px;
+}
+.interests-div > h2 {
+  font-size: 20px;
+  margin: 0;
+  margin-top: 30px;
+}
+.interests-div > h3 {
+  margin: 0;
+  font-size: 13px;
+  margin: 0;
+  margin-top: 10px;
+}
+
+.interests-div > p {
+  color:#dcdcdca2;
+  margin:0;
+  font-size: 13px;
+  margin-top:10px;
+}
+.footer-div{
+  background-color: rgba(0, 0, 0, 0.606);
+  width: 317px;
+  display: flex;
+  margin-top: 20px;
+  height: 50px;
+  align-items: center;
+  justify-content: space-evenly;
+}

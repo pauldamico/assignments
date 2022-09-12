@@ -1,9 +1,8 @@
-import backgroundicon from "../images/backgroundicon.png"
 const Main = () => {
   return (
     <div className="main-div">
       <h1 className="fun-facts-title">Fun facts about React</h1>
-      <img className ="backicon" src={backgroundicon}/>
+      
       <ul className="fun-facts">
         <li>Was first released in 2013</li>
         <li>Was originally created by Jordan Walke</li>

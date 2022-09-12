@@ -10,6 +10,9 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  background-image: url(./images/backgroundicon.png);
+  background-repeat:no-repeat;
+  background-position: right 60%;
 }
 
 .react-facts {
@@ -26,9 +29,7 @@
   font-family: inter;
   font-weight: 700;
 }
-.fun-facts {
-  position: relative;
-  bottom: 260px;
+.fun-facts {  
   color: rgb(193, 190, 190);
   list-style: none;
   font-family: inter;
@@ -36,7 +37,7 @@
   line-height: 40px;
 }
 
-.fun-facts>li::before {
+.fun-facts>li::marker {
   content: "\2022";
   color: #00D8FF; 
   font-weight: bold;
@@ -60,10 +61,4 @@
   max-width: 600px;
 height:500px;
 background-color: rgba(0, 0, 0, 0.301);
-}
-.backicon{
-  position:relative;
-  left: 428px;
-  top: 5px;
-  z-index: -1;
 }
