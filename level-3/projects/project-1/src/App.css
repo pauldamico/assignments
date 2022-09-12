@@ -6,6 +6,7 @@
 
 }
 .app-div {
+  border-radius: 20px;
   margin: 0px;
   margin-top: 40px;
   margin-bottom: 40px;
@@ -24,6 +25,8 @@
   margin-right: 20px;
 }
 .pic {
+  border-top-left-radius:20px ;
+  border-top-right-radius:20px ;
   max-width: 317px;
   max-height: 317px;
 }
@@ -112,4 +115,6 @@ margin-right:10px;
   height: 50px;
   align-items: center;
   justify-content: space-evenly;
+  border-bottom-left-radius:20px ;
+  border-bottom-right-radius:20px ;
 }
