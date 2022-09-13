@@ -37,9 +37,35 @@ export default function Card() {
     },
   ];
 
+  const cardElements = experiences.map((experience) => {
+    return (
+      <div className="card-div">
+        <img src={experience.image} />
+        {experience.online && (
+          <button>{experience.soldOut === true ? "Sold Out" : "Online"}</button>
+        )}
+        <div className="bottom-info-div">
+          <div className="star-line">
+            <span>
+              <img src={star} />
+            </span>
+            <span> {experience.rating}</span>
+            <span className="comments">({experience.comments})</span>
+            <li> {experience.country}</li>
+          </div>
+          <div className="description">{experience.description}</div>
+          <div className="cost">
+            <b>From ${experience.cost} </b> / person
+          </div>
+        </div>
+      </div>
+    );
+  });
   return (
     <div className="all-card-div">
-      <div className="card-div">
+      {cardElements}
+      {cardElements}
+      {/* <div className="card-div">
         <img src={experiences[0].image} />
         {experiences[0].online && (
           <button>
@@ -105,7 +131,7 @@ export default function Card() {
             <b>From ${experiences[2].cost} </b> / person
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

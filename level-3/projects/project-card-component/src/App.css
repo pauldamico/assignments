@@ -8,16 +8,19 @@ nav{
   display: flex;
   justify-content: space-between;
   margin-left:20px;
+  overflow: auto;
 }
 .card-div>button{
   position: absolute;
-  bottom: 200px;
+  bottom: 270px;
   left: 5px;
 }
 .card-div{
  position: relative;
-  width:176px;
-height: 235px;
+  width:190px;
+  margin-right:50px;
+
+height: fit-content;
 z-index: -1;
 }
 .card-div>img{
@@ -75,4 +78,8 @@ color:grey;
 .comments{
   color:grey;
   margin-left:3px;
+}
+
+.description{
+  font-size: 10px;
 }
