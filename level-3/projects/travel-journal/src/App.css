@@ -1,0 +1,68 @@
+html {
+  background-color: rgb(188, 185, 185);
+}
+.app {
+  width: 550px;
+  background-color: white;
+}
+.nav-div {
+  display: flex;
+  height: 50px;
+  background-color: #f55a5a;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.nav {
+  color: white;
+}
+.nav-globe {
+  margin-right: 5px;
+}
+.card-div {
+  position: relative;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  margin-bottom: 30px;
+}
+.image-div {
+  grid-column: 1/2;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.image {
+  border-radius: 20px;
+  width: 126px;
+  height: 168px;
+}
+.body-div {
+  margin-top: 10px;
+}
+.location {
+  margin: 0;
+  margin-right: 20px;
+}
+.img-map {
+  margin-right: 6px;
+}
+.google-maps {
+  color: grey;
+  font-size: 12px;
+}
+.location-div {
+  display: flex;
+  justify-content: flex-start;
+}
+.title {
+  margin: 0;
+}
+.dates {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+.description {
+  margin: 0;
+  font-size: 14px;
+}
