@@ -4,8 +4,8 @@ export default [
     title: "Washington D.C.",
     location: "USA",
     googleMapsUrl:"https://www.google.com/maps/place/Washington,+DC/@38.8938003,-77.1581001,12z/data=!3m1!4b1!4m5!3m4!1s0x89b7c6de5af6e45b:0xc2524522d4885d2a!8m2!3d38.9071923!4d-77.0368707",
-    startDate: "12 Jan, 2021",
-    endDate: "24 Jan, 2021",
+    startDate: "1 Jan, 2010",
+    endDate: "24 Feb, 2012",
     description:"Washington, DC, the U.S. capital, is a compact city on the Potomac River, bordering the states of Maryland and Virginia. It’s defined by imposing neoclassical monuments and buildings – including the iconic ones that house the federal government’s 3 branches: the Capitol, White House and Supreme Court.",
     imageUrl:
       "https://media.istockphoto.com/photos/united-states-capitol-picture-id182666077?b=1&k=20&m=182666077&s=170667a&w=0&h=4Sl7rV1CUv2wtf6M6__IfmUE8TWzDsOj3wUhssB4PQI=",
@@ -28,8 +28,8 @@ export default [
     title: "Saint Thomas",
     location: "USA",
     googleMapsUrl:"https://www.google.com/maps/place/St+Thomas/@18.3429754,-64.9719512,13z/data=!3m1!4b1!4m5!3m4!1s0x8c051a89dc0635b7:0x5d1280e7f1f697e4!8m2!3d18.3380965!4d-64.8940946",
-    startDate: "22 March, 2015",
-    endDate: "28 March, 2015",
+    startDate: "15 June, 2000",
+    endDate: "20 June, 2000",
     description:
       "Cancún, a St. Thomas is the gateway isle of the U.S. Virgin Islands in the Caribbean. It's known for its beaches and snorkeling spots. Territorial capital Charlotte Amalie, founded by the Danish in the 1600s, is a busy cruise-ship port. Historic buildings include a 1679 watchtower called Blackbeard’s Castle, in reference to the area’s pirate history.  ",
     imageUrl:
