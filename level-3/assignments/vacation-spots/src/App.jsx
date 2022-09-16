@@ -11,6 +11,9 @@ const spots = vacationSpots.map((spot)=>{return(
 )
 })
 
+
+
+
   return (
     <div className="App">
       <Navbar/>
