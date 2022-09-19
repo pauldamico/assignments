@@ -1,0 +1,59 @@
+.white{
+  background-color: white;
+}
+.black{
+  background-color: black;
+}
+.purple{
+  background-color: purple;
+}
+.blue{
+  background-color: blue;
+}
+.big-dj-one{
+background-image:linear-gradient(red, white);
+
+transition:transform 2s;
+transform:rotate(360deg)
+}
+.big-dj-two{
+  background-image:linear-gradient(green, orange);
+
+  transition:transform 2s;
+  transform:rotate(360deg)
+}
+.big-dj-three{
+  background-image:linear-gradient(pink, yellow);
+  transition:transform 2s;
+ transform:rotate(360deg)
+}
+.big-dj-four{
+  background-image:linear-gradient(brown, blue);
+  transition:transform 2s;
+  transform:rotate(360deg)
+}
+
+
+
+
+
+.App{
+  display: grid;
+  grid-template-columns: 300px 300px;
+  grid-template-rows: 300px 300px;
+  gap:10px;
+}
+
+div.App>div{
+border: 1px solid black;
+}
+.button-div{
+  display: grid;
+  grid-template-columns: 300px 300px;
+  grid-template-rows: auto;
+  gap:10px;
+}
+
+.button-div>button{
+font-weight: bold;
+}
