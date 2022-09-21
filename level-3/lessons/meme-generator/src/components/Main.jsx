@@ -4,7 +4,7 @@ export default function Main(props) {
   const [meme, setMeme] = React.useState({
     image: "https://i.imgflip.com/1e7ql7.jpg",
     topText: "Enter",
-    botText: "Your Own Text"
+    botText: "Your Own Text",
   });
   const [leftInput, setLeftInput] = useState();
   const [rightInput, setRightInput] = useState();
