@@ -39,6 +39,7 @@ export default function Main(props) {
             onChange={onChangeLeft}
             value={leftInput}
             className="input-1"
+            name=""
           />
           <input
             required
