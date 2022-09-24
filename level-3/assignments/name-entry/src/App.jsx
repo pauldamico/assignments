@@ -13,14 +13,16 @@ function App() {
   function handleChange(e) {
     const { name, value, type, checked } = e.target;
     setTodo((prev) => ({ ...prev, [name]: value }));
+   
   }
 
   function handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault();   
     setListTodo((prev) => [
       ...prev,
       { item1: todo.item1, date: todo.date, id: nanoid() },
     ]);
+   setTodo(prev=>({item1:"", date:""}))
   }
 
   function remove(id) {
