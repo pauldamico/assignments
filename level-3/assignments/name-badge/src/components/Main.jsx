@@ -1,23 +1,25 @@
 export default function Main(props) {
-
   return (
     <div>
       <form onSubmit={props.onSubmit} className="form">
         <input
-          value={props.firstName}
+          required
+          value={props.name}
           type="text"
           onChange={props.onChange}
           placeholder="First Name"
           name="firstName"
         />
         <input
+          required
           value={props.lastName}
           type="text"
           onChange={props.onChange}
           placeholder="Last Name"
           name="lastName"
         />
-        <input       
+        <input
+          required
           type="email"
           onChange={props.onChange}
           value={props.email}
@@ -25,6 +27,7 @@ export default function Main(props) {
           name="email"
         />
         <input
+          required
           value={props.birth}
           type="text"
           onChange={props.onChange}
@@ -32,13 +35,15 @@ export default function Main(props) {
           name="birth"
         />
         <input
+          required
           value={props.phone}
-          type="text"
+          type="number"
           onChange={props.onChange}
           placeholder="Phone"
           name="phone"
         />
         <input
+          required
           value={props.food}
           type="text"
           onChange={props.onChange}
@@ -46,6 +51,7 @@ export default function Main(props) {
           name="food"
         />
         <textarea
+        required
           value={props.info}
           onChange={props.onChange}
           placeholder="Tell us about yourself"

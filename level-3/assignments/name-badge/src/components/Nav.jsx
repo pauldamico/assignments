@@ -1,7 +1,8 @@
-export default function Nav (){
+export default function Nav (props){
+
     return(
-        <div>
-            <nav>Badge Creator</nav>
+        <div style = {props.style} className="nav-div">
+            <nav className = "nav">Badge: </nav>
         </div>
     )
 }

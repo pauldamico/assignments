@@ -3,18 +3,59 @@
   margin:0
 }
 
-body{
-display: flex;
-flex-direction: column;
-  background-color: red;
+.App{
+  display: grid;
+  grid-template-columns: 10% auto 50%;
+  margin-top: 20px
+}
+.App>div{
+  grid-column:2/3 ;
+}
+.badge{
+ 
+
+border-style: solid;
+padding-bottom: 20px;
+margin-bottom: 10px;
+}
+
+.nav-div{
+  border:2px solid black;
+background-color: grey;
+  padding: 5px;
+  height:20px;
+  display: flex;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: white;
+  
+}
+.badge>ul{
+  margin-left: 10%;
+  margin-right: 10%;  
+  padding:0px;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 30px;  
+}
+
+
+
+.info{
+  border-style:solid;
+  min-height:100px ;
+  grid-column: 1/-1;
 }
 .form{
+  border-style: solid;
   padding-top: 3%;
   padding-left:10%;
   padding-right:10%;
+  padding-bottom: 20px;
   display: grid;
   grid-template-columns: auto auto;
   gap: 30px;
+  margin-bottom: 20px;
 }
 .form>textarea{
   grid-column: 1/-1;

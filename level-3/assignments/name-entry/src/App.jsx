@@ -17,7 +17,8 @@ function App() {
   }
 
   function handleSubmit(e) {
-    e.preventDefault();   
+    e.preventDefault();
+    const { name, value, type, checked } = e.target
     setListTodo((prev) => [
       ...prev,
       { item1: todo.item1, date: todo.date, id: nanoid() },

@@ -5,6 +5,7 @@
 }
 .main-div{
   color: white;
+  margin-bottom: 10px;
   box-shadow: -1px 4px 3px 1px #8001008a;
   padding: 20px;
   border-radius: 20px;
@@ -24,9 +25,11 @@ margin-bottom: 20px;
 .header-div>h1{
 text-align: center;
 }
-
+.list{
+  background-color: blue;
+}
 .App{
-
+  padding-bottom: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,18 +39,12 @@ text-align: center;
   border-radius: 20px;
 }
 .list-ul{
-  border-radius: 20px;
   display: grid;
-  margin: 0;
-  margin-top: 10px;
   grid-template-columns: 100px 10px 100px 10px auto;
   list-style: none;
-  padding: 0;
-  margin-bottom: 1px;
+  padding: 9px;
   width: fit-content;
-
   background-color: #00000096;
-  font-style: bold;
   justify-items: start;
   align-items: center;
 }

@@ -1,47 +1,70 @@
-import React, { useState } from 'react'
-import Badge from './components/Badge'
-import Main from './components/Main'
-import Nav from './components/Nav'
+import React, { useState } from "react";
+import Badge from "./components/Badge";
+import Main from "./components/Main";
+import Nav from "./components/Nav";
 
-import './App.css'
+import "./App.css";
 
 function App() {
+  const [badge, setBadge] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    birth: "",
+    phone: "",
+    food: "",
+    info: "",
+  });
+  const [badgeList, setBadgeList] = useState([]);
+  const [colorToggle, setColorToggle] = useState(false);
 
-  const [badge, setBadge] = useState({firstName:"", lastName:"", email:"", birth:"", phone:"", food:"", info:""})
-  const [badgeList, setBadgeList] = useState([])
+  function changeHandler(e) {
+    const { name, value } = e.target;
+    setBadge((prev) => ({ ...prev, [name]: value }));
+  }
 
-function changeHandler (e){
-  const {name, value} = e.target
-setBadge(prev=>({...prev, [name]:value}))}
+  function submitHandler(e) {
+    e.preventDefault();
+    setColorToggle((prev) => !prev);
+    setBadgeList((prev) => [...prev, { ...badge, color: colorToggle }]);
 
+    console.log(badgeList);
+  }
 
-function submitHandler (e){
-  e.preventDefault()
-setBadgeList(prev=>([...prev, {...badge}]))
-console.log(badgeList)
-}
-
-  const badgeElements = badgeList.map(item=>(
-    <Badge key={Math.random()}>
-      <ul>
-  <li>{item.firstName}</li>,
-  <li>{item.lastName}</li>,
-  <li>{item.email}</li>,
-  <li>{item.birth}</li>,
-  <li>{item.phone}</li>,
-  <li>{item.food}</li>
-  </ul>
-  </Badge>
-  ))
+  const badgeElements = badgeList.map((item) => (<div key={Math.random()} >
+    <Nav style={{ backgroundColor: item.color ? "red" : "blue" }} />
+    <Badge>
+      <ul >
+        <h5>
+          <label>Name:</label> {item.firstName} {item.lastName}
+        </h5>
+        <h5>
+          <label>Phone number:</label> {item.phone}
+        </h5>
+        <h5>
+          <label>Place of Birth</label> {item.birth}
+        </h5>
+        <h5>
+          <label>Favorite Food:</label> {item.food}
+        </h5>
+        <h5>
+          <label>Email Address:</label> {item.email}
+        </h5>
+        <h5 className="info">
+          {" "}
+          <label>Info</label> {item.info}
+        </h5>
+      </ul>
+    </Badge>
+    </div>
+  ));
 
   return (
     <div className="App">
-      <Nav/>
-      <Main {...badge} onSubmit={submitHandler} onChange={changeHandler}/>
-     {badgeElements}
-
+      <Main {...badge} onSubmit={submitHandler} onChange={changeHandler} />
+      {badgeElements}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

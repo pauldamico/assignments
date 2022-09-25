@@ -1,6 +1,13 @@
+
+
+
 export default function Badge (props){
+
+   
+
     return(
-        <div>
+        <div className="badge">
+   
             {props.children}
         </div>
     )
