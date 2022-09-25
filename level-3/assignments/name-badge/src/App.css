@@ -1,0 +1,29 @@
+*{
+
+  margin:0
+}
+
+body{
+display: flex;
+flex-direction: column;
+  background-color: red;
+}
+.form{
+  padding-top: 3%;
+  padding-left:10%;
+  padding-right:10%;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 30px;
+}
+.form>textarea{
+  grid-column: 1/-1;
+  height:120px;
+}
+.form>div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  grid-column: 1/-1;
+}
