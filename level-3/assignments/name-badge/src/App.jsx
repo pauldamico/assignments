@@ -27,7 +27,15 @@ function App() {
     e.preventDefault();
     setColorToggle((prev) => !prev);
     setBadgeList((prev) => [...prev, { ...badge, color: colorToggle }]);
-
+setBadge(prev=>({
+  firstName: "",
+  lastName: "",
+  email: "",
+  birth: "",
+  phone: "",
+  food: "",
+  info: "",
+}))
     console.log(badgeList);
   }
 

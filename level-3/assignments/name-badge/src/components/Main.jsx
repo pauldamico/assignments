@@ -4,7 +4,7 @@ export default function Main(props) {
       <form onSubmit={props.onSubmit} className="form">
         <input
           required
-          value={props.name}
+          value={props.firstName}
           type="text"
           onChange={props.onChange}
           placeholder="First Name"
