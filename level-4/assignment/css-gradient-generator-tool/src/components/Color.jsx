@@ -1,29 +1,30 @@
-import React, {useState} from "react"
+import React, { useState } from "react";
 
-export default function Color (props){
-    const [gradientList, setGradientList] = useState({color: "#000000"})
-    
-    const[listColor, setListColor] = useState([])
-    
-    const changeHandler = (e)=>{
-       
-        setGradientList(e.target.value)
-        console.log(gradientList)
-    }
-    
-    const addColorList =()=>{
-    
-        setListColor(prev=>([...prev, {...gradientList, id:Math.random(), name:`Color ${listColor.length + 3}`}]))
+export default function Color(props) {
+  const [gradientColor, setGradientColor] = useState({ id:Math.random(), color: "" });
 
-    }
+  const [listColor, setListColor] = useState([]);
+
+  const colorChangeHandler = (event) => {
+    const {name, value} = event.target
+    setGradientColor(prev=>({...prev, [name]:value}));
+
+  };
+
+  const addColorHandler = (e) => {
+    e.preventDefault();
+  setListColor(prev=>([...prev, {...gradientColor}]))
+    console.log(listColor);
+  };
 
 
-//     const listElements = gradientList.map(item=>  <h3 key = {Math.random()}>
-//     Color {gradientList.length} <span>colorstate </span> <input  onChange ={colorChangeHandler} name ="topColor" value= {gradient.botColor} type="color"/>
-//   </h3>)
 
-    return(<div>
-        {listElements}
-         <button onClick={addColorList}>Add Color</button>
-    </div>)
+      const listElements = listColor.map(item=><h1 key={Math.random()}>{item.color}<input name="color" value={gradientColor.color} onChange = {colorChangeHandler} type="color" /></h1>  )
+
+  return (
+    <div>
+      {listElements}
+      <button onClick={addColorHandler}>Add Color</button>
+    </div>
+  );
 }
