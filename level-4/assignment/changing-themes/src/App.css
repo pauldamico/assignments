@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+}
+.app-light {
+  color: rgb(0, 208, 255);
+  background-color: greenyellow;
+}
+.app-dark {
+  color: white;
+  background-color: rgb(0, 0, 0);
+}
+.main-light-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: greenyellow;
+}
+.main-dark-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: rgb(0, 0, 0);
+}
+.title-light {
+  color: rgb(0, 208, 255);
+  background-color: greenyellow;
+}
+.title-dark {
+  color: white;
+  background-color: rgb(0, 0, 0);
+}
+.main-text{
+  padding:10px;
+}
+
+.button-light {
+  color: rgb(255, 0, 0);
+  border-radius: 5px;
+  background-color: rgb(243, 149, 253);
+  box-shadow: 0px 2px 2px 2px green;
+  border: none;
+}
+.button-dark {
+  border-radius: 5px;
+  border: none;
+  color: white;
+  box-shadow: 0px 2px 2px 2px rgb(75, 75, 75);
+  background-color: rgb(0, 0, 0);
+}
+.nav-light {
+  background-color: rgb(248, 255, 47);
+padding-top: 5px;
+  font-size: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.nav-light>h2 {
+  background-color: rgba(255, 255, 255, 0.278);
+border-radius: 2px;
+  font-size: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+.nav-dark {
+  background-color: rgb(0, 0, 0);
+  padding-top: 5px;
+  color: white;
+  font-size: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.nav-dark>h2 {
+  background-color: rgba(255, 255, 255, 0.057);
+border-radius: 2px;
+  font-size: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+.nav-div-light {
+
+  box-shadow: 0px 2px 3px 1px rgb(38 179 18 / 55%);
+  background-color: rgb(47, 206, 255);
+  margin-bottom: 5px;
+  font-size: 6px;
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+
+.nav-div-dark {
+  margin-bottom: 5px;
+  font-size: 6px;
+  box-shadow: 0px 2px 2px 2px rgba(71, 72, 71, 0.507) ;
+  background-color: rgb(0, 0, 0);
+  text-align: center;
+  padding-bottom: 5px;
+}
+
+.footer1-dark {
+  display: flex;
+  background-color: rgb(52, 52, 52);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: white;
+  font-size: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.footer1-light {  
+  background-color: rgb(255, 234, 0);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: rgb(5, 88, 255);
+  font-size: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
+.footer-light {
+  color: rgb(0, 208, 255);
+  background-color: greenyellow;
+  font-size: 5px;
+}
+.footer-dark {
+  color: white;
+  background-color: rgb(0, 0, 0);
+  font-size: 5px;
+}
