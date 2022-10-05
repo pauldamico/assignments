@@ -11,11 +11,6 @@ export default function Color(props) {
 
   };
 
-  const addColorHandler = (e) => {
-    e.preventDefault();
-  setListColor(prev=>([...prev, {...gradientColor}]))
-    console.log(listColor);
-  };
 
 
 
@@ -24,7 +19,7 @@ export default function Color(props) {
   return (
     <div>
       {listElements}
-      <button onClick={addColorHandler}>Add Color</button>
+     
     </div>
   );
 }
