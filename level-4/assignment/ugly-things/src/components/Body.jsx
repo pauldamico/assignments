@@ -1,6 +1,6 @@
 import react, { useContext } from "react";
 import Button from "./reusuable/Button";
-import { UglyContext } from "../uglyContext";
+import {UglyContext} from "../uglyContext";
 
 export default function Body() {
   const {uglyData, uglyChangeHandler, uglySubmitHandler} = useContext(UglyContext);
