@@ -2,15 +2,25 @@
 * {
   margin: 0;
 }
+html{
+  background-image: url("https://cdn.gobankingrates.com/wp-content/uploads/2019/12/purple-house-in-San-Francisco-California-iStock-135807553.jpg?quality=75&w=800");
+background-size: cover;
+}
 .nav {
+  box-shadow: 10px 2px 4px 4px rgb(255 255 255 / 93%);
+  color:yellow;
+  text-shadow: 0px 2px 1px white;
+  background-color: rgba(0, 0, 0, 0.923);
  font-family: 'Orbitron', sans-serif;
   font-size: 30px;
   display: flex;
   flex-direction: column;
+  padding: 10px;
   align-items: center;
   justify-content: center;
 }
 .form {
+  background-color: rgba(0, 0, 0, 0.523);
   padding: 30px;
   font-size: 10px;
   display: grid;
@@ -21,16 +31,53 @@
     text-align: center;
 }
 input {
+  margin-top: 10px;
   width: 100%;
+  border-radius: 5px;
+}
+label{
+  font-family: 'Orbitron', sans-serif;
+  color:yellow;
+
 }
 .button {
   width: fit-content;
   padding: 10px;
 }
-
-.button-div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.button-div{
   grid-column: 2/3;
+}
+
+
+img{
+  border-radius: 5px;
+    height:100px;
+    width:100px;
+}
+
+.ugly-title{
+  color: yellow;
+}
+.ugly-description{
+  color: yellow;
+}
+
+.list-div{
+  background-color: rgba(0, 0, 0, 0.523);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.list-info-div{
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.899);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+button{
+  border-radius: 5px;;
 }

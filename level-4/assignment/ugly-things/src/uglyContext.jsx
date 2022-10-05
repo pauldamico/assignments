@@ -4,7 +4,7 @@ import axios from "axios";
 const UglyContext = React.createContext();
 
 const UglyContextProvider = (props) => {
-
+  
   const [uglyData, setUglyData] = useState({
     title:"",
     description: "",
