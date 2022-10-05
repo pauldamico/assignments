@@ -10,8 +10,9 @@ export default function Body() {
     <div>
       <form onSubmit={uglySubmitHandler} className="form">
         <div>
-          <label>Enter URL</label>
+          <label className="imgurl-label">Enter URL</label>
           <input
+          required
             className="url-input"
             name="imgUrl"
             value={uglyData.imgUrl}
@@ -20,8 +21,9 @@ export default function Body() {
           />
         </div>
         <div>
-          <label>Enter Title</label>
+          <label className="title-label">Enter Title</label>
           <input
+              required
             className="title-input"
             name="title"
             value={uglyData.title}
@@ -30,8 +32,9 @@ export default function Body() {
           />
         </div>
         <div>      
-          <label>Description</label>
+          <label className="description-label">Description</label>
           <input
+              required
             className="description-input"
             name="description"
             value={uglyData.description}

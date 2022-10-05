@@ -41,11 +41,12 @@ const toggleEditHandler = (id) => {
   console.log(uglyList)
 };
 
-    return(<div>  
+    return(<div className="main-edit-input-div">  
       {props.item.value === true &&
-      <div>
+      <div className="edit-main-div">
 <div>
-          <label>Enter URL</label>
+  <nav className="edit-nav"><h1>Change Info</h1></nav>
+          <label className="enter-url">Enter URL</label>
           <input
             className="url-input"
             name="imgUrl"
@@ -75,7 +76,8 @@ const toggleEditHandler = (id) => {
             onChange={editChangeHandler}
           />
         </div></div>}
-        <button
+        <div className="edit-button-div">
+        <button className="save-button"
         onClick={() => {
           toggleEditHandler(props.item._id);
         }}
@@ -83,13 +85,14 @@ const toggleEditHandler = (id) => {
         {props.item.value ? "Save" : "Edit"}
       </button>
       <button
+      className ="remove-button"
         onClick={() => {
           deleteUglyItem(props.item._id);
         }}
       >
         Remove
       </button>
-
+      </div>
     </div>)
 
 

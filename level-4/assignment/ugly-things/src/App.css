@@ -5,14 +5,15 @@
 html{
   background-image: url("https://cdn.gobankingrates.com/wp-content/uploads/2019/12/purple-house-in-San-Francisco-California-iStock-135807553.jpg?quality=75&w=800");
 background-size: cover;
+background-attachment: fixed;
 }
 .nav {
   box-shadow: 10px 2px 4px 4px rgb(255 255 255 / 93%);
   color:yellow;
-  text-shadow: 0px 2px 1px white;
+  text-shadow: 2px 2px 1px rgb(255 255 255);
   background-color: rgba(0, 0, 0, 0.923);
  font-family: 'Orbitron', sans-serif;
-  font-size: 30px;
+  font-size: 60px;
   display: flex;
   flex-direction: column;
   padding: 10px;
@@ -36,6 +37,7 @@ input {
   border-radius: 5px;
 }
 label{
+  
   font-family: 'Orbitron', sans-serif;
   color:yellow;
 
@@ -51,15 +53,24 @@ label{
 
 img{
   border-radius: 5px;
-    height:100px;
-    width:100px;
+    height:150px;
+    width:200px;
 }
 
 .ugly-title{
+  box-shadow: 0px 3px 0px 0px #ffc0cbbd;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width:100%;
+  height:64px;
+  background-color: rgba(128, 128, 128, 0.484);
+  text-align: center;
   color: yellow;
+  padding-top: 20px;
 }
 .ugly-description{
   color: yellow;
+  margin:10px;
 }
 
 .list-div{
@@ -67,6 +78,10 @@ img{
   display: flex;
   flex-direction: row;
   justify-content: center;
+  padding-bottom: 30px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  
 }
 
 .list-info-div{
@@ -76,8 +91,76 @@ img{
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  width:300px;
+  height: 290px;
+  padding-bottom: 10px;
+  box-shadow: 2px 2px 2px 1px #ffc0cb7a;
 }
-
+.app{
+  background-color: rgba(0, 0, 0, 0.201);
+}
 button{
   border-radius: 5px;;
+}
+
+.imgurl-label{
+font-size: 25px;
+}
+.description-label{
+  font-size: 25px;
+  
+}
+.title-label{
+  font-size: 25px;
+}
+.edit-main-div{
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding-left: 0px;
+  padding-right: 0px;
+  width:300px;
+  height: 290px;
+  background-color: rgba(0, 0, 0, 0.899);
+
+  box-shadow: 2px 2px 2px 1px #ffc0cb7a;
+}
+
+
+.save-button{
+ margin-left:10px;
+}
+
+.edit-button-div{
+  
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.edit-nav{
+  box-shadow: 0px 3px 0px 0px #ffc0cbbd;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width:100%;
+ 
+  background-color: rgba(128, 128, 128, 0.484);
+  text-align: center;
+  color: yellow;
+  padding-top: 20px;
+  height:64px;
+margin-bottom:20px;
+}
+.main-edit-input-div{
+  width:100%;
+  
+}
+.url-input{
+  width:96%;
+}
+.title-input{
+  width:96%;
+}
+.description-input{
+  width:96%;
 }
