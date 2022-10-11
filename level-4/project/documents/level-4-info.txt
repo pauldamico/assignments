@@ -1,5 +1,5 @@
 
-
+Here is my Level 4 Capstone Proposal
 1.
 The app will be designed for gamers so they can create a profile with their top 5 games that they play.  It will allow them to save their progress, character info, rank info, usernames, and any other info.  They will search for their games in the games tab using the mmobomb.com API and can select a game to add to their profile.  There will also be a tab for up to date gaming news. 
 
@@ -13,7 +13,7 @@ Footer will contain copyright info/social media links
 3. 
 First thing user will see is the Home page with their 5 games they previously saved.  If it is their first time it will just have a add game link which will navigate to the games component and allow them to search for their games.  
 
-4.
-5. https://wireframe.cc/pro/pp/015a03f10589223
+4.https://wireframe.cc/pro/pp/015a03f10589223
+5. Mind Map Attached
 
 For some reason wireframe.cc doesn't allow me to choose the colors or images I want to use so I left everything with no color.

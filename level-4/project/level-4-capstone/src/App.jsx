@@ -10,6 +10,11 @@ import "./App.css";
 
 function App() {
   const [mmoData, setMmoData] = useState([]);
+  const [filterData, setFilterData] = useState({shooterFilter:false, rpgFilter:false, mmoarpgFilter:false})
+  const [query, setQuery] = useState("")
+
+  
+  
 
   useEffect(() => {
     axios
@@ -29,9 +34,13 @@ function App() {
       .catch((err) => console.log(err));
   }, []);
 
-  function checkState() {
-    const itemCounter = mmoData.filter((item) => item.addedToProfile === true);
-    console.log(itemCounter.length);
+  const searchHandler =()=>{
+    setQuery(event.target.value)  
+    console.log(query)
+ }
+
+  function checkState() {  
+    console.log(mmo);
   }
 
   function addToProfile(id) {
@@ -69,14 +78,19 @@ function App() {
               onClick={() => {
                 removeFromProfile(item.id);
               }}
-              className="game-list-img"
+              className="profile-list-img"
               src={item.thumbnail}
             />
           </div>
         </div>
       )
   );
-  const listMmoData = mmoData.map(
+
+  // if(filterData.shooterFilter===false && filterData.rpgFilter===false && filterData.mmoarpgFilter===False){
+
+
+  let listMmoData =   
+  mmoData.filter(item=>item.title.toLowerCase().includes(query)).map(
     (item) =>
       item.addedToProfile === false && (
         <div key={item.id}>
@@ -92,15 +106,150 @@ function App() {
           </div>
         </div>
       )
-  );
+  )
 
+if(filterData.shooterFilter === true){listMmoData =   
+  mmoData.filter(item=>item.genre.toLowerCase().includes("shooter")).map(
+    (item) =>
+      item.addedToProfile === false && (
+        <div key={item.id}>
+          <div>
+            <li>{item.title}</li>
+            <img
+              onClick={() => {
+                addToProfile(item.id);
+              }}
+              className="game-list-img"
+              src={item.thumbnail}
+            />
+          </div>
+        </div>
+      )
+  )}
+
+  else if(filterData.rpgFilter === true){listMmoData =   
+    mmoData.filter(item=>item.genre.toLowerCase().includes("mmorpg")).map(
+      (item) =>
+        item.addedToProfile === false && (
+          <div key={item.id}>
+            <div>
+              <li>{item.title}</li>
+              <img
+                onClick={() => {
+                  addToProfile(item.id);
+                }}
+                className="game-list-img"
+                src={item.thumbnail}
+              />
+            </div>
+          </div>
+        )
+    )}
+    else if(filterData.mmoarpgFilter === true){listMmoData =   
+      mmoData.filter(item=>item.genre.toLowerCase().includes("mmoarpg")).map(
+        (item) =>
+          item.addedToProfile === false && (
+            <div key={item.id}>
+              <div>
+                <li>{item.title}</li>
+                <img
+                  onClick={() => {
+                    addToProfile(item.id);
+                  }}
+                  className="game-list-img"
+                  src={item.thumbnail}
+                />
+              </div>
+            </div>
+          )
+      )}
+
+
+  let sortByTitle = () => {
+    mmoData.sort((a, b) => {
+      if (a.title < b.title) {
+        return -1;
+      } else if (a.title > b.title) {
+        return;
+      }
+    });
+    setMmoData((prev) => prev.map((item) => item));
+  };
+
+
+
+
+  const sortByDate = () => {
+    mmoData.sort((b, a) => {
+      if (a.release_date < b.release_date) {
+        return -1;
+      } else if (a.release_date > b.release_date) {
+        return;
+      }
+    });
+    setMmoData((prev) => prev.map((item) => item));
+  };
+  const sortByCompany = () => {
+    mmoData.sort((a, b) => {
+      if (a.developer < b.developer) {
+        return -1;
+      } else if (a.developer > b.developer) {
+        return;
+      }
+    });
+    setMmoData((prev) => prev.map((item) => item));
+  };
+
+  const filterByPlatform = () => {       
+    mmoData.sort((b, a) => {
+      if (a.release_date < b.release_date) {
+        return -1;
+      } else if (a.release_date > b.release_date) {
+        return;
+      }
+    });
+    setMmoData((prev) => prev.map((item) => item));
+  };
+
+  const filterShooter = () => {
+    setFilterData(prev=>prev.every=false)
+    setFilterData((prev) =>({...prev, shooterFilter:true}))}
+  const filterRPG = () => {
+    setFilterData(prev=>prev.every=false)
+    setFilterData((prev) =>({...prev, rpgFilter:true}))}
+  const filterARPG = () => {
+    setFilterData(prev=>prev.every=false)
+    setFilterData((prev) =>({...prev, mmoarpgFilter:true}))}
+
+
+
+  
   return (
     <div>
       <button onClick={checkState}>Click</button>
       <Nav mmoData={mmoData} />
       <Routes>
         <Route path="/" element={<Home listProfileData={listProfileData} />} />
-        <Route path="/games" element={<Games listMmoData={listMmoData} />} />
+        <Route
+          path="/games"
+          element={
+            <Games
+            query={query}
+            mmoData={mmoData}
+            searchHandler={searchHandler}
+            listMmoData={listMmoData}
+            filterShooter={filterShooter}
+            filterRPG={filterRPG}
+            filterARPG={filterARPG}
+            sortByTitle={sortByTitle}
+            sortByDate={sortByDate}
+            sortByCompany={sortByCompany}
+        
+  
+            
+            />
+          }
+        />
         <Route path="/news" element={<News />}></Route>
       </Routes>
       <Footer />
