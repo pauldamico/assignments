@@ -4,20 +4,26 @@ export default function Nav(props) {
     <div>
       <nav className="nav">
         <div className="title-div">
-          {/* <img className="title-img" src={props.mmoData[0].thumbnail} />
-          <h1>Gamer Profile</h1>
-          <img className="title-img" src={props.mmoData[0].thumbnail} /> */}
+       
+          <h1 className="main-title">Gamer Profile</h1>
+         
         </div>
         <div className="nav-link-div">
+            <div className="nav-link-title-div">
           <Link className="link" to="/">
             Home
           </Link>
+          </div>
+     <div className="nav-link-title-div">
           <Link className="link" to="/games">
             Games
           </Link>
+          </div>
+          <div className="nav-link-title-div">
           <Link className="link" to="/news">
             MMO News
           </Link>
+          </div>
         </div>
       </nav>
     </div>
