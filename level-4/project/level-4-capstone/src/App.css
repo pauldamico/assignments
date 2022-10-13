@@ -49,9 +49,56 @@ ul{
   box-shadow: 0px 2px 3px 3px rgb(11 11 11 / 70%);
   background-color: rgba(255, 0, 0, 0.872);
 }
+.my-game-stats-div{
+  display: flex;
+  flex-direction: column;
+}
+.my-game-stats-div>div{
+  display: flex;
+  align-items: flex-end;
+}
+.my-game-stats-div>div>h2{
+ margin:0;
+ margin-right: 10px;
+ padding: 0;
+}
+.my-game-stats-div>div>h3{
+  color:white;
+  margin:0;
+  margin-right: 10px;
+  padding: 0;
+ }
 
 .link{
   color:white;
+}
+.main-input-game-div{
+  background-color: rgba(0, 0, 0, 0.66);
+
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 1000;
+}
+.input-game-div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 10px;
+  background-color: white;
+box-shadow: 3px 3px 3px 3px grey;
+  position: absolute;
+  top: 30%;
+  right: 600px;
+  bottom: 5%;
+  left: 600px;
+  z-index: 1001;
+}
+.input-game-div>input{
+  border-radius: 5px;
 }
 
 .title-img{
@@ -63,7 +110,11 @@ ul{
 .home-div{
   border: 1px solid black;
   grid-template-columns: repeat(20, 5%);
+  grid-template-rows: auto;
   display: grid;
+}
+.game-comp{
+  grid-column: 1/5;
 }
 .home-div-left{
  
@@ -143,6 +194,7 @@ margin-bottom: 10px;
 
 }
 .home-div-right{
+  overflow: auto;
   padding: 10px;
   box-shadow: inset 0px -2px 15px 3px black;
   background-color: grey;

@@ -1,26 +1,61 @@
-import Game from "./Game"
+import Game from "./Game";
 export default function Home(props) {
-    
-    const listProfileData = props.mmoData.map(
-        (item) =>
-          item.addedToProfile === true &&
-          <div key={item.id}>
-        <Game item={item} editStatsHandler={props.editStatsHandler}/>
-        {/* <h1 className="home-div-right">test</h1> */}
+  const listProfileData = props.mmoData.map(
+    (item) =>
+      item.addedToProfile === true && (
+        <div className="game-comp" key={item.id}>
+          <Game
+            saveInfo={props.saveInfo}
+            item={item}
+            mmoData={props.mmoData}
+            editStatsHandler={props.editStatsHandler}
+            removeFromProfile={props.removeFromProfile}
+          />
         </div>
-            )
+      )
+  );
 
+  const gameStats = props.mmoData.map(
+    (item) =>
+      item.addedToProfile === true && (
+        <div>
+          <h1>{item.title}</h1>
+          <div className="my-game-stats-div">
+            <div>
+              <h2>Progress: </h2>
+              <h3>{item.progress}</h3>
+            </div>
+            <div>
+              <h2>Character Info: </h2>
+              <h3>{item.characters}</h3>
+            </div>
+            <div>
+              <h2>Rank: </h2>
+              <h3>{item.rank}</h3>
+            </div>
+            <div>
+              <h2>Username Info: </h2>
+              <h3>{item.usernames}</h3>
+            </div>
+            <div>
+              <h2>Other Info:</h2>
+              <h3>{item.other}</h3>
+            </div>
+          </div>
+        </div>
+      )
+  );
   return (
     <div className="home-div">
+      {/* <div className="home-div-left">
+        <h5>My Games</h5>
+        <div className="profile-list-div"> */}
       <div className="home-div-left">
         <h5>My Games</h5>
-        <div className="profile-list-div">
- {listProfileData}
-        </div>
+        {listProfileData}
       </div>
-      <div className="home-div-right">
-     {props.listGameInfo}
-      </div>
+
+      <div className="home-div-right">{gameStats}</div>
     </div>
   );
 }

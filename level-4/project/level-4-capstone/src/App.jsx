@@ -56,15 +56,25 @@ function App() {
     console.log(query);
   };
 
-  function checkState() {
-    console.log(mmo);
+  const saveInfo = (id, progress, characters, rank, usernames, other)=>{
+        // setMmoData(prev=>prev.map(item=>item.id === id ? {...item, edit:false }: item))  
+        setMmoData(prev=>prev.map(item=>(item.id === id ? {...item, edit:false, progress: progress ,
+          characters: characters ,
+          rank:rank ,
+          usernames: usernames,
+          other:other} : item )
+        ))
+        
+     
   }
+
+
   function editStatsHandler(id, progress, characters, rank, usernames, other) {
 setMmoData(prev=>prev.map(item=>(item.id === id ? {...item, edit:!item.edit, progress: progress ,
   characters: characters ,
   rank:rank ,
   usernames: usernames,
-  other:other} : item )
+  other:other} : {...item, edit:false} )
 ))
 console.log(mmoData)
 
@@ -103,17 +113,6 @@ console.log(mmoData)
   //     )
   // );
 
-  const listGameInfo = mmoData.map(
-    (item) =>
-      item.edit === true && (<div key={item.id}>
-        <h2>Progress</h2>
-        <h2>Characters</h2>
-        <h2>Rank</h2>
-        <h2>username</h2>
-        <h2>Other</h2>
-        </div>
-      )
-  );
 
   // if(filterData.shooterFilter===false && filterData.rpgFilter===false && filterData.mmoarpgFilter===False){
 
@@ -307,7 +306,7 @@ console.log(mmoData)
     <div>
       <Nav mmoData={mmoData} />
       <Routes>
-        <Route path="/" element={ <Home mmoData={mmoData} editStatsHandler={editStatsHandler} removeFromProfile={removeFromProfile}/>} />
+        <Route path="/" element={ <Home saveInfo={saveInfo} mmoData={mmoData}  editStatsHandler={editStatsHandler} removeFromProfile={removeFromProfile}/>} />
         <Route
           path="/games"
           element={
