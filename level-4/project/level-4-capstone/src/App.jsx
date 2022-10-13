@@ -33,7 +33,7 @@ function App() {
       )
       .then((res) =>
         setMmoData((prev) => [
-          ...res.data.map((item) => ({ ...item, edit:false, addedToProfile: false })),
+          ...res.data.map((item) => ({ ...item, edit:false, addedToProfile: false, showStats:false  })),
         ])
       )
       .catch((err) => console.log(err));
@@ -63,9 +63,7 @@ function App() {
           rank:rank ,
           usernames: usernames,
           other:other} : item )
-        ))
-        
-     
+        ))        
   }
 
 
@@ -77,7 +75,6 @@ setMmoData(prev=>prev.map(item=>(item.id === id ? {...item, edit:!item.edit, pro
   other:other} : {...item, edit:false} )
 ))
 console.log(mmoData)
-
   }
    
 
@@ -105,17 +102,17 @@ console.log(mmoData)
       )
     );
   }
+  function showStats(id) {
 
-  // const listProfileData = mmoData.map(
-  //   (item) =>item.addedToProfile === true &&
-  //     (
-  //       <Home mmoData={mmoData} editStatsHandler={editStatsHandler} removeFromProfile={removeFromProfile} key={item.id} item={item} />
-  //     )
-  // );
-
-
-  // if(filterData.shooterFilter===false && filterData.rpgFilter===false && filterData.mmoarpgFilter===False){
-
+    setMmoData(prev=>prev.map(item=>({...item, showStats:false})))
+    setMmoData((prev) =>
+      prev.map((item) =>
+        item.id === id
+          ? { ...item, showStats:true }
+          : item
+      )
+    );
+  }
   let listMmoData = mmoData
     .filter((item) => item.title.toLowerCase().includes(query))
     .map(
@@ -270,16 +267,16 @@ console.log(mmoData)
     setMmoData((prev) => prev.map((item) => item));
   };
 
-  const filterByPlatform = () => {
-    mmoData.sort((b, a) => {
-      if (a.release_date < b.release_date) {
-        return -1;
-      } else if (a.release_date > b.release_date) {
-        return;
-      }
-    });
-    setMmoData((prev) => prev.map((item) => item));
-  };
+  // const filterByPlatform = () => {
+  //   mmoData.sort((b, a) => {
+  //     if (a.release_date < b.release_date) {
+  //       return -1;
+  //     } else if (a.release_date > b.release_date) {
+  //       return;
+  //     }
+  //   });
+  //   setMmoData((prev) => prev.map((item) => item));
+  // };
 
   const filterShooter = () => {
     setFilterData((prev) => (prev.every = false));
@@ -306,7 +303,7 @@ console.log(mmoData)
     <div>
       <Nav mmoData={mmoData} />
       <Routes>
-        <Route path="/" element={ <Home saveInfo={saveInfo} mmoData={mmoData}  editStatsHandler={editStatsHandler} removeFromProfile={removeFromProfile}/>} />
+        <Route path="/" element={ <Home showStats={showStats} saveInfo={saveInfo} mmoData={mmoData}  editStatsHandler={editStatsHandler} removeFromProfile={removeFromProfile}/>} />
         <Route
           path="/games"
           element={

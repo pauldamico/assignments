@@ -5,6 +5,7 @@ export default function Home(props) {
       item.addedToProfile === true && (
         <div className="game-comp" key={item.id}>
           <Game
+          showStats={props.showStats}
             saveInfo={props.saveInfo}
             item={item}
             mmoData={props.mmoData}
@@ -17,9 +18,9 @@ export default function Home(props) {
 
   const gameStats = props.mmoData.map(
     (item) =>
-      item.addedToProfile === true && (
-        <div>
-          <h1>{item.title}</h1>
+      item.showStats === true &&  (
+        <div key={item.id}>
+          <h1 className="game-stat-title">{item.title}</h1>
           <div className="my-game-stats-div">
             <div>
               <h2>Progress: </h2>

@@ -45,6 +45,7 @@ export default function Games (props){
               className="profile-list-img"
               src={props.item.thumbnail}
             />
+            <button onClick = {()=>{props.showStats(props.item.id)}} className="show-stats-button">Show Stats</button>
             <button className="remove-game" onClick={() => {
                 props.removeFromProfile(props.item.id);
               }}>Remove Game</button>

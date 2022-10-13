@@ -1,6 +1,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 
+*{
+  font-family: 'Righteous', cursive;
+}
 .main-title{
   margin:0;
 
@@ -34,6 +37,7 @@ ul{
     justify-content: space-around;
    
 }
+
 .nav-link-div{
   padding:40px;  
   padding-bottom: 20px;
@@ -68,7 +72,9 @@ ul{
   margin-right: 10px;
   padding: 0;
  }
-
+ .game-stat-title{
+  color: green;
+ }
 .link{
   color:white;
 }
@@ -160,7 +166,7 @@ padding-top: 5px;
   color: white;
   border: none;
   font-weight: bold;
-  border-radius: 20px;
+  border-radius: 5px;
   grid-column: 1/2;
   grid-row: 8/11;
   z-index: 100;
@@ -173,13 +179,26 @@ padding-top: 5px;
   color: white;
   border:none;
   font-weight: bold;
-  border-radius: 20px;
+  border-radius: 5px;
   grid-column: 3/4;
   grid-row: 8/11;
   z-index: 100;
   margin-right:10px;
   margin-bottom: 10px;
   background-color: rgba(255, 0, 0, 0.638);
+}
+.show-stats-button{
+  box-shadow: 0px 2px 3px 3px rgb(11 11 11 / 70%);
+  color: white;
+  border:none;
+  font-weight: bold;
+  border-radius: 5px;
+  grid-column: 2/3;
+  grid-row: 8/11;
+  z-index: 100;
+  
+  margin-bottom: 10px;
+  background-color: rgba(0, 128, 0, 0.759);
 }
 .home-div-left>h5{
 
