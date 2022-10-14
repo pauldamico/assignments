@@ -22,11 +22,12 @@ export default function Games(props) {
     props.editStatsHandler(id);
     setGameInfo((prev) => ({
       ...prev,
-      progress: props.item.progress,
-      characters: props.item.characters,
+      progress:props.item.progress,
+      characters:props.item.characters,
       rank: props.item.rank,
-      usernames: props.item.usernames,
-      other: props.item.other,
+      usernames:props.item.usernames,
+      other: props.item.other
+
     }));
   };
 

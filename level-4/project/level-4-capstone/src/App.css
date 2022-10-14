@@ -75,7 +75,7 @@ ul{
   color:black;
   font-size: 20px;
   margin:0;
-  margin-bottom: 50px;
+  margin-top: 10px;
   margin-right: 10px;
   padding: 0;
  }
@@ -367,3 +367,7 @@ color:white;
   margin-right: 40px;
 }
 
+.progress{
+  margin-left:80%;
+  width:100px
+}

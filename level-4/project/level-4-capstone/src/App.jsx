@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
@@ -11,6 +11,7 @@ import "./App.css";
 
 function App() {
   const [mmoData, setMmoData] = useState([]);
+const count = useRef(0)
 
   const [filterData, setFilterData] = useState({
     shooterFilter: false,
@@ -21,7 +22,12 @@ function App() {
   });
   const [query, setQuery] = useState("");
 
+
+
   useEffect(() => {
+    count.current = count.current + 1   
+    if (localStorage.getItem("myData") === null) {
+      console.log("wrong")
     axios
       .get(
         "https://cors-anywhere.herokuapp.com/https://www.mmobomb.com/api1/games",
@@ -38,13 +44,33 @@ function App() {
             edit: false,
             addedToProfile: false,
             showStats: false,
+            progress: "",
+            characters: "",
+            rank: "",
+            usernames: "",
+            other: "",
           })),
         ])
       )
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err));}
+
+      else if (localStorage.getItem("myData") != null && count.current > 1){
+        console.log("get")
+    JSON.parse(localStorage.getItem("myData"))
+        setMmoData(JSON.parse(localStorage.getItem("myData")))
+      
+      }
   }, []);
 
-  // console.log(mmoData.map(item=>item.platform))///////////////////////////////
+
+  useEffect(() => {
+   if( count.current > 1) {
+
+    localStorage.setItem("myData", JSON.stringify(mmoData))
+    console.log("set");}
+    ;
+  }, [mmoData]);
+
 
   const searchResetFilters = () => {
     setFilterData((prev) => ({
@@ -80,10 +106,9 @@ function App() {
     );
   };
 
-  const cancel = ()=>{
-    setMmoData(prev=>prev.map(item=>({ ...item,
-      edit: false,})))
-  }
+  const cancel = () => {
+    setMmoData((prev) => prev.map((item) => ({ ...item, edit: false })));
+  };
 
   function editStatsHandler(id) {
     setMmoData((prev) =>
@@ -96,15 +121,14 @@ function App() {
   }
 
   function addToProfile(id) {
-    let itemCounter = mmoData.filter((item) => item.addedToProfile === true);    
-      setMmoData((prev) =>
-        prev.map((item) =>
-          item.id === id
-            ? { ...item, addedToProfile: !item.addedToProfile }
-            : item
-        )
-      );
-
+    let itemCounter = mmoData.filter((item) => item.addedToProfile === true);
+    setMmoData((prev) =>
+      prev.map((item) =>
+        item.id === id
+          ? { ...item, addedToProfile: !item.addedToProfile }
+          : item
+      )
+    );
   }
 
   function removeFromProfile(id) {
@@ -124,7 +148,6 @@ function App() {
       prev.map((item) => (item.id === id ? { ...item, showStats: true } : item))
     );
   }
-
 
   let listMmoData = mmoData
     .filter((item) => item.title.toLowerCase().includes(query))
@@ -146,8 +169,9 @@ function App() {
         )
     );
 
-    function genreFilter (gametype){
-      listMmoData = mmoData.filter((item) => item.genre.toLowerCase().includes(gametype))
+  function genreFilter(gametype) {
+    listMmoData = mmoData
+      .filter((item) => item.genre.toLowerCase().includes(gametype))
       .map(
         (item) =>
           item.addedToProfile === false && (
@@ -165,10 +189,11 @@ function App() {
             </div>
           )
       );
-    }
+  }
 
-    function platformFilter (platformType){
-      listMmoData = mmoData.filter((item) => item.platform.toLowerCase().includes(platformType))
+  function platformFilter(platformType) {
+    listMmoData = mmoData
+      .filter((item) => item.platform.toLowerCase().includes(platformType))
       .map(
         (item) =>
           item.addedToProfile === false && (
@@ -186,20 +211,18 @@ function App() {
             </div>
           )
       );
-    }
+  }
 
   if (filterData.shooterFilter === true) {
-    genreFilter ("shooter")
+    genreFilter("shooter");
   } else if (filterData.rpgFilter === true) {
-    genreFilter ("mmorpg")
+    genreFilter("mmorpg");
   } else if (filterData.mmoarpgFilter === true) {
-    genreFilter ("mmoarpg") 
-
+    genreFilter("mmoarpg");
   } else if (filterData.pcFilter === true) {
-    platformFilter ("pc") 
-
+    platformFilter("pc");
   } else if (filterData.webFilter === true) {
-    platformFilter ("web browser") 
+    platformFilter("web browser");
   }
 
   let sortByTitle = () => {
@@ -261,14 +284,14 @@ function App() {
 
   return (
     <div>
-     
+      <button onClick={(()=>{localStorage.clear()})}>Clear Local Storage</button>
       <Nav mmoData={mmoData} />
       <Routes>
         <Route
           path="/"
           element={
             <Home
-            cancel={cancel}
+              cancel={cancel}
               showStats={showStats}
               saveInfo={saveInfo}
               mmoData={mmoData}

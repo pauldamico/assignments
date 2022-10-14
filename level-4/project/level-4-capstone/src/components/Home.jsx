@@ -1,4 +1,5 @@
 import Game from "./Game";
+
 export default function Home(props) {
   const listProfileData = props.mmoData.map(
     (item) =>
@@ -26,6 +27,7 @@ export default function Home(props) {
             <div>
               <h2>Progress: </h2>
               <h3>{item.progress}</h3>
+              
             </div>
             <div>
               <h2>Characters: </h2>
@@ -49,6 +51,7 @@ export default function Home(props) {
   );
   return (
     <div className="home-div">
+      
       {/* <div className="home-div-left">
         <h5>My Games</h5>
         <div className="profile-list-div"> */}
