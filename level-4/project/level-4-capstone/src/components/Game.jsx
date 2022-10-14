@@ -64,7 +64,9 @@ export default function Games(props) {
               onChange={editChangeHandler}
             />
             <h2>Other</h2>
-            <textarea
+            <textarea       
+            rows={5}     
+            cols={33}
               type="text"
               value={gameInfo.other}
               name="other"

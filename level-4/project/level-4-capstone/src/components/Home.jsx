@@ -41,7 +41,7 @@ export default function Home(props) {
             </div>
             <div>
               <h2>Other:</h2>
-              <h3>{item.other}</h3>
+              <h3 className="other">{item.other}</h3>
             </div>
           </div>
         </div>
