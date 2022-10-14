@@ -5,6 +5,7 @@ export default function Home(props) {
       item.addedToProfile === true && (
         <div className="game-comp" key={item.id}>
           <Game
+          cancel={props.cancel}
           showStats={props.showStats}
             saveInfo={props.saveInfo}
             item={item}
@@ -27,7 +28,7 @@ export default function Home(props) {
               <h3>{item.progress}</h3>
             </div>
             <div>
-              <h2>Character Info: </h2>
+              <h2>Characters: </h2>
               <h3>{item.characters}</h3>
             </div>
             <div>
@@ -35,11 +36,11 @@ export default function Home(props) {
               <h3>{item.rank}</h3>
             </div>
             <div>
-              <h2>Username Info: </h2>
+              <h2>Username: </h2>
               <h3>{item.usernames}</h3>
             </div>
             <div>
-              <h2>Other Info:</h2>
+              <h2>Other:</h2>
               <h3>{item.other}</h3>
             </div>
           </div>
