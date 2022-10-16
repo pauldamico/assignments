@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, {useContext, useState } from "react";
 import {FaRegEdit } from "react-icons/fa"
 import {RiDeleteBin5Line } from "react-icons/ri"
+import {MMOContext} from "../mmoContext";
 
 
 
 
-export default function Games(props) {
+
+export default function Game(props) {
+  
+  const {saveInfo, editStatsHandler, showStats,cancel, removeFromProfile} = useContext(MMOContext)
   const [gameInfo, setGameInfo] = useState({
     progress: "",
     characters: "",
@@ -19,7 +23,7 @@ export default function Games(props) {
   };
 
   const edit = (id) => {
-    props.editStatsHandler(id);
+    editStatsHandler(id);
     setGameInfo((prev) => ({
       ...prev,
       progress:props.item.progress,
@@ -75,7 +79,7 @@ export default function Games(props) {
             /><div className={"edit-buttons-div"}>
             <button
               onClick={() => {
-                props.saveInfo(
+                saveInfo(
                   props.item.id,
                   gameInfo.progress,
                   gameInfo.characters,
@@ -87,13 +91,13 @@ export default function Games(props) {
             >
               Save
             </button>
-            <button onClick={props.cancel}>Cancel</button></div>
+            <button onClick={cancel}>Cancel</button></div>
           </div>
         </div>
       )}
 
       <div  onClick={() => {
-            props.showStats(props.item.id);
+            showStats(props.item.id);
           }} className="home-item-div">
             <div className="profile-list-title">
         <li >{props.item.title}</li></div>
@@ -109,7 +113,7 @@ export default function Games(props) {
         <RiDeleteBin5Line
           className="remove-game"
           onClick={() => {
-            props.removeFromProfile(props.item.id);
+            removeFromProfile(props.item.id);
           }}
       />
       </div>

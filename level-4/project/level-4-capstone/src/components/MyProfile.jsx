@@ -1,19 +1,12 @@
 import Game from "./Game";
 
-export default function Home(props) {
+export default function MyProfile(props) {
   const listProfileData = props.mmoData.map(
     (item) =>
       item.addedToProfile === true && (
         <div className="game-comp" key={item.id}>
-          <Game
-          cancel={props.cancel}
-          showStats={props.showStats}
-            saveInfo={props.saveInfo}
-            item={item}
-            mmoData={props.mmoData}
-            editStatsHandler={props.editStatsHandler}
-            removeFromProfile={props.removeFromProfile}
-          />
+          <Game             
+            item={item}              />
         </div>
       )
   );
@@ -51,10 +44,7 @@ export default function Home(props) {
   );
   return (
     <div className="home-div">
-      
-      {/* <div className="home-div-left">
-        <h5>My Games</h5>
-        <div className="profile-list-div"> */}
+  
       <div className="home-div-left">
         <h5>My Games</h5>
         {listProfileData}

@@ -1,18 +1,17 @@
-import React, { useState, useEffect, useRef } from "react";
-
+import React, { useContext, useState } from "react";
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
-import Home from "./components/Home";
+import MyProfile from "./components/MyProfile";
 import Games from "./components/Games";
 import News from "./components/News";
-import axios from "axios";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { MMOContext } from "./mmoContext";
 import "./App.css";
 
 function App() {
-  const [mmoData, setMmoData] = useState([]);
-const count = useRef(0)
-
+  const { mmoData, setMmoData, searchResetFilters, editStatsHandler } =
+    useContext(MMOContext);
+  const [query, setQuery] = useState("");
   const [filterData, setFilterData] = useState({
     shooterFilter: false,
     rpgFilter: false,
@@ -20,108 +19,13 @@ const count = useRef(0)
     pcFilter: false,
     webFilter: false,
   });
-  const [query, setQuery] = useState("");
-
-
-
-  useEffect(() => {
-    count.current = count.current + 1   
-    if (localStorage.getItem("myData") === null) {
-      console.log("wrong")
-    axios
-      .get(
-        "https://cors-anywhere.herokuapp.com/https://www.mmobomb.com/api1/games",
-        {
-          headers: {
-            "X-Requested-With": "origin",
-          },
-        }
-      )
-      .then((res) =>
-        setMmoData((prev) => [
-          ...res.data.map((item) => ({
-            ...item,
-            edit: false,
-            addedToProfile: false,
-            showStats: false,
-            progress: "",
-            characters: "",
-            rank: "",
-            usernames: "",
-            other: "",
-          })),
-        ])
-      )
-      .catch((err) => console.log(err));}
-
-      else if (localStorage.getItem("myData") != null && count.current > 1){
-        console.log("get")
-    JSON.parse(localStorage.getItem("myData"))
-        setMmoData(JSON.parse(localStorage.getItem("myData")))
-      
-      }
-  }, []);
-
-
-  useEffect(() => {
-   if( count.current > 1) {
-
-    localStorage.setItem("myData", JSON.stringify(mmoData))
-    console.log("set");}
-    ;
-  }, [mmoData]);
-
-
-  const searchResetFilters = () => {
-    setFilterData((prev) => ({
-      ...prev,
-      shooterFilter: false,
-      rpgFilter: false,
-      mmoarpgFilter: false,
-      pcFilter: false,
-      webFilter: false,
-    }));
-  };
   const searchHandler = () => {
     setQuery(event.target.value);
     console.log(query);
   };
 
-  const saveInfo = (id, progress, characters, rank, usernames, other) => {
-    // setMmoData(prev=>prev.map(item=>item.id === id ? {...item, edit:false }: item))
-    setMmoData((prev) =>
-      prev.map((item) =>
-        item.id === id
-          ? {
-              ...item,
-              edit: false,
-              progress: progress,
-              characters: characters,
-              rank: rank,
-              usernames: usernames,
-              other: other,
-            }
-          : item
-      )
-    );
-  };
-
-  const cancel = () => {
-    setMmoData((prev) => prev.map((item) => ({ ...item, edit: false })));
-  };
-
-  function editStatsHandler(id) {
-    setMmoData((prev) =>
-      prev.map((item) =>
-        item.id === id
-          ? { ...item, edit: !item.edit }
-          : { ...item, edit: false }
-      )
-    );
-  }
-
   function addToProfile(id) {
-    let itemCounter = mmoData.filter((item) => item.addedToProfile === true);
+    // let itemCounter = mmoData.filter((item) => item.addedToProfile === true);
     setMmoData((prev) =>
       prev.map((item) =>
         item.id === id
@@ -130,25 +34,6 @@ const count = useRef(0)
       )
     );
   }
-
-  function removeFromProfile(id) {
-    setMmoData((prev) => prev.map((item) => ({ ...item, showStats: false })));
-    setMmoData((prev) =>
-      prev.map((item) =>
-        item.id === id
-          ? { ...item, addedToProfile: !item.addedToProfile }
-          : item
-      )
-    );
-    console.log(mmoData);
-  }
-  function showStats(id) {
-    setMmoData((prev) => prev.map((item) => ({ ...item, showStats: false })));
-    setMmoData((prev) =>
-      prev.map((item) => (item.id === id ? { ...item, showStats: true } : item))
-    );
-  }
-
   let listMmoData = mmoData
     .filter((item) => item.title.toLowerCase().includes(query))
     .map(
@@ -284,20 +169,19 @@ const count = useRef(0)
 
   return (
     <div>
-      <button onClick={(()=>{localStorage.clear()})}>Clear Local Storage</button>
+      <button
+        onClick={() => {
+          localStorage.clear();
+        }}
+      >
+        Clear Local Storage
+      </button>
       <Nav mmoData={mmoData} />
       <Routes>
         <Route
           path="/"
           element={
-            <Home
-              cancel={cancel}
-              showStats={showStats}
-              saveInfo={saveInfo}
-              mmoData={mmoData}
-              editStatsHandler={editStatsHandler}
-              removeFromProfile={removeFromProfile}
-            />
+            <MyProfile mmoData={mmoData} editStatsHandler={editStatsHandler} />
           }
         />
         <Route

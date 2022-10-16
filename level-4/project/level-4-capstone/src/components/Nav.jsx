@@ -11,7 +11,7 @@ export default function Nav(props) {
         <div className="nav-link-div">
             <div className="nav-link-title-div">
           <Link className="link" to="/">
-            Home
+            My Profile
           </Link>
           </div>
      <div className="nav-link-title-div">
