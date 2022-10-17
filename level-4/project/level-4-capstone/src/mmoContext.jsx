@@ -2,12 +2,9 @@ import React, { useState, createContext, useEffect, useRef } from "react";
 import axios from "axios";
 const MMOContext = createContext();
 function MMOContextProvider(props) {
+  
   const [mmoData, setMmoData] = useState([]);
   const count = useRef(0);
-
-
- 
-
   useEffect(() => {
     count.current = count.current + 1;
     if (localStorage.getItem("myData") === null) {
@@ -51,16 +48,6 @@ function MMOContextProvider(props) {
     }
   }, [mmoData]);
 
-  const searchResetFilters = () => {
-    setFilterData((prev) => ({
-      ...prev,
-      shooterFilter: false,
-      rpgFilter: false,
-      mmoarpgFilter: false,
-      pcFilter: false,
-      webFilter: false,
-    }));
-  };
   const saveInfo = (id, progress, characters, rank, usernames, other) => {
     // setMmoData(prev=>prev.map(item=>item.id === id ? {...item, edit:false }: item))
     setMmoData((prev) =>
@@ -79,7 +66,6 @@ function MMOContextProvider(props) {
       )
     );
   };
-  
   function editStatsHandler(id) {
     setMmoData((prev) =>
       prev.map((item) =>
@@ -107,7 +93,6 @@ function MMOContextProvider(props) {
           : item
       )
     );
-    console.log(mmoData);
   }
   return (
     <MMOContext.Provider
@@ -115,12 +100,11 @@ function MMOContextProvider(props) {
         mmoData: mmoData,
         setMmoData: setMmoData,
         count: count,
-        searchResetFilters:searchResetFilters,
-        saveInfo:saveInfo,       
-        editStatsHandler:editStatsHandler,
-        showStats:showStats,
-        removeFromProfile:removeFromProfile,
-        cancel:cancel
+        saveInfo: saveInfo,
+        editStatsHandler: editStatsHandler,
+        showStats: showStats,
+        removeFromProfile: removeFromProfile,
+        cancel: cancel,
       }}
     >
       {props.children}
