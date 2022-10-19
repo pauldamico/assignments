@@ -3,12 +3,7 @@ import {FaRegEdit } from "react-icons/fa"
 import {RiDeleteBin5Line } from "react-icons/ri"
 import {MMOContext} from "../mmoContext";
 
-
-
-
-
-export default function Game(props) {
-  
+export default function Game(props) {  
   const {saveInfo, editStatsHandler, showStats,cancel, removeFromProfile} = useContext(MMOContext)
   const [gameInfo, setGameInfo] = useState({
     progress: "",
@@ -31,7 +26,6 @@ export default function Game(props) {
       rank: props.item.rank,
       usernames:props.item.usernames,
       other: props.item.other
-
     }));
   };
 
