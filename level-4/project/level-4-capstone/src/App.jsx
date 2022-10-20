@@ -17,13 +17,13 @@ function App() {
 
   return (
     <div>
-      <button
+      {/* <button
         onClick={() => {
           localStorage.clear();
         }}
       >
         Clear Local Storage
-      </button>
+      </button> */}
       <Nav mmoData={mmoData} />
       <Routes>
         <Route
