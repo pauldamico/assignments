@@ -4,7 +4,7 @@ import Nav from "./components/Nav";
 import MyProfile from "./components/MyProfile";
 import Games from "./components/Games";
 import News from "./components/News";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {Routes, Route } from "react-router-dom";
 import { MMOContext } from "./mmoContext";
 import "./App.css";
 
