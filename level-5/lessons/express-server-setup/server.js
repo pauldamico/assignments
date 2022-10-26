@@ -3,7 +3,7 @@ const app = express()
 app.use(express.json())
 
 app.get('/', (req, res)=>{
-    res.send("Welcome to the vehicle page")
+    res.send(`<p>Welcome to the vehicle page</p><p>/car</p><p>/motorcycles</p>`)
 })
 
 app.use('/cars', require('./routes/carRouters.js'))

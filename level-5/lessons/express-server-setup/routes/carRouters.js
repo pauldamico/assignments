@@ -10,12 +10,17 @@ const cars = [{
     {make:'ford', color:'white', _id: uuidv4()},
 ]
 
-
+carRouter.get('/:carId',(req, res)=>{
+const carId = req.params.carId
+const foundCar = cars.find(car=>car._id === carId && car)
+res.send(foundCar)
+})
 carRouter.route('/')
 .get((req, res)=>{
     res.send(cars)
+ 
     })
-    .post((req, res)=>{
+.post((req, res)=>{
         const newCar = req.body
         newCar._id = uuidv4()
        cars.push(newCar)
