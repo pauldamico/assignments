@@ -3,10 +3,10 @@ const app = express()
 app.use(express.json())
 
 app.get('/', (req, res)=>{
-    res.send("<h1>Welcome to the Dog API</h1><p>Use the /dogs endpoint to see a list of dogs</p>")
+    res.send("<h1>Welcome to the Inventory API</h1><p>Use the /inventory endpoint to see a list of items</p>")
 })
 
-app.use('/dogs', require('./routes/dogRouter.js'))
+app.use('/inventory', require('./routes/inventoryRouter.js'))
 
 
 
