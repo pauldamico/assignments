@@ -15,6 +15,11 @@ const carId = req.params.carId
 const foundCar = cars.find(car=>car._id === carId && car)
 res.send(foundCar)
 })
+carRouter.get("/search/color", (req, res)=>{
+const color = req.query.color
+const queryedColor = cars.filter(car=>car.color === color && car)
+res.send(queryedColor)
+})
 carRouter.route('/')
 .get((req, res)=>{
     res.send(cars)
