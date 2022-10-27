@@ -47,16 +47,6 @@ carRouter.route("/")
 
 module.exports = carRouter
 
-// carRouter.get('/', (req, res)=>{
-// res.send(cars)
-// })
-
-// carRouter.post('/', (req, res)=>{
-//     cars._id = uuidv4()
-//    cars.push(req.body)
-//    res.send("")
-// })
-
 
 
 
