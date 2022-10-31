@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-export default function CarMemo(props) {
+export default function CarModal(props) {
+  
   const [carForm, setCarForm] = useState({ type: "", color: "" });
 
   const carChangeHandler = (event) => {

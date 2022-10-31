@@ -1,7 +1,7 @@
 import axios from "axios";
 import Car from "./components/Car";
 import React, { useEffect, useState } from "react";
-import CarMemo from "./components/CarMemo";
+import CarModal from "./components/CarModal";
 import { nanoid } from "nanoid";
 import "./App.css";
 
@@ -30,11 +30,23 @@ function App() {
     setAddCar(false);
   };
 
+  const deleteCar =(id) =>{
+    axios.delete(`/cars/${id}`)
+    .then(res=>(setCars(prev=>prev.filter(car=>car._id !== id))))
+  }
+
+  const updateCar =(id, updatedMake, updatedColor)=>{
+    
+    const updatedCar = {make:updatedMake, color:updatedColor}
+axios.put(`/cars/${id}`, updatedCar)
+.then(res=>setCars(prev=>prev.map(car=>car._id === id ? {...car, make: updatedMake, color: updatedColor}: {...car} )))
+
+console.log(id)
+  }
   const carElement = cars.map((car) => (
-    <Car key={car._id}>
-      <h1>{car.make}</h1>
-      <section>{car.color}</section>
-    </Car>
+    <Car updateCar={updateCar} key={car._id} deleteCar={deleteCar} {...car}/>
+
+ 
   ));
 
   return (
@@ -52,7 +64,7 @@ function App() {
       {addCar === false && <div className="main-car-div">{carElement}</div>}
       {addCar === true && (
         <div>
-          <CarMemo cars={cars} submitNewCar={submitNewCar} />
+          <CarModal  cars={cars} submitNewCar={submitNewCar} />
         </div>
       )}
     </div>
