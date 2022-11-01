@@ -9,7 +9,7 @@ app.get('/', (req, res)=>{
 res.send("Welcome to the Bounty Hunter API")
 })
 
-app.use('/bountys', require('./routes/bountyRouter.js'))
+app.use('/bounties', require('./routes/bountyRouter.js'))
 
 
 app.listen(9000, console.log(`Server listening on port 9000`))

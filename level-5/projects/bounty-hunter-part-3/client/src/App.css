@@ -1,38 +1,260 @@
-.App {
-  text-align: center;
+
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+
+*{
+  margin:0;
+  
+}
+html{
+  background-image: url('https://images3.alphacoders.com/114/11439.png');
+background-size: cover;
+background-attachment: fixed;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav{
+
+font-size: 5vh;
+
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.878);
+  height:8vh;
+  padding-bottom:2vh;
+}
+.title{
+  text-shadow: 2px 2px 11px white;
+  font-family: 'Alfa Slab One', cursive;
+  color:black;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.body{  
+  display: flex;
+  justify-content: center;
+  padding: 1vh;
+  height: 83vh;
+  overflow: auto;
+/* background-color: rgb(174, 174, 174); */
+}
+.body2{  
+  display: flex;
+  justify-content: left;
+  padding: 1vh;
+  height: 83vh;
+  overflow: auto;
+/* background-color: rgb(174, 174, 174); */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.footer-div{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color:yellow;
+  background-color: rgba(0, 0, 0, 0.878);
+height:5vh;
+}
+.bounty-add-first-div{
+  display: flex;
+  justify-content: center;
+  width:40%;
+  font-size: 40px;;
+}
+.bounty-modal-div{
+  width:100%
+}
+.bounty-modal-div>form{
+  color:yellow;
+  background-color: rgba(0, 0, 0, 0.645);
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  padding:5px;
+}
+.bounty-modal-div>form>div{
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: flex-start;
+}
+.bounty-modal-div>form>button{
+  border: 1px grey solid;
+height:70px;
+background-color: black;
+font-size: 30px;
+color:white;
+margin:20px;
+border-radius: 10px;
+}
+
+.bounty-modal-div>form>input{
+width:20%;
+}
+.text>span{
+  color:white;
+}
+
+.individual-bounty-div-sith{
+  margin-bottom: 10px;
+  width:40%;
+  background-color: rgba(252, 7, 7, 0.297);
+  font-size:20px;
+  padding:5px;
+}
+.individual-bounty-div-jedi{
+  margin-bottom: 10px;
+  width:40%;
+  background-color: rgba(0, 145, 255, 0.218);
+  font-size:20px;
+  padding:5px;
+}
+
+
+.bounty-main-div{
+  padding:5px;
+  height: fit-content;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+align-items: left;
+  color:yellow;
+  background-color: rgba(0, 0, 0, 0.854);
+  
+}
+.bounty-main-div>button{
+width:200px;
+color:white;
+border:1px solid red;
+  background-color: rgb(0, 0, 0);
+  margin-bottom: 15px;
+}
+
+.ind-bounty-main-div{
+  display: flex;
+}
+
+.img-div-sith{
+  margin-bottom: 10px;
+  background-image: url("https://cdn.pixabay.com/photo/2016/07/29/19/15/darth-maul-1555343__340.png");
+  opacity: 50%;
+background-size: cover;
+background-position: 0px 1000px;
+  width:120vh;
+}
+.img-div-jedi{
+  background-image: url("https://cdn.pixabay.com/photo/2017/11/01/14/24/star-wars-2908139__340.jpg");
+  margin-bottom: 10px;
+  opacity: 50%;
+  background-color: red;
+  background-size: cover;
+background-position: 0px, 400px;
+  width:120vh;
+}
+.living-div{
+  display: flex;
+}
+
+.alive{
+  color:white;
+}
+
+.dead{
+  color:white;
+}
+
+.name{
+  color:white;
+}
+
+.close-button {
+  margin-left: 10px;
+  height:20px;
+  margin-top:10px;
+
+}
+.close-button:hover{
+ cursor:pointer;
+ color:red;
+}
+.edit-button {
+
+  height:20px;
+  margin-top:10px;
+}
+.edit-button:hover{
+ cursor:pointer;
+ color:green;
+}
+.icon-div{
+width:100%;
+}
+.edit-main-div{
+  position: fixed;
+  height:2000px;
+  top: 0px;
+  right: 0px;
+  bottom: 2000px;
+  left: 0px;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.767);
+}
+
+.edit-center-div{
+  font-size: 40px;
+  padding-left: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.806);
+  position: absolute;
+  width: 600px;
+  top: 100px;
+  right: 37%;
+  bottom: 65%;
+  left: 37%;
+  z-index: 1001;
 }
 
-.App-link {
-  color: #61dafb;
+.edit-input{
+  width: 100%;
+  height: 40px;
+}
+.edit-check-input{
+  margin-left:20px;
+  padding-bottom: 20px;;
+  transform: scale(3);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.edit-check-div{
+  display: flex;
+}
+
+.select-edit{
+  margin-left: 25px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  transform: scale(2);
+}
+
+.select-add{
+  margin-left: 0;
+  margin-top: 20px;
+  transform: scale(2);
+}
+
+.save-button{
+
+  font-size: 20px;
+  border-radius: 10px;
+  margin-top: 30px;
+  width:200px;
+  height:50px;
+color:yellow;
+border:1px solid yellow;
+  background-color: rgb(0, 0, 0);
+
 }
