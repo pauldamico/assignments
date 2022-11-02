@@ -16,7 +16,6 @@ const bounties = [
 bountyRouter.put("/:bountyId", (req, res) => {
   const bountyId = req.params.bountyId;
   const updatedBounty = req.body;
-  console.log(updatedBounty);
   const bountyIndex = bounties.findIndex((bounty) => bounty.id === bountyId);
   const bountyUpdate = Object.assign(bounties[bountyIndex], updatedBounty);
   res.send(bountyUpdate);
@@ -27,7 +26,20 @@ bountyRouter.delete("/:bountyId", (req, res) => {
   const bountyIndex = bounties.findIndex((bounty) => bounty.id === bountyId);
   bounties.splice(bountyIndex, 1);
   res.send(`${bountyId} has been removed`);
+  
 });
+
+bountyRouter.get("/:bountyId", (req, res, next)=>{
+  const bountyId = req.params.bountyId
+  const foundBounty = bounties.find(bounty=>bounty.id === bountyId)
+  if(!foundBounty){
+    const error = new Error(`${bountyId} was not found`)
+   return next(error)
+   
+  }
+  res.send(foundBounty)
+
+})
 
 bountyRouter
   .route("/")

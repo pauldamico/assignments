@@ -1,9 +1,11 @@
 const express = require('express')
 const morgan = require('morgan')
+const mongoose = require('mongoose')
 const app = express()
 app.use(express.json())
 app.use(morgan('dev'))
 
+mongoose.connect('mongodb://localhost:27017/carsdb', console.log(`Connected to database`))
 
 app.get('/', (req, res)=>{
     res.send(`<p>Welcome to the vehicle page</p><p>/car</p><p>/motorcycles</p>`)
