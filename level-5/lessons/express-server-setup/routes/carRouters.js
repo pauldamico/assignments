@@ -36,14 +36,22 @@ return res.status(200).send(cars)
     })
 
 carRouter.get("/:carId",(req, res)=>{
-const carId = req.params.carId
-const foundCar = cars.find(car=>car._id === carId && car)
-res.send(foundCar)
+    const carId = req.params.carId
+Car.find({_id:carId}, (err, singleCar)=>{
+    if(err){res.status(500)
+    return next(err)
+    }
+    return res.send(singleCar)
+})
 })
 carRouter.get("/search/color", (req, res)=>{
-const color = req.query.color
-const queryedColor = cars.filter(car=>car.color === color && car)
-res.send(queryedColor)
+Car.find({color:req.query.color}, (err, colorQuery)=>{
+if(err){
+    res.status(500)
+    return next(err)
+}
+return res.send(colorQuery)
+})
 })
 carRouter.delete("/:carId", (req, res, next)=>{
 const carId = req.params.carId
@@ -55,11 +63,18 @@ if(err){
 return res.status(201).send(`Removed ${deletedCar._id} from the database`)
 })
 })
+
+
 carRouter.put("/:carId", (req, res)=>{
 const carId = req.params.carId
-const carIndex = cars.findIndex(car=>car._id === carId)
-const updatedCar = Object.assign(cars[carIndex], req.body)
-res.send(updatedCar)
+Car.findOneAndUpdate({_id:carId}, req.body, {new:true}, (err, updatedCar)=>{
+if(err){
+    res.status(500)
+   return next(err)
+}
+return res.status(201).send(updatedCar)
+}
+)
 })
 
 
