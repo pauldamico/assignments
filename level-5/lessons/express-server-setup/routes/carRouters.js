@@ -13,7 +13,7 @@ const Car = require('../models/car.js')
 
 
 carRouter.route("/")
-.get((req, res, next)=>{
+.get((req, res,)=>{
     Car.find((err, cars)=>{
 if(err){
     res.status(500)
