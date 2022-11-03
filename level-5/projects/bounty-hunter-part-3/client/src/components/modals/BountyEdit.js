@@ -67,8 +67,8 @@ export default function BountyEdit(props) {
             required
           >
           
-          <option value="sith">Sith</option>
-          <option value="jedi">Jedi</option>
+          <option value="Sith">Sith</option>
+          <option value="Jedi">Jedi</option>
           </select>
           
           </div>

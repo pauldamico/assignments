@@ -14,6 +14,9 @@ app.get('/', (req, res)=>{
 app.use('/cars', require('./routes/carRouters.js'))
 app.use('/motorcycles', require('./routes/motorcycleRouter.js'))
 
+app.use((err, req, res, next)=>{
+res.send(err.message)
+})
 
 app.listen(9000, ()=>{
     console.log("Server is listening on Port 9000")
