@@ -6,7 +6,12 @@ const bountySchema = new Schema({
   lastName: {type:String, required:true},
   living:{type:Boolean, required:true},
   bountyAmount:{type:Number, required:true},
-  type:{type:String, required:true}
+  type:{type:String, required:true},
+  user:{
+    type:Schema.Types.ObjectId,
+    ref:"User",
+    required:true
+  }
 
 });
 

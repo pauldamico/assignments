@@ -14,18 +14,32 @@ useEffect(()=>{
     .catch(err=>{console.log(err)})
 }, [])
 
-const postBounty = () =>{
+const postBounty = (fName, lName, alive, amount, bType) =>{   
     const newBounty = {
-    firstName: "111",
-    lastName: "testlastName",
-    living: false,
-    bountyAmount: 3000,
-    type: "Jedi",}
-
+    firstName: fName,
+    lastName: lName,
+    living: alive,
+    bountyAmount: amount,
+    type: bType}
 
     axios.post('/bounties', newBounty)
     .then(res=>setBounties(prev=>([...prev, res.data])))
-    .catch(err=>console.log(err))
+    .catch(err=>console.log(err.message))
+}
+const updateBounty = (fName, lName, alive, amount, bType, id) => {
+    const updatedBounty = {
+        firstName: fName,
+        lastName: lName,
+        living: alive,
+        bountyAmount: amount,
+        type: bType}
+    axios.put(`/bounties/${id}`,  updatedBounty)
+    .then(res=>setBounties(prev=>prev.map(bounty=>bounty._id === id && {...bounty, firstName: fName,
+        lastName: lName,
+        living: alive,
+        bountyAmount: amount,
+        type: bType}  )))
+    console.log(id)
 }
 
 const deleteBounty =(id)=>{
@@ -35,7 +49,7 @@ const deleteBounty =(id)=>{
     .catch(err=>console.log(err))
 }
 
-    return(<BountyContext.Provider value ={{bounties, postBounty, deleteBounty}}>
+    return(<BountyContext.Provider value ={{bounties, postBounty, deleteBounty, updateBounty}}>
         {props.children}
         </BountyContext.Provider>
     )

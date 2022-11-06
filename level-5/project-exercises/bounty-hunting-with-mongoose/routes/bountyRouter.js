@@ -25,6 +25,15 @@ res.status(200).send(foundItem)
     res.send(newBounty)
 })
   });
+  bountyRouter.post('/:userId', (req, res, next)=>{
+    req.body.user = req.params.userId   
+const newBounty = new Bounty(req.body)
+newBounty.save((err, savedBounty)=>{
+    if(err){res.status(500)
+    return next(err)}
+res.send(savedBounty)
+})
+  })
 
 bountyRouter.put('/:bountyId', (req, res, next) => {
 Bounty.findOneAndUpdate({_id:req.params.bountyId}, req.body, {new:true}, (err, updatedBounty)=>{

@@ -10,6 +10,7 @@ app.get("/", (req, res, err)=>{
 })
 
 app.use('/bounties', require('./routes/bountyRouter.js'))
+app.use('/users', require('./routes/userRouter.js'))
 
 app.use((err, req, res,)=>{
 return res.send(err.message)
