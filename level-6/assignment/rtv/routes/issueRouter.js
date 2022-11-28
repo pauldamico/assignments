@@ -1,9 +1,24 @@
-const express = require("express");
-const { Schema } = require("mongoose");
+const express = require("express");;
 const Issue = require("../models/issue.js");
-const jwt = require("jsonwebtoken");
 const issueRouter = express.Router();
 
+
+//get all issues posted by logged in user
+issueRouter.get('/user', (req, res, next)=>{
+    console.log(req.auth)
+Issue.find({user:req.auth._id}, (err, allIssues)=>{
+    res.send(allIssues)
+})
+})
+
+//get all issues from everyone
+issueRouter.get('/all', (req, res, next)=>{
+  
+Issue.find( (err, allIssues)=>{
+    res.send(allIssues)
+})
+})
+//creates Issue with user ID added
 issueRouter.post("/create", (req, res, next) => {
   req.body.user = req.auth._id;
   const newIssue = new Issue(req.body);
@@ -16,6 +31,7 @@ issueRouter.post("/create", (req, res, next) => {
   });
 });
 
+//this allows you to add only one like to each issue per person
 issueRouter.post("/like/:id", (req, res, next) => {
   Issue.findOne(
     {
@@ -45,7 +61,7 @@ issueRouter.post("/like/:id", (req, res, next) => {
     }
   );
 });
-
+//this allows you to add only one dislike to each issue per person
 issueRouter.post("/dislike/:id", (req, res, next) => {
     Issue.findOne(
       {
@@ -76,8 +92,5 @@ issueRouter.post("/dislike/:id", (req, res, next) => {
     );
   });
 
-// issueRouter.post('/:dislike', (req, res, next)=>{
-
-// })
 
 module.exports = issueRouter;

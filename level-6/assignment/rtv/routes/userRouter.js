@@ -20,13 +20,11 @@ return next(new Error("Username already exists"))
         res.status(500)
         return next(err)
     }
-
-    const token = jwt.sign(newUser.toObject(), process.env.SECRET)
- 
+    const token = jwt.sign(newUser.toObject(), process.env.SECRET) 
 res.send({token, user:newUser})
   });
 });
-
+// logs in current user and gives it a token
 userRouter.post("/login", (req, res, next) => {
   User.findOne(({username:req.body.username.toLowerCase()}), (err, user)=>{
     if(err){
