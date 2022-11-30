@@ -26,6 +26,7 @@ res.send({token, user:newUser})
 });
 // logs in current user and gives it a token
 userRouter.post("/login", (req, res, next) => {
+  console.log("test")
   User.findOne(({username:req.body.username.toLowerCase()}), (err, user)=>{
     if(err){
       res.status(500)

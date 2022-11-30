@@ -76,7 +76,11 @@ issueRouter.post("/dislike/:id", (req, res, next) => {
           { $pull: { dislikes: req.auth._id, likes:req.auth._id },  },
           { new: true },
           (err, cleared) => {
-          console.log(cleared.likes, cleared.dislikes)
+            if(err){
+                res.status(500)
+                return(next(err))
+            }
+        
           }
         );
   
@@ -85,6 +89,10 @@ issueRouter.post("/dislike/:id", (req, res, next) => {
           { $push: { dislikes: req.auth._id } },
           { new: true },
           (err, dislikes) => {
+            if(err){
+                res.status(500)
+                return (next(err))                
+            }
             res.send(dislikes);
           }
         );
