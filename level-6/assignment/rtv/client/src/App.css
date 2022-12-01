@@ -8,3 +8,11 @@
   flex-direction: row;
   justify-content: space-between;
 }
+.issue-lower-div{
+  display: flex;
+  
+}
+.issue-lower-div>section{
+padding: 20px;
+  
+}

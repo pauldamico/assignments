@@ -13,6 +13,7 @@ export default function CommentForm (props){
     function submitComment (event){
 event.preventDefault()
 props.addComment(comment)
+props.toggleAddComment()
     }
     return (
              <Form>

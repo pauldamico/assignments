@@ -51,11 +51,14 @@ export default function Issue(props) {
     <div>
       <div>
       <h1>{issue}</h1>
+    
+      <section onClick={listComments}>{comments.length} Comments</section>
+      <div className="issue-lower-div">
+      <section onClick={toggleAddComment}>Add Comment</section>      
+      {addCommentToggle &&<CommentForm toggleAddComment={toggleAddComment} addComment={addComment}/>}  
       <section onClick={addLike}><FiThumbsUp/> {likes.length} </section>{" "}
       <section onClick={addDislike}><FiThumbsDown/> {dislikes.length} </section>
-      <section onClick={listComments}>{comments.length} Comments</section>
-      <section onClick={toggleAddComment}>Add Comment</section>
-      {addCommentToggle &&<CommentForm addComment={addComment}/>}
+      </div>
       {showCommentToggle &&
         comments.map((comment) => <Comment key={comment._id} {...comment} />)}
         </div>
