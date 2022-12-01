@@ -22,8 +22,8 @@ Issue.find( (err, allIssues)=>{
 issueRouter.post("/create", (req, res, next) => {
   req.body.user = req.auth._id;
   const newIssue = new Issue(req.body);
-  newIssue.save((error, issue) => {
-    if (error) {
+  newIssue.save((err, issue) => {
+    if (err) {
       res.status(500);
       return next(err);
     }

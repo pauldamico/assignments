@@ -10,27 +10,47 @@ User.findOne(({username:req.body.username.toLowerCase()}), (err, foundUser)=>{
     res.status(500)
     return next(err)
   }
+  if(!req.body.username || !req.body.password){
+    res.status(403)
+    return next(new Error("You must enter a username and password"))
+  }
 if(foundUser){
 return next(new Error("Username already exists"))
 }
 })
    const newUser = new User (req.body)
+   if(req.body.username || req.body.password){
   newUser.save((err, addedUser) => {
     if(err){
         res.status(500)
         return next(err)
     }
-    const token = jwt.sign(newUser.toObject(), process.env.SECRET) 
+    if(!req.body.username || !req.body.password){
+      res.status(403)
+      return next(new Error("username or password can not be blank"))}
+
+   const token = jwt.sign(newUser.toObject(), process.env.SECRET) 
 res.send({token, user:newUser})
   });
+}
+
 });
 // logs in current user and gives it a token
 userRouter.post("/login", (req, res, next) => {
-  console.log("test")
+  console.log(req.body.username)
   User.findOne(({username:req.body.username.toLowerCase()}), (err, user)=>{
     if(err){
       res.status(500)
       return next(err)
+    }
+ console.log(user)
+    if(!req.body.username || !req.body.password){
+      res.status(403)
+      return next(new Error("You must enter a username and password"))
+    }
+    if(!user){
+      res.status(401)
+      return next(new Error("User name or Password doesn't Exist"))
     }
   if(req.body.password !== user.password){
     res.status(401)

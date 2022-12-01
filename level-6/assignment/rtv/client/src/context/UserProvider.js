@@ -1,4 +1,4 @@
-import React, { useState, createContext, useContext } from "react";
+import React, { useState, createContext, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {IssueContext} from './IssueProvider'
 import axios from "axios";
@@ -6,12 +6,15 @@ import axios from "axios";
 export const UserContext = createContext();
 export default function UserProvider(props) {
     const navigate = useNavigate()
-    const {getUserIssues, getAllIssues, setAllIssues} = useContext(IssueContext)
+    const {getUserIssues, getAllIssues, setAllIssues, clearIssues} = useContext(IssueContext)
   const initValue = {
     user: JSON.parse(localStorage.getItem("user")) || {},
     token: localStorage.getItem("token") || ""
   };
   const [userInfo, setUserInfo] = useState(initValue);
+const {_id:userId} = userInfo.user
+
+
 
   function signUp(UserInfo) {
     axios
@@ -26,11 +29,8 @@ export default function UserProvider(props) {
       .then(res=>  getAllIssues())
       .then(res=>  navigate('/'))
       .catch((err) => console.log(err));
-   
-    //   getUserIssues()
-    //   getAllIssues()
-
   }
+
 
   function login(UserInfo) {
   
@@ -46,21 +46,28 @@ export default function UserProvider(props) {
           .then(res=>  getAllIssues())
           .then(res=>  navigate('/'))
           .catch((err) => console.log(err));
-      
-        //   getUserIssues()
-        //   getAllIssues()
-
   }
+
+  useEffect(()=>{
+   { userInfo.token && getUserIssues()
+    getAllIssues()}
+  }, [])
+
+  function clearUserInfo(){
+    setUserInfo(prev=>({...prev, user:{}, token:""}))
+  }
+
 function logout(){
     localStorage.removeItem("token")
     localStorage.removeItem("user")
-    setUserInfo(initValue)   
+    clearUserInfo()
+    clearIssues()
     navigate('/auth')
 }
   
 
   return (
-    <UserContext.Provider value={{ ...userInfo, signUp, login, logout }}>
+    <UserContext.Provider value={{ ...userInfo, signUp, login, logout, userId }}>
       {props.children}
     </UserContext.Provider>
   );

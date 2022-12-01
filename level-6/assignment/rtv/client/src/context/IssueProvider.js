@@ -29,6 +29,10 @@ function getAllIssues (){
     .catch(err=>console.log(err))
    
 }
+function clearIssues (){
+    setUserIssues(initValue)
+    setAllIssues(initValue)
+}
 
 function getUserIssues (){
     userAxios.get("/api/issue/user")
@@ -59,7 +63,7 @@ function dislikeIssue (issueId) {
 
     
     return(
-        <IssueContext.Provider value={{addIssue, userIssues, getUserIssues,getAllIssues, likeIssue, dislikeIssue, allIssues, userAxios}}>
+        <IssueContext.Provider value={{clearIssues, addIssue, userIssues, getUserIssues,getAllIssues, likeIssue, dislikeIssue, allIssues, userAxios}}>
 {props.children}
         </IssueContext.Provider>
     )

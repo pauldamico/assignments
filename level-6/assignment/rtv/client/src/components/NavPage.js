@@ -8,7 +8,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 
 export default function NavPage() {
 const {logout, token} = useContext(UserContext)
-
+console.log(token)
   return (
     <>
       <Navbar bg="light" expand="lg">
@@ -27,10 +27,10 @@ const {logout, token} = useContext(UserContext)
               <Nav.Link as={Link} to={"/public"}>
                 Public            
               </Nav.Link>
-             {!token && <Nav.Link as={Link} to={"/auth"}>
+             {!token ? <Nav.Link as={Link} to={"/auth"}>
                 Login            
-              </Nav.Link>}
-              {token &&<Nav.Link onClick ={logout }>
+              </Nav.Link> :
+              token &&<Nav.Link onClick ={logout }>
                 Logout            
               </Nav.Link>}
              
