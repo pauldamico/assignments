@@ -32,11 +32,20 @@ userRouter.post("/login", (req, res, next) => {
       res.status(500)
       return next(err)
     }
-  if(user){
-    const token = jwt.sign(user.toObject(), process.env.SECRET)
-return res.send({token, user})
+  if(req.body.password !== user.password){
+    res.status(401)
+   return next(new Error("User name or Password doesn't Exist"))
   }
-  })    
+  if(!user){
+    res.status(401)
+   return next(new Error("User name or Password doesn't Exist"))
+  }
+
+  const token = jwt.sign(user.toObject(), process.env.SECRET)
+  return res.send({token, user})
+
+  })  
+ 
   });
   
 
