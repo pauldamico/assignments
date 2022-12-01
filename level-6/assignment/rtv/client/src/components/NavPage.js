@@ -1,10 +1,14 @@
+import React, {useContext} from "react";
 import { Link } from "react-router-dom";
+import { UserContext } from "../context/UserProvider";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
 export default function NavPage() {
+const {logout, token} = useContext(UserContext)
+
   return (
     <>
       <Navbar bg="light" expand="lg">
@@ -23,15 +27,13 @@ export default function NavPage() {
               <Nav.Link as={Link} to={"/public"}>
                 Public            
               </Nav.Link>
-              <NavDropdown title="Login/Logout" id="navbarScrollingDropdown">
-                <NavDropdown.Item as={Link} to={"/auth"}>
-                 Login
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item as={Link} to={"/auth/"}>                
-                 Logout
-                </NavDropdown.Item>
-              </NavDropdown>
+             {!token && <Nav.Link as={Link} to={"/auth"}>
+                Login            
+              </Nav.Link>}
+              {token &&<Nav.Link onClick ={logout }>
+                Logout            
+              </Nav.Link>}
+             
             </Nav>
           </Navbar.Collapse>
         </Container>

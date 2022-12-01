@@ -17,13 +17,13 @@ newComment.save((err, comment)=>{
 })
 
 commentRouter.get('/list/:issueId', (req, res, next)=>
-{
-    if(err){
-        res.status(500)
-        return next(err)
-    }
+{   
     Comment.find({issue:req.params.issueId}, (err, comments)=>{
-    return res.send(comments)
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+    res.send(comments)
     })
 
 })

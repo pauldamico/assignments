@@ -11,37 +11,55 @@ userAxios.interceptors.request.use(config =>{
 
 export const IssueContext = createContext()
 export default function IssueProvider (props){
-
-const [issues, setIssues] = useState([])
-
+const initValue = [
+   ]
+const [userIssues, setUserIssues] = useState(initValue)
+const [allIssues, setAllIssues] = useState(initValue)
 function addIssue (issue){
     const newIssue = issue
 userAxios.post("/api/issue/create", newIssue)
-.then(res=>setIssues(prev=>([...prev, res.data])))
+.then(res=>setUserIssues(prev=>([...prev, res.data])))
+.then(res=>getAllIssues())
 .catch(err=>console.log(err))
+}
+
+function getAllIssues (){
+    userAxios.get("/api/issue/all")
+    .then(res=>setAllIssues(prev=>(res.data)))
+    .catch(err=>console.log(err))
+   
 }
 
 function getUserIssues (){
     userAxios.get("/api/issue/user")
-    .then(res=>setIssues(prev=>(res.data)))
+    .then(res=>setUserIssues(prev=>(res.data)))
     .catch(err=>console.log(err))
+  
 }
 
 function likeIssue (issueId) {
     userAxios.post(`/api/issue/like/${issueId}`)
-    .then(res=>console.log(res))
+    .then(res=>{    
+        setUserIssues(prev=>prev.map(issue=>issue._id === issueId ? {...issue, dislikes:res.data.dislikes, likes:res.data.likes} : {...issue}))  
+        setAllIssues(prev=>prev.map(issue=>issue._id === issueId ? {...issue, dislikes:res.data.dislikes, likes:res.data.likes} : {...issue}))      
+     })            
     .catch(err=>console.log(err))
 }
 
 function dislikeIssue (issueId) {
     userAxios.post(`/api/issue/dislike/${issueId}`)
-    .then(res=>console.log(res))
+    .then(res=>{   
+    setUserIssues(prev=>prev.map(issue=>issue._id === issueId ? {...issue, dislikes:res.data.dislikes, likes:res.data.likes} : {...issue})) 
+    setAllIssues(prev=>prev.map(issue=>issue._id === issueId ? {...issue, dislikes:res.data.dislikes, likes:res.data.likes} : {...issue}))
+})
+ 
     .catch(err=>console.log(err))
 }
 
+
     
     return(
-        <IssueContext.Provider value={{addIssue, issues, getUserIssues, likeIssue, dislikeIssue}}>
+        <IssueContext.Provider value={{addIssue, userIssues, getUserIssues,getAllIssues, likeIssue, dislikeIssue, allIssues, userAxios}}>
 {props.children}
         </IssueContext.Provider>
     )

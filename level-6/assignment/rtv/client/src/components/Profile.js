@@ -1,10 +1,12 @@
 import IssueForm from "./IssueForm.js"
-import IssueList from "./IssueList.js"
+import UserIssueList from "./UserIssueList.js"
 export default function Profile (){
     return (
         <div>
+           
     <IssueForm/>
-    <IssueList/>
+    <UserIssueList/>
+    
         </div>
     )
     }
