@@ -8,7 +8,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 
 export default function NavPage() {
 const {logout, token} = useContext(UserContext)
-console.log(token)
+
   return (
     <>
       <Navbar bg="light" expand="lg">

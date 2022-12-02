@@ -60,10 +60,15 @@ function dislikeIssue (issueId) {
     .catch(err=>console.log(err))
 }
 
-
+function deleteIssue(issueId){
+    userAxios.delete(`/api/issue/${issueId}`)
+    .then(res=>setUserIssues(prev=>prev.filter(issue=>issue._id !== issueId)))
+    .then(res=>setAllIssues(prev=>prev.filter(issue=>issue._id !== issueId)))
+    .catch(err=>console.log(err))
+}
     
     return(
-        <IssueContext.Provider value={{clearIssues, addIssue, userIssues, getUserIssues,getAllIssues, likeIssue, dislikeIssue, allIssues, userAxios}}>
+        <IssueContext.Provider value={{deleteIssue, clearIssues, addIssue, userIssues, getUserIssues,getAllIssues, likeIssue, dislikeIssue, allIssues, userAxios}}>
 {props.children}
         </IssueContext.Provider>
     )

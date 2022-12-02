@@ -8,7 +8,7 @@ export default function UserIssueList (){
     return (
         <div>
    {token && userIssues.map(issue=><Issue key={issue._id} {...issue} />)}
-   
+  
         </div>
     )
     }

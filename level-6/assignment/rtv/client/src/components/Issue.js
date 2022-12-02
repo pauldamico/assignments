@@ -8,9 +8,10 @@ import {FiThumbsUp, FiThumbsDown} from 'react-icons/fi'
 
 
 export default function Issue(props) {
-  const { likeIssue, dislikeIssue, userAxios } = useContext(IssueContext);
+
+  const { likeIssue, dislikeIssue, userAxios, deleteIssue } = useContext(IssueContext);
   const { token, userId } = useContext(UserContext);
-  const { issue, likes, dislikes, _id } = props;
+  const {user, issue, likes, dislikes, _id } = props;
   const [comments, setComments] = useState([]);
   const [showCommentToggle, setShowCommentToggle] = useState(false);
   const [addCommentToggle, setAddCommentToggle] = useState(false);
@@ -54,10 +55,15 @@ export default function Issue(props) {
     .catch(err=>console.log(err))
   }
 
+  function removeIssue(){   
+
+   {user === userId && deleteIssue(_id, userId)}
+  }
 
   return (
     <div>
       <div>
+       
       <h1>{issue}</h1>
     
       <section onClick={listComments}>{comments.length} Comments</section>
@@ -70,6 +76,7 @@ export default function Issue(props) {
   
       <section onClick={addLike}><FiThumbsUp/> {likes.length} </section>{" "}
       <section onClick={addDislike}><FiThumbsDown/> {dislikes.length} </section>
+      {user === userId && <div onClick ={removeIssue}>Delete</div>}
       </div>
       </div>
       {showCommentToggle &&
