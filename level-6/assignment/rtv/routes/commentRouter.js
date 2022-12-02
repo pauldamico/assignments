@@ -43,6 +43,17 @@ commentRouter.delete('/:commentId', (req, res, next)=>
 
 })
 
+commentRouter.put('/edit/:commentId', (req, res, next)=>{    
+    Comment.findOneAndUpdate({_id:req.params.commentId, user:req.auth._id}, req.body, {new:true},(err, updatedComment)=>{
+        console.log(req.body)
+     if(err){
+       res.status(500)
+       return next(err)
+     }
+     res.send(updatedComment.comment)
+    })
+   
+         })
 
 
 

@@ -95,6 +95,8 @@ issueRouter.post("/dislike/:id", (req, res, next) => {
 
     }  )})
 
+
+
     issueRouter.delete('/:issueId', (req, res, next)=>{      
   
     Issue.findOneAndDelete({_id:req.params.issueId, user:req.auth._id}, (err, deletedItem)=>{
@@ -110,5 +112,16 @@ issueRouter.post("/dislike/:id", (req, res, next) => {
     
     
     })
+
+    issueRouter.put('/edit/:issueId', (req, res, next)=>{      
+     Issue.findOneAndUpdate({_id:req.params.issueId, user:req.auth._id}, req.body, {new:true},(err, updatedItem)=>{
+      if(err){
+        res.status(500)
+        return next(err)
+      }
+res.send(updatedItem.issue)
+     })
+      
+          })
 
 module.exports = issueRouter;

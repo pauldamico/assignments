@@ -23,9 +23,7 @@ export default function IssueForm (){
         <Form.Group className="mb-3" controlId="formBasicEmail">
       
           <Form.Control name="issue" onChange={issueChangeHandler} type="text" placeholder="Enter Political Issue" />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
+         
         </Form.Group>
   
  

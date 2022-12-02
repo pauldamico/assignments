@@ -2,6 +2,7 @@ import React, {useState, createContext} from 'react'
 import axios from 'axios'
 
 
+
 const userAxios = axios.create()
 userAxios.interceptors.request.use(config =>{
     const token = localStorage.getItem("token")
@@ -66,9 +67,19 @@ function deleteIssue(issueId){
     .then(res=>setAllIssues(prev=>prev.filter(issue=>issue._id !== issueId)))
     .catch(err=>console.log(err))
 }
+function editIssue(issueId, updatedIssue){   
+    userAxios.put(`/api/issue/edit/${issueId}`, {issue:updatedIssue.issue})
+    .then(res=>{
+       setUserIssues(prev=>prev.map(item=>item._id === issueId && {...item, issue:updatedIssue.issue}))  
+       setAllIssues(prev=>prev.map(item=>item._id === issueId && {...item, issue:updatedIssue.issue}))  
+    })
+    .catch(err=>console.log(err))
+}
+
+
     
     return(
-        <IssueContext.Provider value={{deleteIssue, clearIssues, addIssue, userIssues, getUserIssues,getAllIssues, likeIssue, dislikeIssue, allIssues, userAxios}}>
+        <IssueContext.Provider value={{editIssue, deleteIssue, clearIssues, addIssue, userIssues, getUserIssues,getAllIssues, likeIssue, dislikeIssue, allIssues, userAxios}}>
 {props.children}
         </IssueContext.Provider>
     )

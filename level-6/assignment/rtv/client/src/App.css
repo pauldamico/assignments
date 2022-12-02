@@ -16,3 +16,8 @@
 padding: 20px;
   
 }
+
+.comment-div{
+  display: flex;
+}
+
