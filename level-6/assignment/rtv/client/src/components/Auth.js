@@ -3,6 +3,9 @@ import {useNavigate} from 'react-router-dom'
 import { UserContext } from "../context/UserProvider";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 
 export default function Auth() {
   const navigate = useNavigate()
@@ -36,6 +39,14 @@ function toggleAuth (){
 
 
   return (<>
+
+
+  <Container>
+    
+<Row>
+  <Col></Col>
+  <Col xs={5}>        <div>
+           
   <Form>
   <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Username</Form.Label>
@@ -59,9 +70,13 @@ function toggleAuth (){
       <Button onClick = {signUpUser} variant="primary" type="submit">
         Sign up
       </Button>}
-
-
   </Form>
+           
+               </div></Col>
+  <Col></Col>
+</Row>
+
+</Container>
 
   </>)
 }

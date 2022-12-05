@@ -70,8 +70,8 @@ function deleteIssue(issueId){
 function editIssue(issueId, updatedIssue){   
     userAxios.put(`/api/issue/edit/${issueId}`, {issue:updatedIssue.issue})
     .then(res=>{
-       setUserIssues(prev=>prev.map(item=>item._id === issueId && {...item, issue:updatedIssue.issue}))  
-       setAllIssues(prev=>prev.map(item=>item._id === issueId && {...item, issue:updatedIssue.issue}))  
+       setUserIssues(prev=>prev.map(item=>item._id === issueId ? {...item, issue:updatedIssue.issue} : {...item}))  
+       setAllIssues(prev=>prev.map(item=>item._id === issueId ? {...item, issue:updatedIssue.issue} : {...item}))  
     })
     .catch(err=>console.log(err))
 }

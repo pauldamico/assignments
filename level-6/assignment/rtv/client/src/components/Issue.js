@@ -77,7 +77,25 @@ export default function Issue(props) {
   return (
     <div>
       <div>
+        <div className="issue-div">
       {!toggleIssueEdit && <h1>{issue}</h1>}
+      {user === userId &&
+            <Dropdown>
+              <Dropdown.Toggle variant="white" id="dropdown-basic">
+                ...
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item href="#/action-1">
+                  {user === userId && <div onClick={editIssueToggler}>Edit Issue</div>}
+                </Dropdown.Item>
+                <Dropdown.Item href="#/action-2">
+                  {" "}
+                  {user === userId && <div onClick={removeIssue}>Delete Issue</div>}
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>}</div>
+
         {toggleIssueEdit && (
           <EditIssueForm
             _id={_id}
@@ -116,22 +134,7 @@ export default function Issue(props) {
               <FiThumbsDown /> {dislikes.length}{" "}
             </section>
 
-            {user === userId &&
-            <Dropdown>
-              <Dropdown.Toggle variant="white" id="dropdown-basic">
-                ...
-              </Dropdown.Toggle>
-
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">
-                  {user === userId && <div onClick={editIssueToggler}>Edit Issue</div>}
-                </Dropdown.Item>
-                <Dropdown.Item href="#/action-2">
-                  {" "}
-                  {user === userId && <div onClick={removeIssue}>Delete Issue</div>}
-                </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>}
+           
           </div>
         </div>
        
