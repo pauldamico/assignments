@@ -4,17 +4,17 @@ import Form from 'react-bootstrap/Form';
 import { IssueContext } from "../context/IssueProvider"
 export default function IssueForm (){
     const {addIssue} = useContext(IssueContext)
-    const [issue, setIssue] = useState()
+    const [issue, setIssue] = useState("")
 
     function issueChangeHandler (event){
-        const {name, value} = event.target
-        setIssue(prev=>({...prev, [name]:value}))
-        console.log(issue)
+    setIssue(event.target.value)
     }
 
     function submitIssue(event){
+      console.log(issue)
         event.preventDefault()
         addIssue(issue)
+        setIssue("")       
     }
 
 
@@ -22,7 +22,7 @@ export default function IssueForm (){
         <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
       
-          <Form.Control name="issue" onChange={issueChangeHandler} type="text" placeholder="Enter Political Issue" />
+          <Form.Control name="issue" value={issue} onChange={issueChangeHandler} type="text" placeholder="Enter Political Issue" />
          
         </Form.Group>
   

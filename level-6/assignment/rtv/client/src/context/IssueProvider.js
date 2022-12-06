@@ -16,9 +16,9 @@ const initValue = [
    ]
 const [userIssues, setUserIssues] = useState(initValue)
 const [allIssues, setAllIssues] = useState(initValue)
-function addIssue (issue){
-    const newIssue = issue
-userAxios.post("/api/issue/create", newIssue)
+function addIssue (newIssue){
+  const issue = {issue:newIssue}
+userAxios.post("/api/issue/create", issue)
 .then(res=>setUserIssues(prev=>([...prev, res.data])))
 .then(res=>getAllIssues())
 .catch(err=>console.log(err))

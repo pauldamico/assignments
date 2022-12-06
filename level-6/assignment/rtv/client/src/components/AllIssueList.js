@@ -5,10 +5,10 @@ import { UserContext } from "../context/UserProvider"
 export default function AllIssueList (){
     const {allIssues} = useContext(IssueContext)
     const {token} = useContext(UserContext)
-
+    const sortByLikes = allIssues.map(issue=>issue).sort((a,b)=>b.likes.length - a.likes.length)
     return (
         <div>     
-   {token && allIssues.map(issue=><Issue key={issue._id} {...issue} />)}
+   {token && sortByLikes.map(issue=><Issue key={issue._id} {...issue} />)}
         </div>
     )
     }

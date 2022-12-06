@@ -29,8 +29,8 @@ return next(new Error("Username already exists"))
       res.status(403)
       return next(new Error("username or password can not be blank"))}
 
-   const token = jwt.sign(newUser.toObject(), process.env.SECRET) 
-res.send({token, user:newUser})
+   const token = jwt.sign(addedUser.deletePassword(), process.env.SECRET) 
+res.send({token, user:addedUser.deletePassword()})
   });
 }
 
@@ -41,9 +41,8 @@ userRouter.post("/login", (req, res, next) => {
   User.findOne(({username:req.body.username.toLowerCase()}), (err, user)=>{
     if(err){
       res.status(500)
-      return next(err)
-    }
- console.log(user)
+      return next(err)    }
+
     if(!req.body.username || !req.body.password){
       res.status(403)
       return next(new Error("You must enter a username and password"))
@@ -52,17 +51,29 @@ userRouter.post("/login", (req, res, next) => {
       res.status(401)
       return next(new Error("User name or Password doesn't Exist"))
     }
-  if(req.body.password !== user.password){
-    res.status(401)
-   return next(new Error("User name or Password doesn't Exist"))
-  }
+  // if(req.body.password !== user.password){
+  //   res.status(401)
+  //  return next(new Error("User name or Password doesn't Exist"))
+  // }
   if(!user){
     res.status(401)
    return next(new Error("User name or Password doesn't Exist"))
   }
 
-  const token = jwt.sign(user.toObject(), process.env.SECRET)
-  return res.send({token, user})
+  user.checkPassword(req.body.password, (err, isMatch)=>{
+    if(err){
+      res.status(403)
+      return next(err)
+    }
+    if(!isMatch){
+      res.status(403)
+      return next(new Error("User name or password is incorrect"))
+    }    
+
+    const token = jwt.sign(user.deletePassword(), process.env.SECRET)
+    return res.send({token, user:user.deletePassword()})
+  })
+
 
   })  
  
