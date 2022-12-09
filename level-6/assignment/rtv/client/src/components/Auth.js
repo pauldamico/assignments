@@ -9,7 +9,7 @@ import Container from 'react-bootstrap/Container';
 
 export default function Auth() {
   const navigate = useNavigate()
-  const { signUp, login } = useContext(UserContext);  
+  const { token, signUp, login } = useContext(UserContext);  
   const initValue =  {username:"", password:""};
 
   const [signUpInfo, setSignUpInfo] = useState();

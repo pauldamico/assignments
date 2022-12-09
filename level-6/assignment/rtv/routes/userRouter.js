@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken')
 /// New user Creation
 userRouter.post("/signup", (req, res, next) => {
 User.findOne(({username:req.body.username.toLowerCase()}), (err, foundUser)=>{
+  console.log(req.body)
   if(err){
     res.status(500)
     return next(err)
