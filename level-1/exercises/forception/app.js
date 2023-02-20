@@ -1,28 +1,23 @@
-var people = ["Jon", "Jacob", "Jingle", "Heimer", "Schmidt"];
-var alphabet = "abcdefghijklmnopqrstuvwxyz";
+const people = ["Jon", "Jacob", "Jingle", "Heimer", "Schmidt"]
+const alphabet = "abcdefghijklmnopqrstuvwxyz"
 
-function forception(people, alphabet) {
-alphabet = alphabet.split("").join('",')
+function forception(people, alphabet){
+  const array = []
 
-   let newArray = []
-  for (let x = 0; x <people .length; x++) {
-   
-   people[x] = `"${people[x]}:" `
-  
-    for (let i = 0; i < alphabet.length; i++) {
-        newArray[x] = people[x].concat(alphabet)
-            
-    }
-  
+  for(let i = 0; i < people.length; i++){
+    array.push(people[i])
+for(let x=0; x< alphabet.length; x++){
+  array.push(alphabet[x])
+}
   }
- // console.log(alphabet.split("").concat(people))
-  //newArray = newArray.join("").split()
-  
-  return newArray.join().split(" ")
+return array
+
 }
 
 
+console.log( forception(people, alphabet))
 
-console.log(forception(people, alphabet))
+
+
 
 
