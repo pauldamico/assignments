@@ -7,12 +7,8 @@ export default function News(){
     useEffect(() => {
         axios
           .get(
-            "https://cors-anywhere.herokuapp.com/https://www.mmobomb.com/api1/latestnews",
-            {
-              headers: {
-                "X-Requested-With": "origin",
-              },
-            }
+            "http://localhost:3000/latestnews",
+
           )
           .then((res) => setNewsData((prev) => res.data))
           .catch((err) => console.log(err));

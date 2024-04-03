@@ -10,13 +10,7 @@ function MMOContextProvider(props) {
     if (localStorage.getItem("myData") === null) {
       console.log("wrong");
       axios
-        .get(
-          "https://cors-anywhere.herokuapp.com/https://www.mmobomb.com/api1/games",
-          {
-            headers: {
-              "X-Requested-With": "origin",
-            },
-          }
+        .get("http://localhost:3000/games",
         )
         .then((res) =>
           setMmoData((prev) => [
